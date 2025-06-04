@@ -5,7 +5,7 @@ export interface Props {
     currentPath?: string;
 }
 
-const { currentLang = 'de', currentPath = '/' } = Astro.props;
+const {currentLang = 'zh', currentPath = '/'} = Astro.props;
 
 const languages = [
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
@@ -126,7 +126,7 @@ const currentLanguage = languages.find(lang => lang.code === currentLang) || lan
             newPath = newPath.replace(/^\/(de|zh)/, '');
 
             // Add new language prefix (except for default language)
-            if (newLang !== 'de') {
+            if (newLang !== 'zh') {
                 newPath = `/${newLang}${newPath}`;
             }
 

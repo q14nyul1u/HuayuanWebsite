@@ -8,80 +8,51 @@ import Button from "~/components/Button.astro";
 import ButtonCallUs from "~/components/ButtonContactUs.astro";
 import Article from "~/components/Article.astro";
 
-// Images
-import PizzaHero from "~/assets/images/pizza-hero.png";
 ---
 
 <Layout>
-	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge title="il ristorante italiana" />
-				<h1 class="font-black">Real Italian food in a real Italian restaurant...</h1>
-
-				<p>
-					Experience the taste of Italy with our authentic dishes made from the finest ingredients. Indulge in
-					our wide variety of pizzas, pastas, and desserts, all crafted with love and tradition. Whether
-					you're dining in or taking out, we promise a memorable culinary experience.
-				</p>
-
-				<span class="text-brand-green font-medium">✔ We also deliver</span>
-
-				<div class="mt-8 flex items-center gap-x-8">
-					<Button url="/book">Book now</Button>
-					<ButtonCallUs />
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={PizzaHero}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-					loading={"eager"}
-					fetchpriority={"high"}
-				/>
-			</div>
-		</Hero>
-	</Section>
-
 	<Section class:list={'bg-white'}>
 		<Article>
-			<h2>Welcome to AstroPie</h2>
+			<h2>关于我们</h2>
 			<p>
-				Nestled in the heart of the city, <strong>AstroPie</strong> offers an authentic Italian dining experience
-				like no other. From the moment you step through our doors, you'll be transported to the vibrant streets of
-				Italy, where good food and great company are at the center of life.
+				我们的中文课程起源于几位老师为自己孩子自发组织的语文学习。由于孩子们长期在海外生活，
+				家长们希望他们也能系统地学习中文，打好语言基础。几位老师本身都在其他中文学校任教，具有丰富的教学经验。
+				在一次次交流中，我们决定联合起来，为更多孩子提供高质量、专业的中文教学。
 			</p>
 
-			<h3>Our Story</h3>
+			<h3>我们的教学理念</h3>
+			<h4>1. 采用国内统编教材，内容与中国教学同步</h4>
 			<p>
-				Founded in <em>1998</em>, our family-owned restaurant has always been a labor of love. Inspired by the
-				recipes passed down through generations, we bring the <u>rich culinary heritage</u> of Italy to your plate.
-				Every dish tells a story, and every meal is a celebration of flavor.
+				我们采用中国教育部统一编写的《语文》教材（统编版），这是目前全国通用的语文课本，内容系统且规范。教学实践中我们发现，用统编教材学习，能有效帮助孩子建立稳固的中文基础。
 			</p>
 
-			<h3>Our Philosophy</h3>
-			<blockquote>"The secret ingredient is always love."</blockquote>
+			<h4>2. 坚持小班教学，关注每个孩子</h4>
 			<p>
-				At AstroPie, we believe in the simple joy of fresh ingredients, time-honored techniques, and a
-				passion for creating memorable meals. From our hand-rolled pasta to our wood-fired pizzas, every bite is
-				crafted with care.
+				每班不超过10人，确保老师能照顾到每一位学生的学习情况。小班教学不仅提升课堂效率，也能激发孩子的学习兴趣。
 			</p>
-
-			<h4>What Makes Us Special?</h4>
-			<ul>
-				<li><strong>Authenticity:</strong> Traditional recipes, just like Nonna used to make.</li>
-				<li><strong>Fresh Ingredients:</strong> Locally sourced produce and imported Italian staples.</li>
-				<li><strong>Warm Atmosphere:</strong> A place where everyone feels like family.</li>
-			</ul>
-
-			<h3>Join Us</h3>
+			<h4>3.个性化课程与专属辅导</h4>
 			<p>
-				Whether you're celebrating a special occasion or simply indulging in the pleasures of Italian cuisine, <strong
-					>AstroPie</strong
-				> is the perfect destination. <em>Come for the food, stay for the memories.</em>
+				针对不同年龄与水平的孩子，我们设置定制课程，提供专属辅导与快速反馈，真正做到因材施教。
+			</p>
+			<h4>3. 个性化课程与专属辅导</h4>
+			<p>
+				针对不同年龄与水平的孩子，我们设置定制课程，提供专属辅导与快速反馈，真正做到因材施教。
+			</p>
+			<h4>4. 课程多样化，选择灵活</h4>
+			<p>
+				提供多种课程类型，满足不同需求，最大程度激发孩子学习中文的主动性与自驱力。家长不再“陪学”，孩子也能快乐地掌握中文。
+			</p>
+			<h4>5. 可长期固定老师，保障教学连贯性</h4>
+			<p>
+				开班后，家长可以选择长期固定授课老师，确保孩子的学习连贯、不掉队。
+			</p>
+			<h4>6. 不定期提供育儿指导课程</h4>
+			<p>
+				我们关心每一个家庭的成长，学校将不定期为家长提供免费的育儿指导课程。
+			</p>
+			<h4>7. 坚持做实体授课，保证教学质量</h4>
+			<p>
+				我们坚信面对面的实体授课更有温度，也更能保障教学效果。
 			</p>
 		</Article>
 	</Section>

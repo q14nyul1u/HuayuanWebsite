@@ -24,6 +24,29 @@
   },
   {
     "id": 2,
+    "slug": "Intensivunterricht für chinesische Kinder",
+    "prettyName": "Intensivunterricht für chinesische Kinder",
+    "description": "Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden",
+    "plates": [
+      {
+        "name": "Reguläre Klasse",
+        "description": "Anzahl der Schüler bis zu 10 / 34 Unterrichtseinheiten pro Semester",
+        "price": 100000
+      },
+      {
+        "name": "Besonders Kleine Klasse",
+        "description": "2-4 Schüler pro Klasse",
+        "price": 100000
+      },
+      {
+        "name": "1v1 Unterricht",
+        "description": "1 Stunde Unterricht",
+        "price": 100000
+      }
+    ]
+  },
+  {
+    "id": 3,
     "slug": "Unterricht für deutsche Kinder",
     "prettyName": "Unterricht für deutsche Kinder",
     "description": "Unterricht für Kinder die kein chinesisches Sprachumfeld zuhause hat",
@@ -46,10 +69,10 @@
     ]
   },
   {
-    "id": 3,
-    "slug": "Intensiverkurs",
-    "prettyName": "Intensiverkurs",
-    "description": "Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden",
+    "id": 4,
+    "slug": "Schreibwerkstatt",
+    "prettyName": "Schreibwerkstatt",
+    "description": "Für Kinder die beim Schreiben auf Hindernisse stoßen. Das Schreiben wird eine freudige Angelegenheit. ",
     "plates": [
       {
         "name": "Reguläre Klasse",
@@ -64,61 +87,12 @@
       {
         "name": "1v1 Unterricht",
         "description": "1 Stunde Unterricht",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "slug": "Chinesisch Eltern-Kind-Kurs",
-    "prettyName": "Chinesisch Eltern-Kind-Kurs",
-    "description": "18 Monate — 3 Jahre alt",
-    "plates": [
-      {
-        "name": "Reguläre Klasse",
-        "description": "Anzahl der Schüler bis zu 10 / 17 Unterrichtseinheiten pro Semester",
         "price": 100000
       }
     ]
   },
   {
     "id": 5,
-    "slug": "Aussprache-Kurs",
-    "prettyName": "Aussprache-Kurs",
-    "description": "Korrektur der Aussprache durch einen zertifizierten Putonghua-Lehrer",
-    "plates": [
-      {
-        "name": "1v1/1v2 Unterricht",
-        "description": "17 Unterrichtseinheiten, pro Unterrichtseinheit eine Stunde",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "slug": "Schreibwerkstatt",
-    "prettyName": "Schreibwerkstatt",
-    "description": "Systematisches Training für Kinder aus Übersee, um die Hindernisse zu überwinden, auf die sie beim Schreiben stoßen, sodass das Schreiben eine freudige Angelegenheit wird. ",
-    "plates": [
-      {
-        "name": "Reguläre Klasse",
-        "description": "Anzahl der Schüler bis zu 10 / 34 Unterrichtseinheiten pro Semester",
-        "price": 100000
-      },
-      {
-        "name": "Besonders Kleine Klasse",
-        "description": "2-4 Schüler pro Klasse",
-        "price": 100000
-      },
-      {
-        "name": "1v1 Unterricht",
-        "description": "1 Stunde Unterricht",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 7,
     "slug": "Chinesisch Ausdrucksunterricht",
     "prettyName": "Chinesisch Ausdrucksunterricht",
     "description": "Verbesserung der Fähigkeit der Kinder, sich auszudrücken",
@@ -141,27 +115,68 @@
     ]
   },
   {
-    "id": 8,
-    "slug": "Happy Ferienklasse",
-    "prettyName": "Happy Ferienklasse",
-    "description": "Ein thematischer Schwerpunkt pro Tag",
+    "id": 6,
+    "slug": "Aussprache-Training",
+    "prettyName": "Aussprache-Training",
+    "description": "Korrektur der Aussprache durch einen zertifizierten Putonghua-Lehrer",
+    "plates": [
+      {
+        "name": "1v1/1v2 Unterricht",
+        "description": "17 Unterrichtseinheiten, pro Unterrichtseinheit eine Stunde",
+        "price": 100000
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "Chinesisch Eltern-Kind-Kurs",
+    "prettyName": "Chinesisch Eltern-Kind-Kurs",
+    "description": "18 Monate — 3 Jahre alt",
     "plates": [
       {
         "name": "Reguläre Klasse",
-        "description": "5 aufeinanderfolgende Tage, 4 Stunden pro Tag",
+        "description": "Anzahl der Schüler bis zu 10 / 17 Unterrichtseinheiten pro Semester",
+        "price": 100000
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "Ferienkurse",
+    "prettyName": "Ferienkurse",
+    "description": "Nur in den Sommer- und Winterferien",
+    "plates": [
+      {
+        "name": "Happy Chinese",
+        "description": "Jeden Tag ein thematischer Schwerpunkt. 5 aufeinanderfolgende Tage, 4 Stunden pro Tag",
+        "price": 100000
+      },
+      {
+        "name": "Schreibwerkstatt",
+        "description": "Das Schreiben wird eine freudige Angelegenheit. 5 aufeinanderfolgende Tage, 4 Stunden pro Tag",
         "price": 100000
       }
     ]
   },
   {
     "id": 9,
-    "slug": "Ferienklasse Schreibwerkstatt",
-    "prettyName": "Ferienklasse Schreibwerkstatt",
-    "description": "Systematisches Training für Kinder aus Übersee, um die Hindernisse zu überwinden, auf die sie beim Schreiben stoßen, sodass das Schreiben eine freudige Angelegenheit wird. ",
+    "slug": "Online Chinesisch Unterricht",
+    "prettyName": "Online Chinesisch Unterricht",
+    "description": "Kooperation mit renomierten Schule in China, ein kostenloser Probeunterricht",
     "plates": [
       {
-        "name": "Reguläre Klasse",
-        "description": "5 aufeinanderfolgende Tage, 4 Stunden pro Tag",
+        "name": "1v1 Unterricht",
+        "description": "",
+        "price": 100000
+      },
+      {
+        "name": "HSK Prüfungsvorbereitung",
+        "description": "",
+        "price": 100000
+      },
+      {
+        "name": "Chinesischkurse für verschiedene Sprachlevel",
+        "description": "",
         "price": 100000
       }
     ]

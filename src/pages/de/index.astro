@@ -1,0 +1,323 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import Hero from "~/components/Hero.astro";
+import { Picture, Image } from "astro:assets";
+import Badge from "~/components/Badge.astro";
+import Button from "~/components/Button.astro";
+import Grid from "~/components/Grid.astro";
+import Heading from "~/components/Heading.astro";
+import WideImage from "~/components/WideImage.astro";
+import GoogleMap from "../../components/GoogleMap.astro";
+
+// Images
+import ChineseCourse from "~/assets/images/chinese_course.png";
+import YuwenBook from "~/assets/images/yuwen_book.png";
+import Teacher from "~/assets/images/teacher.png";
+import SmallClass from "~/assets/images/small_class.png";
+import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
+import DecorativeImage from "~/assets/images/great_wall_12_52.jpg";
+import ThreeChildren from "~/assets/images/three_children.png";
+import DummyQR from "~/assets/images/dummy_QR.png";
+
+const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.077579906112!2d11.533630475784056!3d48.14730955048443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1748954305632!5m2!1sen!2sde"
+---
+
+<Layout title="HuaYuan" pageTitle="HuaYuan" description="Huayuan Chinesisch Schule">
+
+	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[16/6]"} />
+
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
+				<h1 class="font-black mb-0">Herzlich Willkommen!</h1>
+
+				<p>
+					<Badge color="blue" title="Bald ist Sommerferien！" />
+					<br></br>
+					o Chinesisch - Sommer Klasse (5 aufeinanderfolgende Tage, 4 Stunden pro Tag)
+					<br></br>
+					o Schreibwerkstatt (ab 10 Jahren / ab Klasse 3)
+					für Kinder die beim Schreiben auf Hindernisse stoßen. Das Schreiben wird
+					eine freudige Angelegenheit. (5 aufeinanderfolgende Tage, 4 Stunden pro Tag)
+				</p>
+
+				<div class="mt-8">
+					<div class="mt-8">
+						<Button color="blue" url="/de/contact">Kontaktieren Sie Uns</Button>
+					</div>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={ChineseCourse}
+					height={400}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+					loading={"eager"}
+					fetchpriority={"high"}
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<Section class:list={"bg-brand-blue/20 relative lg:pt-15 lg:pb-15"}>
+		<Heading>
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">Ihre Vorteile</h2>
+		</Heading>
+
+		<Grid>
+			<div slot="grid-content-1">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={YuwenBook}
+						height={250}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h5 mt-0 font-black">Verwendung des Lehrbuchs《语文》</h3>
+					<p>
+						Das Lehrbuch ist vom chinesischen Bildungsministerium verfasst,
+						nationales gemeinsamesSprachmaterial
+					</p>
+				</div>
+			</div>
+
+			<div slot="grid-content-2">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={Teacher}
+						height={250}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h5 mt-0 font-black">Erfahrene Lehrkräfte</h3>
+					<p>
+						Unsere Lehrkräfte haben viele Jahren Erfahrung
+						im Chinesischunterricht und auch Erfahrung im Unterrichten von Chinesisch
+						im Ausland.
+					</p>
+				</div>
+			</div>
+
+			<div slot="grid-content-3">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={SmallClass}
+						height={250}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h5 mt-0 font-black">Kleine Klassengröße</h3>
+					<p>
+						Kleine Klassen (nicht mehr als 10 Schüler pro Klasse) ermöglichen
+						mehr indiviuelle Betreuung.
+					</p>
+				</div>
+			</div>
+		</Grid>
+
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full bottom-0 inset-x-0"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+	</Section>
+
+	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-0"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose lg:order-2">
+				<h1 class="font-black">Unsere Ziele</h1>
+
+				<!--<div class="mt-8">-->
+				<!--	<Button url="/de/lessons">-->
+				<!--		<svg-->
+				<!--			xmlns="http://www.w3.org/2000/svg"-->
+				<!--			viewBox="0 0 20 20"-->
+				<!--			fill="currentColor"-->
+				<!--			class="size-5 inline-block"-->
+				<!--			aria-hidden="true"-->
+				<!--		>-->
+				<!--			<path-->
+				<!--				fill-rule="evenodd"-->
+				<!--				d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"-->
+				<!--				clip-rule="evenodd"></path>-->
+				<!--		</svg>-->
+				<!--		Mehr Erfahren-->
+				<!--	</Button>-->
+				<!--</div>-->
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={UnterrichtsDesign}
+					height={800}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-10"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
+				<h2 class="font-black h2 !my-4">Unsere Kursangebote</h2>
+
+				<span class="text-brand-blue text-2xl font-bold italic">Wir bieten die folgenden Kurse an</span>
+
+				<p>
+					o Unterricht für im Ausland geborene Kinder chinesischer Eltern
+				</p>
+				<p>
+					o Unterricht für Kinder die kein chinesisches Sprachumfeld zuhause hat
+				</p>
+				<p>
+					o Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden
+				</p>
+				<p>
+					o Andere spezielle Unterrichtsangebote
+				</p>
+				<div class="mt-8">
+					<Button color="blue" url="/de/lessons">Mehr Erfahren</Button>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={ThreeChildren}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<Section class:list={"bg-brand-blue/20 relative"}>
+		<div class="py-16 lg:pt-2 lg:pb-5">
+			<Hero>
+				<div slot="hero-content-left" class="prose max-w-none order-2">
+					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
+					<div slot="heading-content">
+						<p>
+							<b>Addresse：</b> Landshuter Allee 11, 80637 München
+						</p>
+
+						<p>
+							<b>ÖPNV：</b> S Bahn bis <i>Donnersbergerbrücke</i> dann 5 Minuten zu Fuß
+						</p>
+						<p>
+							<b>Kostenlose Parkplätze：</b> Neben der Tramstation <i>Donnersbergerstraße</i> gibt es
+							kostenlose Parkplätze
+						</p>
+					</div>
+				</div>
+
+				<div slot="hero-content-right">
+					<GoogleMap
+						embedUrl={mapEmbedUrl}
+						height="400"
+						title="Unser Standort"
+					/>
+				</div>
+			</Hero>
+		</div>
+
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
+			preserveAspectRatio="none"
+		><path
+			fill="#ffffff"
+			fill-opacity="1"
+			d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+		></path>
+		</svg>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full bottom-0 inset-x-0"
+			preserveAspectRatio="none"
+		><path
+			fill="#ffffff"
+			fill-opacity="1"
+			d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+		></path>
+		</svg>
+	</Section>
+
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none order-2">
+				<h2 slot="heading-title" class="font-black h2 text-center mt-0 mb-4">Unser Kontakt</h2>
+				<div slot="heading-content">
+					<p class="text-center">
+						Wenn Sie Fragen haben oder unsicher sind, welchen Kurs Sie für Ihr Kind wählen sollen,
+						wenden Sie sich bitte an uns. Unsere Lehrkräfte werden Ihnen unter
+						den für Ihr Kind am besten geeigneten Kurs empfehlen.
+					</p>
+				</div>
+			</div>
+			<div slot="hero-content-right" class="prose max-w-none order-2">
+				<div slot="heading-content">
+					<p class="text-center">
+						<b>邮箱:</b> info@huayuan.de
+					</p>
+
+					<div class="flex justify-center gap-x-8 mt-4">
+						<figure class="w-24 lg:w-32">
+							<Picture
+								class:list={"w-full"}
+								src={DummyQR}
+								height={600}
+								formats={["avif", "webp"]}
+								alt="A description of my image."
+							/>
+							<figcaption class="text-center text-base text-gray-600 mt-2">
+								WhatsApp
+							</figcaption>
+						</figure>
+
+						<figure class="w-24 lg:w-32">
+							<Picture
+								class:list={"w-full"}
+								src={DummyQR}
+								height={600}
+								formats={["avif", "webp"]}
+								alt="A description of my image."
+							/>
+							<figcaption class="text-center text-base text-gray-600 mt-2">
+								微信
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</Hero>
+	</Section>
+</Layout>

@@ -12,7 +12,7 @@ export const translations = {
 export const availableLanguages = ['de', 'zh'];
 
 // Default language
-export const defaultLanguage = 'de';
+export const defaultLanguage = 'zh';
 
 // Get current language from URL or localStorage
 export function getCurrentLanguage(pathname) {

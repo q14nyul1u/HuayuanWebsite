@@ -2,8 +2,9 @@
 {
   "nav": {
     "home": "Startseite",
-    "lessons": "Unsere Kursangebote",
+    "lessons": "Kursangebote",
     "event":"Veranstaltungen",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "about-us": "Über Uns"
   }
 }

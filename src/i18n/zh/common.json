@@ -2,7 +2,8 @@
   "nav": {
     "home": "首页",
     "lessons": "课程介绍",
-    "event":"活动",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "event": "活动",
+    "about-us": "关于我们"
   }
 }

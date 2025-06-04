@@ -11,29 +11,29 @@ const gallery = await getCollection("gallery");
 <Layout>
 	<Section class:list={"[&>.container]:pb-0"}>
 		<Heading>
-			<h1 slot="heading-title" class="font-black text-brand-green h2">Gallery</h1>
+			<h1 slot="heading-title" class="font-black text-brand-blue h2">近期活动</h1>
 			<p slot="heading-content">
-				Get a feel of our restaurant and food through our gallery. We promise a memorable culinary experience.
+				近期没有活动。
 			</p>
 		</Heading>
 	</Section>
-	<div class="masonry-grid grid grid-cols-2 lg:grid-cols-3 pb-16 lg:pb-32">
-		{
-			gallery.map((item, index) => (
-				<div class="masonry-grid-item">
-					<a href={item.data.image.src} class="glightbox">
-						<Picture
-							src={item.data.image}
-							alt={item.data.alt}
-							class="h-full w-full object-cover object-center"
-							loading={index < 3 ? "eager" : "lazy"}
-                            fetchpriority={index < 3 ? "high" : "auto"}
-						/>
-					</a>
-				</div>
-			))
-		}
-	</div>
+	<!--<div class="masonry-grid grid grid-cols-2 lg:grid-cols-3 pb-16 lg:pb-32">-->
+	<!--	{-->
+	<!--		gallery.map((item, index) => (-->
+	<!--			<div class="masonry-grid-item">-->
+	<!--				<a href={item.data.image.src} class="glightbox">-->
+	<!--					<Picture-->
+	<!--						src={item.data.image}-->
+	<!--						alt={item.data.alt}-->
+	<!--						class="h-full w-full object-cover object-center"-->
+	<!--						loading={index < 3 ? "eager" : "lazy"}-->
+	<!--                        fetchpriority={index < 3 ? "high" : "auto"}-->
+	<!--					/>-->
+	<!--				</a>-->
+	<!--			</div>-->
+	<!--		))-->
+	<!--	}-->
+	<!--</div>-->
 </Layout>
 
 <script>

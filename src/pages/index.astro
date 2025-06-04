@@ -3,21 +3,21 @@ import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
 import Hero from "~/components/Hero.astro";
 import { Picture, Image } from "astro:assets";
-import Badge from "~/components/Badge.astro";
 import Button from "~/components/Button.astro";
 import Grid from "~/components/Grid.astro";
 import Heading from "~/components/Heading.astro";
 import WideImage from "~/components/WideImage.astro";
-import GoogleMap from "../components/GoogleMap.astro";
-
+import GoogleMap from "~/components/GoogleMap.astro";
+import Badge from "../components/Badge.astro";
 // Images
 import ChineseCourse from "~/assets/images/chinese_course.png";
 import YuwenBook from "~/assets/images/yuwen_book.png";
 import Teacher from "~/assets/images/teacher.png";
 import SmallClass from "~/assets/images/small_class.png";
 import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
-import DecorativeImage from "~/assets/images/great_wall.jpg";
+import DecorativeImage from "~/assets/images/great_wall_12_52.jpg";
 import ThreeChildren from "~/assets/images/three_children.png";
+import DummyQR from "~/assets/images/dummy_QR.png";
 
 const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.077579906112!2d11.533630475784056!3d48.14730955048443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1748954305632!5m2!1sen!2sde"
 ---
@@ -29,22 +29,21 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<h1 class="font-black">Herzlich Willkommen!</h1>
+				<h1 class="font-black mb-0">快乐学中文，自信赢未来</h1>
 
 				<p>
-					<Badge color="blue" title="Bald ist Sommerferien！" />
-
+					<Badge color="blue" title="暑假快到了！"/>
 					<br></br>
-					o Chinesisch - Sommer Klasse (5 aufeinanderfolgende Tage, 4 Stunden pro Tag)
+					o 快乐中文暑期班（连续5天，每天4个小时，满5人开班）
 					<br></br>
-					o Schreibwerkstatt (ab 10 Jahren / ab Klasse 3)
-					Systematisches Training für Kinder aus Übersee, um die Hindernisse zu überwinden, auf die sie beim Schreiben stoßen, sodass das Schreiben
-					eine freudige Angelegenheit wird. (5 aufeinanderfolgende Tage, 4 Stunden pro Tag)
+					o 写作加强班（10岁以上/三年级以上）
+					针对海外孩子面对写作中遇到的屏障，进行系统性训练，让写作
+					成为一件快乐的事情。（连续5天，每天4个小时，满5人开班）
 				</p>
 
 				<div class="mt-8">
 					<div class="mt-8">
-						<Button color="blue" url="/contact">Kontaktieren Sie Uns</Button>
+						<Button color="blue" url="/contact">联系我们</Button>
 					</div>
 				</div>
 			</div>
@@ -62,9 +61,10 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 		</Hero>
 	</Section>
 
-	<Section class:list={"bg-white"}>
+
+	<Section class:list={"bg-brand-blue/20 relative lg:pt-15 lg:pb-15"}>
 		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-blue h2">Ihre Vorteile</h2>
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">课程特色</h2>
 		</Heading>
 
 		<Grid>
@@ -77,10 +77,9 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
-					<h3 class="h4 mt-0 font-black">Verwendung des Lehrbuchs《语文》</h3>
+					<h3 class="h5 mt-0 font-black">采国内统编教材《语文》</h3>
 					<p>
-						Das Lehrbuch ist vom chinesischen Bildungsministerium verfasst,
-						nationales gemeinsamesSprachmaterial
+						采用国内统编教材《语文》（由中国教育部统一编写，全国通用语文教材）。
 					</p>
 				</div>
 			</div>
@@ -94,11 +93,9 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
-					<h3 class="h4 mt-0 font-black">Erfahrene Lehrkräfte</h3>
+					<h3 class="h5 mt-0 font-black">有十年以上教育经验的老师</h3>
 					<p>
-						Unsere Lehrkräfte haben viele Jahren Erfahrung
-						im Chinesischunterricht und auch Erfahrung im Unterrichten von Chinesisch
-						im Ausland.
+						拥有海外十年以上中文教学经验的老师亲自授课。实现教学内容同步，系统正规学习中文
 					</p>
 				</div>
 			</div>
@@ -112,39 +109,64 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
-					<h3 class="h4 mt-0 font-black">Kleine Klassengröße</h3>
+					<h3 class="h5 mt-0 font-black">小班授课个性化辅导</h3>
 					<p>
-						Kleine Klassen (nicht mehr als 10 Schüler pro Klasse) ermöglichen
-						mehr indiviuelle Betreuung.
+						小班授课（每班不超过10人），让孩子课上得到更多的训练，
+						激发每个孩子学习中文的兴趣。
 					</p>
 				</div>
 			</div>
 		</Grid>
+
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full bottom-0 inset-x-0"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
 	</Section>
 
 
-	<Section class:list={"bg-white"}>
+	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-0"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose lg:order-2">
-				<h1 class="font-black">Unsere Ziele</h1>
+				<h1 class="font-black">课程设计</h1>
 
-				<div class="mt-8">
-					<Button url="/lessons">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							class="size-5 inline-block"
-							aria-hidden="true"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-								clip-rule="evenodd"></path>
-						</svg>
-						Mehr Erfahren
-					</Button>
-				</div>
+				<!--<div class="mt-8">-->
+				<!--	<Button url="/lessons">-->
+				<!--		<svg-->
+				<!--			xmlns="http://www.w3.org/2000/svg"-->
+				<!--			viewBox="0 0 20 20"-->
+				<!--			fill="currentColor"-->
+				<!--			class="size-5 inline-block"-->
+				<!--			aria-hidden="true"-->
+				<!--		>-->
+				<!--			<path-->
+				<!--				fill-rule="evenodd"-->
+				<!--				d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"-->
+				<!--				clip-rule="evenodd"></path>-->
+				<!--		</svg>-->
+				<!--		了解课程详细内容-->
+				<!--	</Button>-->
+				<!--</div>-->
 			</div>
 			<div slot="hero-content-right">
 				<Picture
@@ -158,27 +180,27 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 		</Hero>
 	</Section>
 
-	<Section class:list={"bg-white"}>
+	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-10"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<h2 class="font-black h2 !my-4">Unsere Kursangebote</h2>
+				<h2 class="font-black h2 !my-4">课程详细介绍</h2>
 
-				<span class="text-brand-blue text-2xl font-bold italic">Wir bieten die folgenden Kurse an</span>
+				<span class="text-brand-blue text-2xl font-bold italic">我们提供以下课程</span>
 
 				<p>
-					o Unterricht für im Ausland geborene Kinder chinesischer Eltern
+					o 继承语教学（移民或海外出生的孩子）
 				</p>
 				<p>
-					o Unterricht für Kinder die kein chinesisches Sprachumfeld zuhause hat
+					o 对外汉语
 				</p>
 				<p>
-					o Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden
+					o 母语教学（和国内完全同步教学）
 				</p>
 				<p>
-					o Andere spezielle Unterrichtsangebote
+					o 其它特色课程
 				</p>
 				<div class="mt-8">
-					<Button color="blue" url="/lessons">Mehr Erfahren</Button>
+					<Button color="blue" url="/lessons">了解课程详细内容</Button>
 				</div>
 			</div>
 			<div slot="hero-content-right">
@@ -193,32 +215,33 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 		</Hero>
 	</Section>
 
-	<!-- Reviews -->
 	<Section class:list={"bg-brand-blue/20 relative"}>
-		<div class="py-16">
+		<div class="py-16 lg:pt-2 lg:pb-5">
 			<Hero>
 				<div slot="hero-content-left" class="prose max-w-none order-2">
-					<h2 slot="heading-title" class="font-black h4 text-center mt-0 mb-4">Unser Kontakt</h2>
+					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
 					<div slot="heading-content">
-						<p class="text-center">
-							Wenn Sie Fragen haben oder unsicher sind, welchen Kurs Sie für Ihr Kind wählen sollen,
-							wenden Sie sich bitte an uns. Unsere Lehrkräfte werden Ihnen unter
-							den für Ihr Kind am besten geeigneten Kurs empfehlen.
+						<p>
+							<b>教学地址：</b>Landshuter Allee 11, 80637 München
 						</p>
+
+						<p>
+							<b>教公共交通：</b>S Bahn 到 <i>Donnersbergerbrücke</i> 站 下车步行5分钟
+						</p>
+
+						<p>
+							<b>免费停车位：</b> 电车站 <i>Donnersbergerstraße</i> 附近有免费停车位
+						</p>
+
 					</div>
 				</div>
-				<div slot="hero-content-right" class="prose max-w-none order-2">
-					<div slot="heading-content">
-						<p class="text-center">
-							<b>E-Mail：</b>info@huayuan.de
-						</p>
-						<p class="text-center">
-							<b>WhatsApp:</b> 029392020392
-						</p>
-						<p class="text-center">
-							<b>WeChat:</b> 0dksoekd_sid
-						</p>
-					</div>
+
+				<div slot="hero-content-right">
+					<GoogleMap
+						embedUrl={mapEmbedUrl}
+						height="400"
+						title="Unser Standort"
+					/>
 				</div>
 			</Hero>
 		</div>
@@ -226,52 +249,109 @@ const mapEmbedUrl ="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.0
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1440 320"
-			class="absolute h-40 w-full top-0 inset-x-0 rotate-180"
+			class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
 			preserveAspectRatio="none"
-		><path
-			fill="#ffffff"
-			fill-opacity="1"
-			d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-		></path>
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
 		</svg>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1440 320"
-			class="absolute h-40 w-full bottom-0 inset-x-0"
+			class="absolute h-30 w-full bottom-0 inset-x-0"
 			preserveAspectRatio="none"
-		><path
-			fill="#ffffff"
-			fill-opacity="1"
-			d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-		></path>
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
 		</svg>
 	</Section>
 
-	<!-- Desserts -->
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none order-2">
-				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Unsere Adresse</h2>
+				<h2 slot="heading-title" class="font-black h2 text-center mt-0 mb-4">联系我们</h2>
 				<div slot="heading-content">
-					<p>
-						Adresse：Landshuter Allee 11
-						Landshuter Allee 11, 80637 München
+					<p class="text-center">
+						如果您有任何问题，或者不确定该为您的孩子选择什么课程，都可以联系我们。 我们的老师会根据您孩子的具体情况，
+						为你提供最适合的课程。
 					</p>
-
-					<p>
-						ÖPNV：S Bahn bis Donnersbergerbrücke dann 5 Minuten zu Fuß
-					</p>
-
 				</div>
 			</div>
+			<div slot="hero-content-right" class="prose max-w-none order-2">
+				<div slot="heading-content">
+					<p class="text-center">
+						<b>邮箱:</b> info@huayuan.de
+					</p>
 
-			<div slot="hero-content-right">
-				<GoogleMap
-					embedUrl={mapEmbedUrl}
-					height="400"
-					title="Unser Standort"
-				/>
+					<div class="flex justify-center gap-x-8 mt-4">
+						<figure class="w-24 lg:w-32">
+							<Picture
+								class:list={"w-full"}
+								src={DummyQR}
+								height={600}
+								formats={["avif", "webp"]}
+								alt="A description of my image."
+							/>
+							<figcaption class="text-center text-base text-gray-600 mt-2">
+								WhatsApp
+							</figcaption>
+						</figure>
+
+						<figure class="w-24 lg:w-32">
+							<Picture
+								class:list={"w-full"}
+								src={DummyQR}
+								height={600}
+								formats={["avif", "webp"]}
+								alt="A description of my image."
+							/>
+							<figcaption class="text-center text-base text-gray-600 mt-2">
+								微信
+							</figcaption>
+						</figure>
+					</div>
+				</div>
 			</div>
 		</Hero>
 	</Section>
+
+	<!--&lt;!&ndash; Contact &ndash;&gt;-->
+	<!--<Section class:list={"bg-white"}>-->
+	<!--	<Hero>-->
+	<!--		<div slot="hero-content-left" class="prose max-w-none">-->
+	<!--			<Badge color="red" title="benvenuto" />-->
+	<!--			<h2 slot="heading-title" class="font-black text-brand-red h2 !my-4">Drop by and say hello</h2>-->
+	<!--			<div slot="heading-content">-->
+	<!--				<p>-->
+	<!--					We're located in the heart of the city, just a stone's throw away from the main square. Our-->
+	<!--					restaurant is the perfect place to enjoy a delicious meal with friends and family.-->
+	<!--				</p>-->
+
+	<!--				<span class="text-brand-red font-medium">-->
+	<!--					✔ We also do take-away, so you can enjoy your food at home-->
+	<!--				</span>-->
+
+	<!--				<div class="mt-8">-->
+	<!--					<Button color="red" url="/book">Book a table</Button>-->
+	<!--				</div>-->
+	<!--			</div>-->
+	<!--		</div>-->
+
+	<!--		<div slot="hero-content-right">-->
+	<!--			<Picture-->
+	<!--				class:list={"mx-auto"}-->
+	<!--				src={Dessert}-->
+	<!--				height={600}-->
+	<!--				formats={["avif", "webp"]}-->
+	<!--				alt="A description of my image."-->
+	<!--			/>-->
+	<!--		</div>-->
+	<!--	</Hero>-->
+	<!--</Section>-->
 </Layout>
