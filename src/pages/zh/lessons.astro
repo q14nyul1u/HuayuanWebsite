@@ -1,0 +1,15 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import Heading from "~/components/Heading.astro";
+import LessonsZHList from "~/components/LessonsZH.astro";
+---
+<Layout>
+	<Section>
+		<Heading>
+			<h1 slot="heading-title" class="font-black text-brand-blue h2">课程介绍</h1>
+		</Heading>
+
+		<LessonsZHList />
+	</Section>
+</Layout>

@@ -1,0 +1,206 @@
+---
+// LanguageSwitcher.astro
+export interface Props {
+    currentLang?: string;
+    currentPath?: string;
+}
+
+const { currentLang = 'de', currentPath = '/' } = Astro.props;
+
+const languages = [
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' }
+];
+
+const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
+---
+
+<div class="language-switcher relative" data-current-lang={currentLang} data-current-path={currentPath}>
+    <button
+            type="button"
+            class="language-switcher-button flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+            aria-label="Sprache wechseln"
+    >
+        <span>{currentLanguage.flag}</span>
+        <span class="hidden sm:block">{currentLanguage.name}</span>
+        <svg class="language-switcher-chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+    </button>
+
+    <div class="language-switcher-dropdown absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 opacity-0 invisible transition-all duration-200">
+        <div class="py-1" role="menu">
+            {languages.map((lang) => (
+                    <button
+                            type="button"
+                            class={`language-option w-full text-left px-4 py-2 text-sm flex items-center gap-3 hover:bg-gray-100 transition-colors ${
+                                lang.code === currentLang ? 'bg-brand-blue/10 text-brand-blue font-medium' : 'text-gray-700'
+                            }`}
+                            data-lang={lang.code}
+                            role="menuitem"
+                    >
+                        <span class="text-lg">{lang.flag}</span>
+                        <span>{lang.name}</span>
+                        {lang.code === currentLang && (
+                                <span class="ml-auto w-2 h-2 bg-brand-blue rounded-full"></span>
+                        )}
+                    </button>
+            ))}
+        </div>
+    </div>
+</div>
+
+<script>
+    class LanguageSwitcher {
+        constructor(element) {
+            this.element = element;
+            this.button = element.querySelector('.language-switcher-button');
+            this.dropdown = element.querySelector('.language-switcher-dropdown');
+            this.chevron = element.querySelector('.language-switcher-chevron');
+            this.options = element.querySelectorAll('.language-option');
+            this.currentLang = element.dataset.currentLang;
+            this.currentPath = element.dataset.currentPath;
+            this.isOpen = false;
+
+            this.init();
+        }
+
+        init() {
+            // Toggle dropdown on button click
+            this.button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggle();
+            });
+
+            // Handle language selection
+            this.options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const newLang = option.dataset.lang;
+                    this.changeLanguage(newLang);
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                this.close();
+            });
+
+            // Close dropdown on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.close();
+                }
+            });
+        }
+
+        toggle() {
+            if (this.isOpen) {
+                this.close();
+            } else {
+                this.open();
+            }
+        }
+
+        open() {
+            this.isOpen = true;
+            this.dropdown.classList.remove('opacity-0', 'invisible');
+            this.dropdown.classList.add('opacity-100', 'visible');
+            this.chevron.classList.add('rotate-180');
+        }
+
+        close() {
+            this.isOpen = false;
+            this.dropdown.classList.add('opacity-0', 'invisible');
+            this.dropdown.classList.remove('opacity-100', 'visible');
+            this.chevron.classList.remove('rotate-180');
+        }
+
+        changeLanguage(newLang) {
+            // Store preference in localStorage
+            localStorage.setItem('preferred-language', newLang);
+
+            // Generate new URL
+            let newPath = this.currentPath;
+
+            // Remove existing language prefix
+            newPath = newPath.replace(/^\/(de|zh)/, '');
+
+            // Add new language prefix (except for default language)
+            if (newLang !== 'de') {
+                newPath = `/${newLang}${newPath}`;
+            }
+
+            // Navigate to new URL
+            window.location.href = newPath || '/';
+            this.close();
+        }
+    }
+
+    // Initialize all language switchers on the page
+    document.addEventListener('DOMContentLoaded', () => {
+        const switchers = document.querySelectorAll('.language-switcher');
+        switchers.forEach(switcher => new LanguageSwitcher(switcher));
+    });
+
+    // Reinitialize when navigating (for SPAs)
+    document.addEventListener('astro:page-load', () => {
+        const switchers = document.querySelectorAll('.language-switcher');
+        switchers.forEach(switcher => new LanguageSwitcher(switcher));
+    });
+</script>
+
+<style>
+    .language-switcher {
+        /* Ensure proper positioning context */
+        position: relative;
+        }
+
+    .language-switcher-dropdown {
+        /* Smooth transitions */
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        }
+
+    .language-switcher-chevron {
+        /* Smooth rotation */
+        transition: transform 0.2s ease-in-out;
+        }
+
+    /* Hover effects */
+    .language-option:hover {
+        background-color: #f3f4f6;
+        }
+
+    /* Focus styles for accessibility */
+    .language-switcher-button:focus {
+        outline: 2px solid var(--brand-light-blue, #5dade2);
+        outline-offset: 2px;
+        }
+
+    /* Custom scrollbar for dropdown if needed */
+    .language-switcher-dropdown {
+        scrollbar-width: thin;
+        }
+
+    .language-switcher-dropdown::-webkit-scrollbar {
+        width: 4px;
+        }
+
+    .language-switcher-dropdown::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 2px;
+        }
+
+    /* Animation for the active language indicator */
+    .language-option .bg-brand-green {
+        animation: pulse 2s infinite;
+        }
+
+    @keyframes pulse {
+        0%, 100% {
+        opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+            }
+        }
+</style>
