@@ -4,21 +4,20 @@ import { siteLang, siteCurrency } from "~/data/config";
 import Badge from "./Badge.astro";
 const allLessions = await getCollection("lessons_de");
 const siteLangFormat = siteLang.replace("_", "-");
-
-
 ---
 
-<!-- Quick Nav -->
-<div id="lesson-nav-wrapper" class="mb-20 sticky top-8 z-10">
-	<nav class="bg-brand-blue text-white sm:rounded-full max-w-5xl mx-auto">
-		<div class="swiper-lessons w-auto overflow-hidden">
-			<ul id="lesson-nav" class="px-2.5 py-3 swiper-wrapper">
+<div class="flex gap-8 lg:gap-12">
+	<!-- Vertical Quick Nav -->
+	<div id="lesson-nav-wrapper" class="hidden lg:block lg:w-64 xl:w-72 flex-shrink-0">
+		<nav class="sticky top-32 bg-brand-blue text-white rounded-lg p-4">
+			<h4 class="text-base font-semibold mb-4 text-center">Lektionen</h4>
+			<ul id="lesson-nav" class="space-y-2">
 				{
 					allLessions.map((lesson) => (
-						<li class="swiper-slide !w-auto last:mr-5">
+						<li>
 							<a
 								href={`#${lesson.data.slug}`}
-								class="rounded-full px-2 py-1 transition font-medium select-none"
+								class="block text-center rounded-lg px-3 py-2 transition font-medium select-none text-sm hover:bg-white/10"
 								data-category-link={lesson.data.slug}
 							>
 								{lesson.data.prettyName}
@@ -27,46 +26,52 @@ const siteLangFormat = siteLang.replace("_", "-");
 					))
 				}
 			</ul>
-		</div>
-	</nav>
-</div>
+		</nav>
+	</div>
 
-<div class="grid grid-cols-1 gap-y-32">
-	{
-		allLessions.map((lesson) => (
-			<div id={lesson.data.slug} class="space-y-16 scroll-mt-20" data-category-section={lesson.data.slug}>
-				<div class="flex flex-col items-center gap-2 max-w-lg mx-auto text-balance text-center">
-					<h3 class="h4 text-brand-light-blue/70">{lesson.data.prettyName}</h3>
-					<Badge color="blue" title={lesson.data.description}/>
-				</div>
+	<!-- Mobile Horizontal Nav (shown only on mobile) -->
+	<div id="lesson-nav-wrapper-mobile" class="hidden">
+	</div>
 
-				<dl class="max-w-5xl mx-auto">
-					<div class="flex flex-col items-center gap-2 max-w-lg mx-auto text-balance text-center">
-						{lesson.data.plates.map((item) => (
-							<div>
-								<dt>
+	<!-- Main Content -->
+	<div class="flex-1 min-w-0">
+		<div class="grid grid-cols-1 gap-y-15">
+			{
+				allLessions.map((lesson) => (
+					<div id={lesson.data.slug} class="space-y-16 scroll-mt-20" data-category-section={lesson.data.slug}>
+						<div class="flex flex-col items-center lg:mb-5 gap-2 max-w-lg mx-auto text-balance text-center">
+							<h3 class="h4 text-brand-light-blue/70">{lesson.data.prettyName}</h3>
+							<Badge color="blue" title={lesson.data.description}/>
+						</div>
+
+						<dl class="max-w-5xl mx-auto">
+							<div class="flex flex-col items-center gap-2 max-w-lg mx-auto text-balance text-center">
+								{lesson.data.plates.map((item) => (
 									<div>
-										<span class="font-bold text-2xl tracking-wide">{item.name}</span>
+										<dt>
+											<div>
+												<span class="font-bold text-2xl tracking-wide">{item.name}</span>
+											</div>
+										</dt>
+										<dd>
+											<p class="mt-2 text-gray-500 tracking-wide leading-normal text-balance">
+												{item.description}
+											</p>
+										</dd>
 									</div>
-								</dt>
-								<dd>
-									<p class="mt-2 text-gray-500 tracking-wide leading-normal text-balance">
-										{item.description}
-									</p>
-								</dd>
+								))}
 							</div>
-						))}
+						</dl>
 					</div>
-				</dl>
-			</div>
-		))
-	}
+				))
+			}
+		</div>
+	</div>
 </div>
 
 <style>
 	@media screen and (min-width: 0px) and (max-width: 640px) {
-		#lesson-nav-wrapper {
-			/* position: relative; */
+		#lesson-nav-wrapper-mobile {
 			right: 0;
 			left: 0;
 			top: 0;
@@ -83,18 +88,23 @@ const siteLangFormat = siteLang.replace("_", "-");
 	import "swiper/css";
 
 	document.addEventListener("astro:page-load", () => {
+		// Initialize mobile swiper
 		const swiperlessons = document.querySelector(".swiper-lessons") as HTMLElement;
-		const swiper = new Swiper(swiperlessons, {
-			loop: false,
-			spaceBetween: 32,
-			slidesPerView: "auto",
-		});
+		let swiper: Swiper | null = null;
 
-		// Setup category highlighting
+		if (swiperlessons) {
+			swiper = new Swiper(swiperlessons, {
+				loop: false,
+				spaceBetween: 32,
+				slidesPerView: "auto",
+			});
+		}
+
+		// Setup category highlighting for both desktop and mobile
 		const categoryLinks = document.querySelectorAll("[data-category-link]");
 		const categorySections = document.querySelectorAll("[data-category-section]");
 		let activeLink: Element | null = null;
-		let isNavigatingByClick = false; // Flag to track click-based navigation
+		let isNavigatingByClick = false;
 
 		// Add hover effect to all links initially
 		categoryLinks.forEach((link) => {
@@ -105,19 +115,24 @@ const siteLangFormat = siteLang.replace("_", "-");
 		function setActiveCategory(id: string) {
 			// Remove active classes and restore hover effect to all links
 			categoryLinks.forEach((link) => {
-				link.classList.remove("bg-white", "text-brand-green");
+				link.classList.remove("bg-white", "text-brand-blue");
 				link.classList.add("hover:bg-white/10");
 			});
 
 			// Add active classes to current link and remove hover effect
-			const currentLink = document.querySelector(`[data-category-link="${id}"]`);
-			if (currentLink) {
-				currentLink.classList.add("bg-white", "text-brand-green");
+			const currentLinks = document.querySelectorAll(`[data-category-link="${id}"]`);
+			currentLinks.forEach((currentLink) => {
+				currentLink.classList.add("bg-white", "text-brand-blue");
 				currentLink.classList.remove("hover:bg-white/10");
 				activeLink = currentLink;
+			});
 
-				// Slide to make the active link visible if needed
-				const linkIndex = Array.from(categoryLinks).indexOf(currentLink);
+			// Slide to make the active link visible if needed (mobile only)
+			if (swiper) {
+				const mobileLinks = document.querySelectorAll("#lesson-nav-mobile [data-category-link]");
+				const linkIndex = Array.from(mobileLinks).findIndex(link =>
+					(link as HTMLElement).dataset.categoryLink === id
+				);
 				if (linkIndex !== -1) {
 					swiper.slideTo(linkIndex);
 				}
@@ -129,14 +144,12 @@ const siteLangFormat = siteLang.replace("_", "-");
 			link.addEventListener("click", (e) => {
 				const targetId = (link as HTMLElement).dataset.categoryLink;
 				if (targetId) {
-					// Set flag to ignore intersection events during programmatic scrolling
 					isNavigatingByClick = true;
 					setActiveCategory(targetId);
 
-					// Reset flag after scrolling animation completes
 					setTimeout(() => {
 						isNavigatingByClick = false;
-					}, 1000); // Adjust timeout based on your scroll duration
+					}, 1000);
 				}
 			});
 		});
@@ -144,7 +157,6 @@ const siteLangFormat = siteLang.replace("_", "-");
 		// Set active category on scroll
 		const observer = new IntersectionObserver(
 			(entries) => {
-				// Skip processing if we're navigating via click
 				if (isNavigatingByClick) return;
 
 				entries.forEach((entry) => {
@@ -164,7 +176,7 @@ const siteLangFormat = siteLang.replace("_", "-");
 			observer.observe(section);
 		});
 
-		// Set initial active category based on hash or first category
+		// Set initial active category
 		const setInitialActiveCategory = () => {
 			if (window.location.hash) {
 				const id = window.location.hash.substring(1);
@@ -177,7 +189,6 @@ const siteLangFormat = siteLang.replace("_", "-");
 			}
 		};
 
-		// Set initial active category
 		setInitialActiveCategory();
 	});
 </script>

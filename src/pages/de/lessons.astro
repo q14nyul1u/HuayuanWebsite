@@ -1,16 +1,21 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
-import Heading from "~/components/Heading.astro";
 import LessonsDEList from "~/components/LessonsDE.astro";
+import FixedButton from "../../components/FixedButton.astro";
 
 ---
 <Layout>
 	<Section>
-		<Heading>
-			<h1 slot="heading-title" class="font-black text-brand-blue h2">Unsere Kursangebote</h1>
-		</Heading>
+		<!--<Heading>-->
+		<!--	<h1 slot="heading-title" class="font-black text-brand-blue h2">Kursangebot</h1>-->
+		<!--</Heading>-->
+		<FixedButton
+			href="/de/contact"
+			text="Buchen"
+			position='middle'
 
+		/>
 		<LessonsDEList/>
 	</Section>
 </Layout>
