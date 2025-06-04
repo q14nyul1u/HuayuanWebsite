@@ -6,5 +6,15 @@
     "event":"Veranstaltungen",
     "contact": "Kontakt",
     "about-us": "Über Uns"
+  },
+  "notFound": {
+    "title": "Diese Seite konnte nicht gefunden werden.",
+    "back": "Zurück zur Startseite"
+  },
+  "contact": {
+    "title": "Unser Kontakt",
+    "email": "E-Mail",
+    "wechat": "WeChat",
+    "text": "Wenn Sie Fragen haben oder unsicher sind, welchen Kurs Sie für Ihr Kind wählen sollen, können Sie uns wie folgt kontaktieren."
   }
 }

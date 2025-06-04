@@ -1,51 +1,8 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import Section from "~/components/Section.astro";
-import Heading from "~/components/Heading.astro";
-import {Picture} from "astro:assets";
-
-import DummyQR from "~/assets/images/dummy_QR.png";
+import ContactPageContent from "~/components/ContactPageContent.astro";
 ---
 
 <Layout>
-	<Section>
-		<Heading>
-			<h2 slot="heading-title" class="font-black text-brand-blue h2">
-				Unser Kontakt
-			</h2>
-		</Heading>
-
-		<div class="prose max-w-none order-2">
-			<p class="text-center"><b>Wenn Sie einen Kurs buchen möchten oder Fragen zum Kursangebot haben, können Sie
-				uns wie folgt erreichen: </b></p>
-			<p class="text-center">
-				<b>E-Mail:</b> info@huayuan.de
-			</p>
-
-			<figure class="mx-auto w-24 lg:w-32">
-				<Picture
-					class:list={"w-full"}
-					src={DummyQR}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-				<figcaption class="text-center text-base text-gray-600 mt-2">
-					<b>WhatsApp</b>
-				</figcaption>
-			</figure>
-			<figure class="mx-auto w-24 lg:w-32">
-				<Picture
-					class:list={"w-full"}
-					src={DummyQR}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-				<figcaption class="text-center text-base text-gray-600 mt-2">
-					<b>WeChat</b>
-				</figcaption>
-			</figure>
-		</div>
-	</Section>
+    <ContactPageContent></ContactPageContent>
 </Layout>

@@ -1,14 +1,8 @@
 ---
-import { getCurrentLanguage, useTranslations, getLocalizedUrl } from "~/i18n/index.js";
+import {getCurrentLanguage, useTranslations, getLocalizedUrl, getPathName} from "~/i18n/index.js";
 import LanguageSwitcher from "~/components/LanguageSwitcher.astro";
 
-export const rmTrailingSlash = (path: string): string => {
-	return path.endsWith("/") && path.length > 1
-		? path.slice(0, path.length - 1)
-		: path;
-}
-
-const pathname = rmTrailingSlash(Astro.url.pathname);
+const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
 const t = useTranslations(currentLang);
 
@@ -62,7 +56,7 @@ const menuMain = [
 					class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
 					@click="open = true"
 				>
-					<span class="sr-only">Open main menu</span>
+					<!--<span class="sr-only">Open main menu</span>-->
 					<svg
 						class="size-8 text-brand-light-blue"
 						fill="none"

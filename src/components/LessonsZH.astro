@@ -38,7 +38,8 @@ const siteLangFormat = siteLang.replace("_", "-");
 		<div class="grid grid-cols-1 gap-y-15">
 			{
 				allLessions.map((lesson) => (
-					<div id={lesson.data.slug} class="space-y-16 scroll-mt-20" data-category-section={lesson.data.slug}>
+					<div id={lesson.data.slug} class="space-y-16 scroll-mt-32 lg:scroll-mt-40"
+						 data-category-section={lesson.data.slug}>
 						<div class="flex flex-col items-center lg:mb-5 gap-2 max-w-lg mx-auto text-balance text-center">
 							<h3 class="h4 text-brand-light-blue/70">{lesson.data.prettyName}</h3>
 							<Badge color="blue" title={lesson.data.description}/>

@@ -1,0 +1,56 @@
+---
+import {getCurrentLanguage, useTranslations, getLocalizedUrl, getPathName} from "~/i18n/index.js";
+import {Picture} from "astro:assets";
+import Section from "./Section.astro";
+import Heading from "./Heading.astro";
+
+import DummyQR from "~/assets/images/dummy_QR.png";
+const pathname = getPathName(Astro.url.pathname);
+const currentLang = getCurrentLanguage(pathname);
+const t = useTranslations(currentLang);
+
+// Variablen, die die übersetzten Texte enthalten
+const translatedTitle = t("contact.title");
+const translatedText = t("contact.text");
+const translatedEMail = t("contact.email");
+const translatedWeChat = t("contact.wechat");
+---
+<Section>
+    <Heading>
+        <h2 slot="heading-title" class="font-black text-brand-blue h2">
+            {translatedTitle}
+        </h2>
+    </Heading>
+
+    <div class="prose max-w-none order-2">
+        <p class="text-center"><b>{translatedText} </b></p>
+        <p class="text-center">
+            <b>{translatedEMail}:</b> info@huayuan.de
+        </p>
+
+        <figure class="mx-auto w-24 lg:w-32">
+            <Picture
+                    class:list={"w-full"}
+                    src={DummyQR}
+                    height={600}
+                    formats={["avif", "webp"]}
+                    alt="A description of my image."
+            />
+            <figcaption class="text-center text-base text-gray-600 mt-2">
+                <b>WhatsApp</b>
+            </figcaption>
+        </figure>
+        <figure class="mx-auto w-24 lg:w-32">
+            <Picture
+                    class:list={"w-full"}
+                    src={DummyQR}
+                    height={600}
+                    formats={["avif", "webp"]}
+                    alt="A description of my image."
+            />
+            <figcaption class="text-center text-base text-gray-600 mt-2">
+                <b>{translatedWeChat}</b>
+            </figcaption>
+        </figure>
+    </div>
+</Section>
