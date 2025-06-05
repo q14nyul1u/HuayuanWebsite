@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "slug": "Unterricht für chinesische Kinder",
-    "prettyName": "Unterricht für chinesische Kinder",
-    "description": "Unterricht für im Ausland geborene Kinder chinesischer Eltern",
+    "slug": "Unterricht für Chinesische Kinder",
+    "prettyName": "Unterricht für Chinesische Kinder",
+    "description": "Unterricht für im Ausland geborene Kinder Chinesischer Eltern",
     "plates": [
       {
         "name": "Reguläre Klasse",
@@ -24,8 +24,8 @@
   },
   {
     "id": 2,
-    "slug": "Intensivunterricht für chinesische Kinder",
-    "prettyName": "Intensivunterricht für chinesische Kinder",
+    "slug": "Intensivunterricht für Chinesische Kinder",
+    "prettyName": "Intensivunterricht für Chinesische Kinder",
     "description": "Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden",
     "plates": [
       {
@@ -47,22 +47,27 @@
   },
   {
     "id": 3,
-    "slug": "Unterricht für deutsche Kinder",
-    "prettyName": "Unterricht für deutsche Kinder",
-    "description": "Unterricht für Kinder die kein chinesisches Sprachumfeld zuhause hat",
+    "slug": "Unterricht für Nicht-Chinesen",
+    "prettyName": "Unterricht für Nicht-Chinesen",
+    "description": "für Kinder sowie Erwachsenen, die kein chinesisches Sprachumfeld zuhause haben",
     "plates": [
       {
-        "name": "Reguläre Klasse",
-        "description": "Anzahl der Schüler bis zu 10 / 34 Unterrichtseinheiten pro Semester",
+        "name": "Reguläre Klasse für Kinder",
+        "description": "Anzahl der Kinder bis zu 10 / 34 Unterrichtseinheiten pro Semester",
+        "price": 100000
+      },
+      {
+        "name": "Reguläre Klasse für Erwachsenen",
+        "description": "Anzahl der Erwachsenen bis zu 10 / 34 Unterrichtseinheiten pro Semester",
         "price": 100000
       },
       {
         "name": "Besonders Kleine Klasse",
-        "description": "2-4 Schüler pro Klasse",
+        "description": "2-4 Kinder/Erwachsenen pro Klasse",
         "price": 100000
       },
       {
-        "name": "1v1 Unterricht",
+        "name": "1v1 Unterricht für Kinder/Erwachsenen",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -95,7 +100,7 @@
     "id": 5,
     "slug": "Chinesisch Ausdrucksunterricht",
     "prettyName": "Chinesisch Ausdrucksunterricht",
-    "description": "Verbesserung der Fähigkeit der Kinder, sich auszudrücken",
+    "description": "Verbesserung der Ausdrucksfähigkeit der Kinder",
     "plates": [
       {
         "name": "Reguläre Klasse",
@@ -131,7 +136,7 @@
     "id": 7,
     "slug": "Chinesisch Eltern-Kind-Kurs",
     "prettyName": "Chinesisch Eltern-Kind-Kurs",
-    "description": "18 Monate — 3 Jahre alt",
+    "description": "Einführung in die Geschichte und spielerischer Unterricht. Geeignet für Kinder von18 Monate bis 3 Jahre alt",
     "plates": [
       {
         "name": "Reguläre Klasse",
@@ -144,7 +149,7 @@
     "id": 8,
     "slug": "Ferienkurse",
     "prettyName": "Ferienkurse",
-    "description": "Nur in den Sommer- und Winterferien",
+    "description": "Spielerisches Lernen und dabei viel Spaß haben",
     "plates": [
       {
         "name": "Happy Chinese",
