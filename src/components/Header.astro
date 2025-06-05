@@ -1,6 +1,7 @@
 ---
 import {getCurrentLanguage, useTranslations, getLocalizedUrl, getPathName} from "~/i18n/index.js";
 import LanguageSwitcher from "~/components/LanguageSwitcher.astro";
+import {Picture} from "astro:assets";
 
 const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
@@ -8,8 +9,7 @@ const t = useTranslations(currentLang);
 
 // Images
 import LOGO from "~/assets/images/logo_huayuan_transparent.png";
-import ChineseClass from "*.png";
-import {Picture} from "astro:assets";
+
 
 const menuMain = [
 	{
@@ -118,12 +118,20 @@ const menuMain = [
 				x-cloak
 			>
 				<div class="flex items-center justify-between">
-					<a href={getLocalizedUrl("/", currentLang)} class="-m-1.5 p-1.5">
-						<p class="font-bold text-4xl text-brand-blue">华源<span class="text-brand-light-blue bg-brand-blue/5 px-3 ml-1 rounded-lg">中文学校</span></p>
-					</a>
+					<!--<a href={getLocalizedUrl("/", currentLang)} class="-m-1.5 p-1.5">-->
+					<!--	<p class="font-bold text-4xl text-brand-blue">华源<span class="text-brand-light-blue bg-brand-blue/5 px-3 ml-1 rounded-lg">中文学校</span></p>-->
+					<!--</a>-->
+					<Picture
+						class:list={"h-16 w-auto "}
+						src={LOGO}
+						height={400}
+						alt="A description of my image."
+						loading={"eager"}
+						fetchpriority={"high"}
+					/>
 
 					<button type="button" class="-m-2.5 p-2.5 text-brand-light-blue" @click="open = false">
-						<span class="sr-only">Close menu</span>
+						<span class="sr-only">x</span>
 						<svg
 							class="size-8"
 							fill="none"
