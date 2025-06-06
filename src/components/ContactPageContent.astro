@@ -29,30 +29,31 @@ const translatedWeChat = t("contact.wechat");
         <p class="text-center">
             <b>{translatedEMail}:</b> info@huayuan.de
         </p>
-
-        <figure class="mx-auto w-24 lg:w-32">
-            <Picture
-                    class:list={"w-full"}
-                    src={DummyQR}
-                    height={600}
-                    formats={["avif", "webp"]}
-                    alt="A description of my image."
-            />
-            <figcaption class="text-center text-base text-gray-600 mt-2">
-                <b>WhatsApp</b>
-            </figcaption>
-        </figure>
-        <figure class="mx-auto w-24 lg:w-32">
-            <Picture
-                    class:list={"w-full"}
-                    src={DummyQR}
-                    height={600}
-                    formats={["avif", "webp"]}
-                    alt="A description of my image."
-            />
-            <figcaption class="text-center text-base text-gray-600 mt-2">
-                <b>{translatedWeChat}</b>
-            </figcaption>
-        </figure>
+        <div class="flex justify-center gap-x-8 mt-4">
+            <figure class="w-24 lg:w-32">
+                <Picture
+                        class:list={"w-full"}
+                        src={DummyQR}
+                        height={600}
+                        formats={["avif", "webp"]}
+                        alt="A description of my image."
+                />
+                <figcaption class="text-center text-base text-gray-600 mt-2">
+                    <b>WhatsApp</b>
+                </figcaption>
+            </figure>
+            <figure class="w-24 lg:w-32">
+                <Picture
+                        class:list={"w-full"}
+                        src={DummyQR}
+                        height={600}
+                        formats={["avif", "webp"]}
+                        alt="A description of my image."
+                />
+                <figcaption class="text-center text-base text-gray-600 mt-2">
+                    <b>{translatedWeChat}</b>
+                </figcaption>
+            </figure>
+        </div>
     </div>
 </Section>
