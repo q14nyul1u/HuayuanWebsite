@@ -12,8 +12,8 @@ export const phone = {
 };
 
 export const email = {
-	href: "mailto:info@huayuan-chinesisch.com",
-	label: "info@huayuan-chinesisch.com",
+	href: "mailto:info@huayuan-csm.com",
+	label: "info@huayuan-csm.com",
 };
 
 export const address = {

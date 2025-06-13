@@ -17,7 +17,9 @@ import SmallClass from "~/assets/images/small_class_10_14.jpg";
 import UnterrichtsDesign from "~/assets/images/unterrichtsdesign_de.png";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
 import DummyQR from "~/assets/images/dummy_QR.png";
-const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.146666844624!2d11.531892692807965!3d48.14598215559082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1749129209002!5m2!1sen!2sde"
+
+const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.146666844624!2d11.531892692807965!3d48.14598215559082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1749129209002!5m2!1sen!2sde"
+const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.820869447464!2d11.552060679869639!3d48.13757062869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75ff70184481%3A0x4937509061487f3!2sEineWeltHaus!5e0!3m2!1sde!2sde!4v1749814356011!5m2!1sde!2sde"
 ---
 
 <Layout title="HuaYuan" pageTitle="HuaYuan" description="Huayuan Chinesischschule">
@@ -228,17 +230,17 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.
 		<div class="py-16 lg:pt-2 lg:pb-5">
 			<Hero>
 				<div slot="hero-content-left" class="prose max-w-none order-2">
-					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
+					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Adresse I</h2>
 					<div slot="heading-content">
 						<p>
-							<b>Addresse：</b> Landshuter Allee 11, 80637 München
+							<b>Addresse ：</b> Landshuter Allee 11, 80637 München
 						</p>
 
 						<p>
 							<b>ÖPNV：</b> S Bahn bis <i>Donnersbergerbrücke</i> dann 5 Minuten zu Fuß
 						</p>
 						<p>
-							<b>Kostenlose Parkplätze：</b> Neben der Tramstation <i>Donnersbergerstraße</i> gibt es
+							<b>Parkplätze：</b> Neben der Tramstation <i>Donnersbergerstraße</i> gibt es
 							kostenlose Parkplätze
 						</p>
 					</div>
@@ -246,7 +248,33 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.
 
 				<div slot="hero-content-right">
 					<GoogleMap
-						embedUrl={mapEmbedUrl}
+						embedUrl={mapEmbedUrl1}
+						height="400"
+						title="Unser Standort"
+					/>
+				</div>
+				<div slot="hero-content-left" class="prose max-w-none order-2">
+					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Adresse II </h2>
+					<div slot="heading-content">
+						<p>
+							<b>Addresse：</b> Schwanthalerstraße 80, 80336 München
+						</p>
+
+						<p>
+							<b>ÖPNV：</b>U-Bahn U2 bis <i>Theresienwiese</i> dann 2 Minuten zu Fuß
+						</p>
+
+						<p>
+							<b>Parkplätze：</b> In der Nähe der U-Bahnstation <i>Theresienwiese</i> gibt es
+							kostenlose und kostenpflichtige Parkplätze
+						</p>
+
+					</div>
+				</div>
+
+				<div slot="hero-content-right">
+					<GoogleMap
+						embedUrl={mapEmbedUrl2}
 						height="400"
 						title="Unser Standort"
 					/>
@@ -294,7 +322,7 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.
 			<div slot="hero-content-right" class="prose max-w-none order-2">
 				<div slot="heading-content">
 					<p class="text-center">
-						<b>E-Mail:</b> info@huayuan.de
+						<b>E-Mail:</b> info@huayuan-csm.de
 					</p>
 
 					<div class="flex justify-center gap-x-8 mt-4">
