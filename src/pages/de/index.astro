@@ -11,10 +11,10 @@ import GoogleMap from "../../components/GoogleMap.astro";
 
 // Images
 import ChineseClass from "~/assets/images/chinese_class_10_24.png";
-import YuwenBook from "~/assets/images/yuwen_book.png";
+import CultureEvents from "~/assets/images/cultural_events.jpg";
 import Teacher from "~/assets/images/teacher_10_15.jpg";
 import SmallClass from "~/assets/images/small_class_10_14.jpg";
-import UnterrichtsDesign from "~/assets/images/unterrichtsdesign_de.png";
+import Kaligraphie from "~/assets/images/kaligraphie_zh.jpg";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
 import DummyQR from "~/assets/images/dummy_QR.png";
 
@@ -25,7 +25,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 <Layout title="HuaYuan" pageTitle="HuaYuan" description="Huayuan Chinesischschule">
 
 	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[21/6]"}/>
-	<h1 class="font-black h4 mb-0 pt-10 text-center">Herzlich Willkommen!</h1>
+	<h1 class="font-black h4 mb-0 pt-10 text-center">Chinesisch Kurse für Kinder und Erwachsenen!</h1>
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1 relative z-10">
@@ -34,7 +34,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					<div class="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-4 mb-4">
 						<div class="mt-5 mb-5">
 							<h4 class="text-xl font-bold text-brand-blue mb-5 mt-5 gap-3 flex items-center">
-								🏖️ Sommerkurse
+								🏖️ Sommerkurse für Kinder
 							</h4>
 							<Button color="blue" url="/de/contact">Buchen!</Button>
 						</div>
@@ -82,14 +82,14 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 				<div class="flex flex-col items-center prose text-center">
 					<Picture
 						class:list={"not-prose w-full h-auto"}
-						src={YuwenBook}
-						height={200}
+						src={CultureEvents}
+						height={250}
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
-					<h3 class="h5 mt-0 font-black">Verwendung des Lehrbuchs《语文》</h3>
+					<h3 class="h5 mt-0 font-black">Kulturelle Angebote</h3>
 					<p>
-						Das Lehrbuch ist vom chinesischen Bildungsministerium verfasst.
+						Wir bieten regelmäßig kulturelle Veranstaltungen an.
 					</p>
 				</div>
 			</div>
@@ -99,7 +99,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					<Picture
 						class:list={"not-prose w-full h-auto"}
 						src={Teacher}
-						height={250}
+						height={200}
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
@@ -117,7 +117,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					<Picture
 						class:list={"not-prose w-full h-auto"}
 						src={SmallClass}
-						height={250}
+						height={200}
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
@@ -156,41 +156,6 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 		</svg>
 	</Section>
 
-	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-0"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose lg:order-2">
-				<h1 class="font-black">Unsere Ziele</h1>
-
-				<!--<div class="mt-8">-->
-				<!--	<Button url="/de/lessons">-->
-				<!--		<svg-->
-				<!--			xmlns="http://www.w3.org/2000/svg"-->
-				<!--			viewBox="0 0 20 20"-->
-				<!--			fill="currentColor"-->
-				<!--			class="size-5 inline-block"-->
-				<!--			aria-hidden="true"-->
-				<!--		>-->
-				<!--			<path-->
-				<!--				fill-rule="evenodd"-->
-				<!--				d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"-->
-				<!--				clip-rule="evenodd"></path>-->
-				<!--		</svg>-->
-				<!--		Mehr Erfahren-->
-				<!--	</Button>-->
-				<!--</div>-->
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={UnterrichtsDesign}
-					height={800}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-	</Section>
-
 	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-10"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
@@ -199,13 +164,13 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 				<span class="text-brand-blue text-2xl font-bold italic">Wir bieten die folgenden Kurse an</span>
 
 				<p>
-					📖 Unterricht für im Ausland geborene Kinder chinesischer Eltern
+					📖 Unterricht für Kinder
 				</p>
 				<p>
-					📖 Unterricht für Kinder die kein chinesisches Sprachumfeld zuhause hat
+					📖 Unterricht für Erwachsenen
 				</p>
 				<p>
-					📖 Unterricht für Kinder die für kurze Zeit in Deutschland leben und wieder nach China zurück werden
+					📖 Aussprachtraining
 				</p>
 				<p>
 					📖 Andere spezielle Unterrichtsangebote
@@ -217,7 +182,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			<div slot="hero-content-right">
 				<Picture
 					class:list={"mx-auto"}
-					src={ChineseClass}
+					src={Kaligraphie}
 					height={600}
 					formats={["avif", "webp"]}
 					alt="A description of my image."
@@ -244,15 +209,15 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 							kostenlose Parkplätze
 						</p>
 					</div>
+					<div slot="hero-content-right">
+						<GoogleMap
+							embedUrl={mapEmbedUrl1}
+							height="400"
+							title="Unser Standort"
+						/>
+					</div>
 				</div>
 
-				<div slot="hero-content-right">
-					<GoogleMap
-						embedUrl={mapEmbedUrl1}
-						height="400"
-						title="Unser Standort"
-					/>
-				</div>
 				<div slot="hero-content-left" class="prose max-w-none order-2">
 					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Adresse II </h2>
 					<div slot="heading-content">
@@ -270,15 +235,15 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 						</p>
 
 					</div>
+					<div slot="hero-content-right">
+						<GoogleMap
+							embedUrl={mapEmbedUrl2}
+							height="400"
+							title="Unser Standort"
+						/>
+					</div>
 				</div>
 
-				<div slot="hero-content-right">
-					<GoogleMap
-						embedUrl={mapEmbedUrl2}
-						height="400"
-						title="Unser Standort"
-					/>
-				</div>
 			</Hero>
 		</div>
 
@@ -307,53 +272,17 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	</Section>
 
 	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none order-2">
-				<h2 slot="heading-title" class="font-black h2 text-center mt-0 mb-4">Unser Kontakt</h2>
-				<div slot="heading-content">
-					<p class="text-center">
-						Zögern Sie bitte nicht, uns zu kontaktieren, wenn Sie sich für einen unserer Kurse interessieren
-						oder unsicher sind, welcher Kurs für Ihr Kind am besten geeignet ist.
-						Unsere Lehrkräfte empfehlen Ihnen gerne einen Kurs, der auf die Bedürfnisse Ihres Kindes
-						zugeschnitten ist.
-					</p>
-				</div>
-			</div>
-			<div slot="hero-content-right" class="prose max-w-none order-2">
-				<div slot="heading-content">
-					<p class="text-center">
-						<b>E-Mail:</b> info@huayuan-csm.de
-					</p>
-
-					<div class="flex justify-center gap-x-8 mt-4">
-						<figure class="w-24 lg:w-32">
-							<Picture
-								class:list={"w-full"}
-								src={DummyQR}
-								height={600}
-								formats={["avif", "webp"]}
-								alt="A description of my image."
-							/>
-							<figcaption class="text-center text-base text-gray-600 mt-2">
-								<b>WhatsApp</b>
-							</figcaption>
-						</figure>
-
-						<figure class="w-24 lg:w-32">
-							<Picture
-								class:list={"w-full"}
-								src={DummyQR}
-								height={600}
-								formats={["avif", "webp"]}
-								alt="A description of my image."
-							/>
-							<figcaption class="text-center text-base text-gray-600 mt-2">
-								<b>WeChat</b>
-							</figcaption>
-						</figure>
-					</div>
-				</div>
-			</div>
-		</Hero>
+		<Heading>
+			<h2 slot="heading-title"
+				class="font-black button-blue h2 cursor-pointer button-blue hover:button-blue hover:underline text-white px-6 py-3 rounded-lg inline-block transition-colors duration-200"
+				onclick="window.location.href='/contact'">
+				Kontaktieren
+			</h2>
+		</Heading>
+		<div class="max-w-sm sm:max-w-xl md:max-w-md lg:max-w-lg mx-auto">
+			<p class="text-center"><b>Gerne können Sie uns kontaktieren, wenn Sie sich für einen unserer Kurse
+				interessieren
+				oder unsicher sind, welcher Kurs für Sie oder für Ihr Kind am besten geeignet ist.</b></p>
+		</div>
 	</Section>
 </Layout>

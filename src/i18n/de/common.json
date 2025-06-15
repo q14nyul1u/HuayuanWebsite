@@ -13,8 +13,11 @@
   },
   "contact": {
     "title": "Unser Kontakt",
-    "email": "E-Mail",
+    "email": "Ihre E-Mail",
     "wechat": "WeChat",
-    "text": "Zögern Sie bitte nicht, uns zu kontaktieren, wenn Sie sich für einen unserer Kurse interessieren oder unsicher sind, welcher Kurs für Ihr Kind am besten geeignet ist.\n\t\t\t\t\t\tUnsere Lehrkräfte empfehlen Ihnen gerne einen Kurs, der auf die Bedürfnisse Ihres Kindes zugeschnitten ist."
+    "name": "Ihr Name",
+    "message": "Ihre Nachricht",
+    "send": "versenden",
+    "text": "Gerne können Sie uns kontaktieren, wenn Sie sich für einen unserer Kurse interessieren oder unsicher sind, welcher Kurs für Sie oder für Ihr Kind am besten geeignet ist."
   }
 }

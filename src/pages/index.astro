@@ -14,6 +14,7 @@ import YuwenBook from "~/assets/images/yuwen_book.png";
 import Teacher from "~/assets/images/teacher_10_15.jpg";
 import SmallClass from "~/assets/images/small_class_10_14.jpg";
 import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
+import Kaligraphie from "~/assets/images/kaligraphie_zh.jpg";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
 import DummyQR from "~/assets/images/dummy_QR.png";
 
@@ -117,7 +118,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					<Picture
 						class:list={"not-prose w-full h-auto"}
 						src={YuwenBook}
-						height={220}
+						height={235}
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
@@ -189,7 +190,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	</Section>
 
 
-	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-0"}>
+	<Section contain={false} class:list={"bg-white container lg:pt-0 lg:pb-0"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose lg:order-2">
 				<h1 class="font-black">课程设计</h1>
@@ -235,10 +236,10 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					📖 继承语教学（移民或海外出生的孩子）
 				</p>
 				<p>
-					📖 对外汉语
+					📖 母语教学（和国内完全同步教学）
 				</p>
 				<p>
-					📖 母语教学（和国内完全同步教学）
+					📖 写作指导课
 				</p>
 				<p>
 					📖 其它特色课程
@@ -250,7 +251,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			<div slot="hero-content-right">
 				<Picture
 					class:list={"mx-auto"}
-					src={ChineseClass}
+					src={Kaligraphie}
 					height={600}
 					formats={["avif", "webp"]}
 					alt="A description of my image."
@@ -278,14 +279,13 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 						</p>
 
 					</div>
-				</div>
-
-				<div slot="hero-content-right">
-					<GoogleMap
-						embedUrl={mapEmbedUrl1}
-						height="400"
-						title="Unser Standort"
-					/>
+					<div slot="hero-content-right">
+						<GoogleMap
+							embedUrl={mapEmbedUrl1}
+							height="400"
+							title="Unser Standort"
+						/>
+					</div>
 				</div>
 
 				<div slot="hero-content-left" class="prose max-w-none order-2">
@@ -304,14 +304,13 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 						</p>
 
 					</div>
-				</div>
-
-				<div slot="hero-content-right">
-					<GoogleMap
-						embedUrl={mapEmbedUrl2}
-						height="400"
-						title="Unser Standort"
-					/>
+					<div slot="hero-content-right">
+						<GoogleMap
+							embedUrl={mapEmbedUrl2}
+							height="400"
+							title="Unser Standort"
+						/>
+					</div>
 				</div>
 			</Hero>
 		</div>
@@ -343,52 +342,19 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	</Section>
 
 	<Section class:list={"bg-white"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none order-2">
-				<h2 slot="heading-title" class="font-black h2 text-center mt-0 mb-4">联系我们</h2>
-				<div slot="heading-content">
-					<p class="text-center">
-						如果您对我们的课程感兴趣，或者不确定该为孩子选择什么课程，请及时联系我们。
-						我们的老师会根据孩子的具体情况提供专业的课程设计。
-					</p>
-				</div>
+		<Heading>
+			<h2 slot="heading-title"
+				class="font-black button-blue h2 cursor-pointer button-blue hover:button-blue hover:underline text-white px-6 py-3 rounded-lg inline-block transition-colors duration-200"
+				onclick="window.location.href='/contact'">
+				联系我们
+			</h2>
+		</Heading>
+		<div class="prose max-w-none order-2">
+			<div class="max-w-sm sm:max-w-xl md:max-w-md lg:max-w-lg mx-auto">
+				<p class="text-center"><b>如果您对我们的课程感兴趣，或者不确定该为孩子选择什么课程，请及时联系我们。
+					我们的老师会根据孩子的具体情况提供专业的课程设计。</b></p>
 			</div>
-			<div slot="hero-content-right" class="prose max-w-none order-2">
-				<div slot="heading-content">
-					<p class="text-center">
-						<b>邮箱:</b> info@huayuan-csm.de
-					</p>
-
-					<div class="flex justify-center gap-x-8 mt-4">
-						<figure class="w-24 lg:w-32">
-							<Picture
-								class:list={"w-full"}
-								src={DummyQR}
-								height={600}
-								formats={["avif", "webp"]}
-								alt="A description of my image."
-							/>
-							<figcaption class="text-center text-base text-gray-600 mt-2">
-								<b>WhatsApp</b>
-							</figcaption>
-						</figure>
-
-						<figure class="w-24 lg:w-32">
-							<Picture
-								class:list={"w-full"}
-								src={DummyQR}
-								height={600}
-								formats={["avif", "webp"]}
-								alt="A description of my image."
-							/>
-							<figcaption class="text-center text-base text-gray-600 mt-2">
-								<b>微信</b>
-							</figcaption>
-						</figure>
-					</div>
-				</div>
-			</div>
-		</Hero>
+		</div>
 	</Section>
 
 	<!--&lt;!&ndash; Contact &ndash;&gt;-->

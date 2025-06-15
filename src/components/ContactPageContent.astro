@@ -3,8 +3,10 @@ import {getCurrentLanguage, useTranslations, getLocalizedUrl, getPathName} from 
 import {Picture} from "astro:assets";
 import Section from "./Section.astro";
 import Heading from "./Heading.astro";
+import FormContact from "./forms/FormContact.astro";
 
 import DummyQR from "~/assets/images/dummy_QR.png";
+
 const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
 const t = useTranslations(currentLang);
@@ -12,7 +14,6 @@ const t = useTranslations(currentLang);
 // Variablen, die die übersetzten Texte enthalten
 const translatedTitle = t("contact.title");
 const translatedText = t("contact.text");
-const translatedEMail = t("contact.email");
 const translatedWeChat = t("contact.wechat");
 ---
 <Section>
@@ -26,22 +27,8 @@ const translatedWeChat = t("contact.wechat");
         <div class="max-w-sm sm:max-w-xl md:max-w-md lg:max-w-lg mx-auto">
             <p class="text-center"><b>{translatedText}</b></p>
         </div>
-        <p class="text-center">
-            <b>{translatedEMail}:</b> info@huayuan-csm.de
-        </p>
+
         <div class="flex justify-center gap-x-8 mt-4">
-            <figure class="w-24 lg:w-32">
-                <Picture
-                        class:list={"w-full"}
-                        src={DummyQR}
-                        height={600}
-                        formats={["avif", "webp"]}
-                        alt="A description of my image."
-                />
-                <figcaption class="text-center text-base text-gray-600 mt-2">
-                    <b>WhatsApp</b>
-                </figcaption>
-            </figure>
             <figure class="w-24 lg:w-32">
                 <Picture
                         class:list={"w-full"}
@@ -56,4 +43,5 @@ const translatedWeChat = t("contact.wechat");
             </figure>
         </div>
     </div>
+    <FormContact/>
 </Section>
