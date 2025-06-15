@@ -48,14 +48,17 @@ const menuMain = [
 			<!--	<p class="text-xs text-gray-500 mt-1 text-center">Hua Yuan Chinesischschule</p>-->
 			<!--</a>-->
 
-			<Picture
-				class:list={"h-16 w-auto "}
-				src={LOGO}
-				height={400}
-				alt="A description of my image."
-				loading={"eager"}
-				fetchpriority={"high"}
-			/>
+			<a href={getLocalizedUrl("/", currentLang)} class="inline-block">
+				<Picture
+					class:list={"h-16 w-auto "}
+					src={LOGO}
+					height={400}
+					alt="A description of my image."
+					loading={"eager"}
+					fetchpriority={"high"}
+				/>
+			</a>
+
 			<div class="flex lg:hidden items-center gap-4">
 				<!-- Language Switcher for Mobile -->
 				<LanguageSwitcher
