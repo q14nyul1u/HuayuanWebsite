@@ -10,13 +10,12 @@ import WideImage from "~/components/WideImage.astro";
 import GoogleMap from "~/components/GoogleMap.astro";
 // Images
 import ChineseClass from "~/assets/images/chinese_class_10_24.png";
-import YuwenBook from "~/assets/images/yuwen_book.png";
+import YuwenBooks from "~/assets/images/yuwen_books_12_21.png";
 import Teacher from "~/assets/images/teacher_10_15.jpg";
 import SmallClass from "~/assets/images/small_class_10_14.jpg";
 import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
 import Kaligraphie from "~/assets/images/kaligraphie_zh.jpg";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
-import DummyQR from "~/assets/images/dummy_QR.png";
 
 const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.146666844624!2d11.531892692807965!3d48.14598215559082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1749129209002!5m2!1sen!2sde"
 const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.820869447464!2d11.552060679869639!3d48.13757062869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75ff70184481%3A0x4937509061487f3!2sEineWeltHaus!5e0!3m2!1sde!2sde!4v1749814356011!5m2!1sde!2sde"
@@ -30,8 +29,8 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1 relative z-10">
 				<div
-					class="bg-white/90 backdrop-blur-sm border-l-8 border-brand-blue rounded-xl p-6 shadow-2xl mb-8 transform hover:scale-105 transition-all duration-300">
-					<div class="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-4 mb-4">
+					class="bg-white/90 backdrop-blur-sm border-l-8 border-brand-blue rounded-xl p-6 shadow-2xl transition-all duration-300">
+					<div class="bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg p-4">
 						<div class="mt-5 mb-5">
 							<h4 class="text-xl font-bold text-brand-blue mb-5 mt-5 gap-3 flex items-center">
 								🏖️ 暑假快到了！
@@ -58,9 +57,9 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			</div>
 			<div slot="hero-content-right" class="relative">
 				<!-- Zusätzlicher visueller Effekt um das Bild -->
-				<div class="absolute inset-0 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-xl"></div>
+
 				<Picture
-					class:list={"mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500"}
+					class:list={"mx-auto rounded-xl shadow-2xl transition-transform duration-500"}
 					src={ChineseClass}
 					height={400}
 					formats={["avif", "webp"]}
@@ -117,12 +116,12 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 				<div class="flex flex-col items-center prose text-center">
 					<Picture
 						class:list={"not-prose w-full h-auto"}
-						src={YuwenBook}
-						height={235}
+						src={YuwenBooks}
+						height={270}
 						formats={["avif", "webp"]}
 						alt="A description of my image."
 					/>
-					<h3 class="h5 mt-0 font-black">采国内统编教材《语文》</h3>
+					<h3 class="h5 mt-0 font-black">采用国内统编教材《语文》</h3>
 					<p>
 						采用国内统编教材《语文》（由中国教育部统一编写，全国通用语文教材）。
 					</p>
@@ -140,7 +139,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					/>
 					<h3 class="h5 mt-0 font-black">有十年以上教学经验的老师</h3>
 					<p>
-						拥有海外十年以上中文教学经验的老师亲自授课。实现教学内容同步，系统正规学习中文
+						拥有海外十年以上中文教学经验的老师亲自授课。实现教学内容与国内同步，系统正规学习中文
 					</p>
 				</div>
 			</div>

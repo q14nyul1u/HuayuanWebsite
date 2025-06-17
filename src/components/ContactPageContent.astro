@@ -15,33 +15,107 @@ const t = useTranslations(currentLang);
 const translatedTitle = t("contact.title");
 const translatedText = t("contact.text");
 const translatedWeChat = t("contact.wechat");
+const translatedContactInfoTitle = t("contact.contactInfos");
+const translatedAddressI = t("contact.addressI");
+const translatedAddressII = t("contact.addressII");
 ---
+
 <Section>
     <Heading>
-        <h2 slot="heading-title" class="font-black text-brand-blue h2">
+        <h2 slot="heading-title" class="font-black text-brand-blue h2 mb-8">
             {translatedTitle}
         </h2>
     </Heading>
 
-    <div class="prose max-w-none order-2">
-        <div class="max-w-sm sm:max-w-xl md:max-w-md lg:max-w-lg mx-auto">
-            <p class="text-center"><b>{translatedText}</b></p>
-        </div>
+    <!-- Fullwidth Text unter dem Heading -->
+    {translatedText && (
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <p class="text-lg text-gray-600">{translatedText}</p>
+            </div>
+    )}
 
-        <div class="flex justify-center gap-x-8 mt-4">
-            <figure class="w-24 lg:w-32">
-                <Picture
-                        class:list={"w-full"}
-                        src={DummyQR}
-                        height={600}
-                        formats={["avif", "webp"]}
-                        alt="A description of my image."
-                />
-                <figcaption class="text-center text-base text-gray-600 mt-2">
-                    <b>{translatedWeChat}</b>
-                </figcaption>
-            </figure>
+    <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <!-- Formular - Links -->
+            <div class="order-2 lg:order-1">
+                <FormContact/>
+            </div>
+
+            <!-- Kontaktinformationen - Rechts -->
+            <div class="order-1 lg:order-2 space-y-8">
+                <div class="bg-gray-50 rounded-xl p-6 lg:p-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-6">{translatedContactInfoTitle}</h4>
+
+                    <div class="space-y-6">
+                        <!-- E-Mail -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-5 h-5 mt-0.5">
+                                <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-900">E-Mail</p>
+                                <a href="mailto:info@huayuan-csm.de"
+                                   class="text-sm text-brand-blue hover:text-blue-700 transition-colors">
+                                    info@huayuan-csm.de
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-5 h-5 mt-0.5">
+                                <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>
+                                <address class="text-sm text-gray-600 not-italic">
+                                    Landshuter Allee 11<br>
+                                    80637 München<br>
+                                    Deutschland
+                                </address>
+                                <br>
+                                <p class="text-sm font-medium text-gray-900">{translatedAddressII}</p>
+                                <address class="text-sm text-gray-600 not-italic">
+                                    Schwanthalerstraße 80<br>
+                                    80336 München<br>
+                                    Deutschland
+                                </address>
+                            </div>
+                        </div>
+
+                        <!-- WeChat QR Code - nur für Chinesisch -->
+                        {currentLang === "zh" && (
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-5 h-5 mt-0.5">
+                                        <svg class="w-5 h-5 text-brand-blue" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.162 4.203 2.969 5.543-.234.855-.867 2.891-.867 2.891s2.084-.129 3.037-.621c.678.161 1.398.242 2.198.242 4.8 0 8.691-3.288 8.691-7.342 0-4.054-3.891-7.342-8.691-7.342zm-2.04 5.543c.562 0 1.016.453 1.016 1.016 0 .562-.453 1.016-1.016 1.016-.563 0-1.016-.453-1.016-1.016 0-.563.453-1.016 1.016-1.016zm4.08 0c.562 0 1.016.453 1.016 1.016 0 .562-.453 1.016-1.016 1.016-.563 0-1.016-.453-1.016-1.016 0-.563.453-1.016 1.016-1.016z"/>
+                                            <path d="M24 14.25c0-3.458-3.123-6.25-6.969-6.25-3.847 0-6.969 2.792-6.969 6.25 0 .674.093 1.322.253 1.938C10.5 16.854 11.2 17.458 12 17.898c-.161-.593-.247-1.228-.247-1.898 0-2.804 2.345-5.073 5.235-5.073s5.235 2.269 5.235 5.073c0 1.075-.338 2.074-.914 2.883.508.159 1.039.24 1.597.24.422 0 .836-.042 1.234-.119.652.355 2.023.426 2.023.426s-.42-1.357-.586-1.931C23.168 17.139 24 15.778 24 14.25zm-8.438-1.016c-.376 0-.68-.304-.68-.68s.304-.68.68-.68.68.304.68.68-.304.68-.68.68zm2.876 0c-.376 0-.68-.304-.68-.68s.304-.68.68-.68.68.304.68.68-.304.68-.68.68z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900 mb-3">{translatedWeChat}</p>
+                                        <div class="bg-white p-3 rounded-lg shadow-sm inline-block">
+                                            <Picture
+                                                    class:list={"w-24 h-24"}
+                                                    src={DummyQR}
+                                                    height={96}
+                                                    formats={["avif", "webp"]}
+                                                    alt="WeChat QR Code"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <FormContact/>
 </Section>

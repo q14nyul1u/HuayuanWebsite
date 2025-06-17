@@ -9,6 +9,9 @@ const t = useTranslations(currentLang);
 const translatedName = t("contact.name");
 const translatedEmail = t("contact.email");
 const translatedMessage = t("contact.message");
+const translatedBasicInfo = t("contact.basicInfo");
+const translatedHelperTextBasicInfo = t("contact.helperTextBasicInfo");
+const translatedHelperTextMessage = t("contact.helperTextMessage");
 const translatedSend = t("contact.send");
 ---
 
@@ -27,11 +30,19 @@ const translatedSend = t("contact.send");
                 <input type="email" name="email" id="email" required/>
             </div>
         </div>
+        <div>
+            <label for="message">{translatedBasicInfo}</label>
+            <div class="mt-2">
+                <textarea name="basicInfo" placeholder={translatedHelperTextBasicInfo} id="basicInfo" rows="4"
+                          required></textarea>
+            </div>
+        </div>
 
         <div>
             <label for="message">{translatedMessage}</label>
             <div class="mt-2">
-                <textarea name="message" id="message" rows="4" required></textarea>
+                <textarea name="message" placeholder={translatedHelperTextMessage} id="message" rows="5"
+                          required></textarea>
             </div>
         </div>
 

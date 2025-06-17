@@ -12,12 +12,17 @@
     "back": "Zurück zur Startseite"
   },
   "contact": {
+    "contactInfos": "Kontaktinformationen",
+    "addressI": "Adresse I",
+    "addressII": "Adresse II",
+    "helperTextBasicInfo": "Wie gut schätzen Sie Ihr Sprachniveau oder das Sprachniveau Ihres Kindes im Chinesischen ein? Haben Sie bereits Vorkenntnisse?",
+    "helperTextMessage": "Für welchen Kurs interessieren Sie sich?",
     "title": "Unser Kontakt",
-    "email": "Ihre E-Mail",
-    "wechat": "WeChat",
-    "name": "Ihr Name",
-    "message": "Ihre Nachricht",
+    "email": "E-Mail-Adresse",
+    "name": "Name",
+    "basicInfo": "Sprachniveau",
+    "message": "Nachricht",
     "send": "versenden",
-    "text": "Gerne können Sie uns kontaktieren, wenn Sie sich für einen unserer Kurse interessieren oder unsicher sind, welcher Kurs für Sie oder für Ihr Kind am besten geeignet ist."
+    "text": "Gerne können Sie uns kontaktieren, wenn Sie sich für einen unserer Kurse interessieren oder unsicher sind, welcher Kurs für Sie oder für Ihr Kind am besten geeignet ist. Sie können uns eine E-Mail schreiben oder via unser Kontaktformular mit uns Kontakt aufnehmen. "
   }
 }

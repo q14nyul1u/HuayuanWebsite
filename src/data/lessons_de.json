@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "slug": "Chinesisch Kurs für Kinder",
-    "prettyName": "Chinesisch Kurs für Kinder",
-    "description": "Kinder mit wenig oder keine Chinesisch Vorkenntnisse",
+    "slug": "Chinesisch Kurs HSK 1 bis HSK 6",
+    "prettyName": "Chinesisch Kurs HSK 1 bis HSK 6",
+    "description": "Für Anfänger oder Fortgeschrittene",
     "plates": [
       {
         "name": "Reguläre Klasse",
-        "description": "Maximal 10 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit 90 min mit Pause.",
+        "description": "Maximal 10 Kursteilnehmer. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       },
       {
         "name": "Besonders Kleine Klasse",
-        "description": "2-4 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
+        "description": "2-4 Kursteilnehmer. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       },
       {
@@ -24,9 +24,9 @@
   },
   {
     "id": 2,
-    "slug": "Chinesisch Kurs für Erwachsenen",
-    "prettyName": "Chinesisch Kurs für Erwachsenen",
-    "description": "HSK 1 bis HSK 6 und HSK Prüfungsvorbereitungen ",
+    "slug": "HSK Prüfungsvorbereitungen",
+    "prettyName": "HSK Prüfungsvorbereitungen",
+    "description": "Optimale Prüfungsvorbereitung",
     "plates": [
       {
         "name": "Reguläre Klasse",
@@ -49,10 +49,10 @@
     "id": 3,
     "slug": "Business Chinesisch Kurs",
     "prettyName": "Business Chinesisch Kurs",
-    "description": "Anwendung von Chinesisch im Berufsalltag",
+    "description": "Chinesisch im Berufsalltag oder Geschäftskontext",
     "plates": [
       {
-        "name": "1v1 Unterricht",
+        "name": "1v1/1v2 Unterricht",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -86,12 +86,35 @@
   },
   {
     "id": 6,
+    "slug": "Chinesisch Kurs für Kinder",
+    "prettyName": "Chinesisch Kurs für Kinder",
+    "description": "Kinder mit wenig oder keine Chinesisch Vorkenntnisse",
+    "plates": [
+      {
+        "name": "Reguläre Klasse",
+        "description": "Maximal 10 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit 90 min mit Pause.",
+        "price": 100000
+      },
+      {
+        "name": "Besonders Kleine Klasse",
+        "description": "2-4 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
+        "price": 100000
+      },
+      {
+        "name": "1v1 Unterricht",
+        "description": "1 Stunde Unterricht",
+        "price": 100000
+      }
+    ]
+  },
+  {
+    "id": 7,
     "slug": "Online Chinesisch Kurse",
     "prettyName": "Online Chinesisch Kurse",
     "description": "Kooperation mit renomierten Schule in China. Sie können einen kostenlosen Probeunterricht buchen.",
     "plates": [
       {
-        "name": "1v1 Unterricht",
+        "name": "Chinesisch Kurse HSK 1 bis HSK 6",
         "description": "",
         "price": 100000
       },
@@ -101,7 +124,7 @@
         "price": 100000
       },
       {
-        "name": "Chinesisch Kurse HSK 1 bis HSK 6",
+        "name": "1v1 Unterricht",
         "description": "",
         "price": 100000
       }
