@@ -262,33 +262,8 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	<Section class:list={"bg-brand-blue/20 relative"}>
 		<div class="py-16 lg:pt-2 lg:pb-5">
 			<Hero>
-				<div slot="hero-content-left" class="prose max-w-none order-2">
-					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 I</h2>
-					<div slot="heading-content">
-						<p>
-							<b>教学地址：</b>Landshuter Allee 11, 80637 München
-						</p>
-
-						<p>
-							<b>公共交通：</b>S Bahn 到 <i>Donnersbergerbrücke</i> 站, 下车步行5分钟
-						</p>
-
-						<p>
-							<b>停车位：</b>电车站 <i>Donnersbergerstraße</i> 附近有免费停车位
-						</p>
-
-					</div>
-					<div slot="hero-content-right">
-						<GoogleMap
-							embedUrl={mapEmbedUrl1}
-							height="400"
-							title="Unser Standort"
-						/>
-					</div>
-				</div>
-
-				<div slot="hero-content-left" class="prose max-w-none order-2">
-					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 II </h2>
+				<div slot="hero-content-right" class="prose max-w-none order-2">
+					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
 					<div slot="heading-content">
 						<p>
 							<b>教学地址：</b> Schwanthalerstraße 80, 80336 München
@@ -303,14 +278,64 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 						</p>
 
 					</div>
-					<div slot="hero-content-right">
-						<GoogleMap
-							embedUrl={mapEmbedUrl2}
-							height="400"
-							title="Unser Standort"
-						/>
-					</div>
 				</div>
+				<div slot="hero-content-right">
+					<GoogleMap
+						embedUrl={mapEmbedUrl2}
+						height="400"
+						title="Unser Standort"
+					/>
+				</div>
+
+				<!--<div slot="hero-content-left" class="prose max-w-none order-2">-->
+				<!--	<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 I</h2>-->
+				<!--	<div slot="heading-content">-->
+				<!--		<p>-->
+				<!--			<b>教学地址：</b>Landshuter Allee 11, 80637 München-->
+				<!--		</p>-->
+
+				<!--		<p>-->
+				<!--			<b>公共交通：</b>S Bahn 到 <i>Donnersbergerbrücke</i> 站, 下车步行5分钟-->
+				<!--		</p>-->
+
+				<!--		<p>-->
+				<!--			<b>停车位：</b>电车站 <i>Donnersbergerstraße</i> 附近有免费停车位-->
+				<!--		</p>-->
+
+				<!--	</div>-->
+				<!--	<div slot="hero-content-right">-->
+				<!--		<GoogleMap-->
+				<!--			embedUrl={mapEmbedUrl1}-->
+				<!--			height="400"-->
+				<!--			title="Unser Standort"-->
+				<!--		/>-->
+				<!--	</div>-->
+				<!--</div>-->
+
+				<!--<div slot="hero-content-left" class="prose max-w-none order-2">-->
+				<!--	<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 II </h2>-->
+				<!--	<div slot="heading-content">-->
+				<!--		<p>-->
+				<!--			<b>教学地址：</b> Schwanthalerstraße 80, 80336 München-->
+				<!--		</p>-->
+
+				<!--		<p>-->
+				<!--			<b>公共交通：</b>地铁 U2 到 <i>Theresienwiese</i> 站, 下车步行2分钟-->
+				<!--		</p>-->
+
+				<!--		<p>-->
+				<!--			<b>停车位：</b> 地铁站 <i>Theresienwiese</i> 附近有免费或收费停车位-->
+				<!--		</p>-->
+
+				<!--	</div>-->
+				<!--	<div slot="hero-content-right">-->
+				<!--		<GoogleMap-->
+				<!--			embedUrl={mapEmbedUrl2}-->
+				<!--			height="400"-->
+				<!--			title="Unser Standort"-->
+				<!--		/>-->
+				<!--	</div>-->
+				<!--</div>-->
 			</Hero>
 		</div>
 

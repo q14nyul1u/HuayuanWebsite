@@ -16,8 +16,8 @@ const translatedTitle = t("contact.title");
 const translatedText = t("contact.text");
 const translatedWeChat = t("contact.wechat");
 const translatedContactInfoTitle = t("contact.contactInfos");
-const translatedAddressI = t("contact.addressI");
-const translatedAddressII = t("contact.addressII");
+const translatedAddress = t("contact.address");
+
 ---
 
 <Section>
@@ -74,20 +74,17 @@ const translatedAddressII = t("contact.addressII");
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>
-                                {currentLang === "de" && (
-                                        <p class="text-sm font-medium text-gray-900">Samstag & Sonntag</p>
-                                )}
-                                <address class="text-sm text-gray-600 not-italic">
-                                    Landshuter Allee 11<br>
-                                    80637 München<br>
-                                    Deutschland
-                                </address>
-                                <br>
-                                <p class="text-sm font-medium text-gray-900">{translatedAddressII}</p>
-                                {currentLang === "de" && (
-                                        <p class="text-sm font-medium text-gray-900">Montag bis Freitag</p>
-                                )}
+                                <!--<p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>-->
+                                <!--{currentLang === "de" && (-->
+                                <!--        <p class="text-sm font-medium text-gray-900">Samstag & Sonntag</p>-->
+                                <!--)}-->
+                                <!--<address class="text-sm text-gray-600 not-italic">-->
+                                <!--    Landshuter Allee 11<br>-->
+                                <!--    80637 München<br>-->
+                                <!--    Deutschland-->
+                                <!--</address>-->
+                                <!--<br>-->
+                                <p class="text-sm font-medium text-gray-900">{translatedAddress}</p>
                                 <address class="text-sm text-gray-600 not-italic">
                                     Schwanthalerstraße 80<br>
                                     80336 München<br>
