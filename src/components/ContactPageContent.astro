@@ -5,7 +5,7 @@ import Section from "./Section.astro";
 import Heading from "./Heading.astro";
 import FormContact from "./forms/FormContact.astro";
 
-import DummyQR from "~/assets/images/dummy_QR.png";
+import WeChatQR from "~/assets/images/WeChatQRCode.PNG";
 
 const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
@@ -107,7 +107,7 @@ const translatedAddress = t("contact.address");
                                         <div class="bg-white p-3 rounded-lg shadow-sm inline-block">
                                             <Picture
                                                     class:list={"w-24 h-24"}
-                                                    src={DummyQR}
+                                                    src={WeChatQR}
                                                     height={96}
                                                     formats={["avif", "webp"]}
                                                     alt="WeChat QR Code"
