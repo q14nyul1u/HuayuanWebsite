@@ -75,6 +75,9 @@ const translatedAddressII = t("contact.addressII");
                             </div>
                             <div>
                                 <p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>
+                                {currentLang === "de" && (
+                                        <p class="text-sm font-medium text-gray-900">Samstag & Sonntag</p>
+                                )}
                                 <address class="text-sm text-gray-600 not-italic">
                                     Landshuter Allee 11<br>
                                     80637 München<br>
@@ -82,6 +85,9 @@ const translatedAddressII = t("contact.addressII");
                                 </address>
                                 <br>
                                 <p class="text-sm font-medium text-gray-900">{translatedAddressII}</p>
+                                {currentLang === "de" && (
+                                        <p class="text-sm font-medium text-gray-900">Montag bis Freitag</p>
+                                )}
                                 <address class="text-sm text-gray-600 not-italic">
                                     Schwanthalerstraße 80<br>
                                     80336 München<br>

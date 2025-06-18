@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "slug": "Chinesisch Kurs HSK 1 bis HSK 6",
-    "prettyName": "Chinesisch Kurs HSK 1 bis HSK 6",
+    "slug": "Chinesisch-Kurse HSK 1 bis HSK 6",
+    "prettyName": "Chinesisch-Kurse HSK 1 bis HSK 6",
     "description": "Für Anfänger oder Fortgeschrittene",
     "plates": [
       {
@@ -11,12 +11,12 @@
         "price": 100000
       },
       {
-        "name": "Besonders Kleine Klasse",
+        "name": "Besonders kleine Klasse",
         "description": "2-4 Kursteilnehmer. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       },
       {
-        "name": "1v1 Unterricht",
+        "name": "1:1 Unterricht",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -34,12 +34,12 @@
         "price": 100000
       },
       {
-        "name": "Besonders Kleine Klasse",
+        "name": "Besonders kleine Klasse",
         "description": "2-4 Kursteilnehmer. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       },
       {
-        "name": "1v1 Unterricht",
+        "name": "1:1 Unterricht",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -47,12 +47,12 @@
   },
   {
     "id": 3,
-    "slug": "Business Chinesisch Kurs",
-    "prettyName": "Business Chinesisch Kurs",
+    "slug": "Business Chinesisch-Kurs",
+    "prettyName": "Business Chinesisch-Kurs",
     "description": "Chinesisch im Berufsalltag oder Geschäftskontext",
     "plates": [
       {
-        "name": "1v1/1v2 Unterricht",
+        "name": "1:1/1:2 Unterricht",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -60,13 +60,13 @@
   },
   {
     "id": 4,
-    "slug": "Kommunikationskurs",
-    "prettyName": "Kommunikationskurs",
+    "slug": "Kommunikations-Kurs",
+    "prettyName": "Kommunikations-Kurs",
     "description": "Verbesserung der mündlichen Kommunikation auf Chinesisch",
     "plates": [
       {
-        "name": "1v1/1v2 Unterricht",
-        "description": "17 Unterrichtseinheiten, pro Unterrichtseinheit eine Stunde",
+        "name": "1:1/1:2 Unterricht",
+        "description": "17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       }
     ]
@@ -78,30 +78,30 @@
     "description": "Korrektur der Aussprache durch einen zertifizierten Putonghua-Lehrer",
     "plates": [
       {
-        "name": "1v1/1v2 Unterricht",
-        "description": "17 Unterrichtseinheiten, pro Unterrichtseinheit eine Stunde",
+        "name": "1:1/1:2 Unterricht",
+        "description": "17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       }
     ]
   },
   {
     "id": 6,
-    "slug": "Chinesisch Kurs für Kinder",
-    "prettyName": "Chinesisch Kurs für Kinder",
-    "description": "Kinder mit wenig oder keine Chinesisch Vorkenntnisse",
+    "slug": "Chinesisch-Kurse für Kinder",
+    "prettyName": "Chinesisch-Kurse für Kinder",
+    "description": "Kinder mit wenig oder ohne Chinesisch-Vorkenntnisse",
     "plates": [
       {
         "name": "Reguläre Klasse",
-        "description": "Maximal 10 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit 90 min mit Pause.",
+        "description": "Maximal 10 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit 90 Minuten mit Pause.",
         "price": 100000
       },
       {
-        "name": "Besonders Kleine Klasse",
+        "name": "Besonders kleine Klasse",
         "description": "2-4 Kinder pro Klasse. 17 Unterrichtseinheiten pro Semester, pro Unterrichtseinheit eine Stunde.",
         "price": 100000
       },
       {
-        "name": "1v1 Unterricht",
+        "name": "1:1 Unterricht",
         "description": "1 Stunde Unterricht",
         "price": 100000
       }
@@ -109,12 +109,12 @@
   },
   {
     "id": 7,
-    "slug": "Online Chinesisch Kurse",
-    "prettyName": "Online Chinesisch Kurse",
-    "description": "Kooperation mit renomierten Schule in China. Sie können einen kostenlosen Probeunterricht buchen.",
+    "slug": "Online Chinesisch-Kurse",
+    "prettyName": "Online Chinesisch-Kurse",
+    "description": "Kooperation mit der renomierten Schule '北京四中网校' in China. Sie können einen kostenlosen Probeunterricht buchen.",
     "plates": [
       {
-        "name": "Chinesisch Kurse HSK 1 bis HSK 6",
+        "name": "Chinesisch-Kurse HSK 1 bis HSK 6",
         "description": "",
         "price": 100000
       },
@@ -124,7 +124,7 @@
         "price": 100000
       },
       {
-        "name": "1v1 Unterricht",
+        "name": "1:1 Unterricht",
         "description": "",
         "price": 100000
       }

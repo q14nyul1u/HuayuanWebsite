@@ -5,7 +5,7 @@
     "lessons": "Kursangebote",
     "event":"Veranstaltungen",
     "contact": "Kontakt",
-    "about-us": "Über Uns"
+    "about-us": "Über uns"
   },
   "notFound": {
     "title": "Diese Seite konnte nicht gefunden werden.",
@@ -22,7 +22,7 @@
     "name": "Name",
     "basicInfo": "Sprachniveau",
     "message": "Nachricht",
-    "send": "versenden",
+    "send": "Senden",
     "text": "Gerne können Sie uns kontaktieren, wenn Sie sich für einen unserer Kurse interessieren oder unsicher sind, welcher Kurs für Sie oder für Ihr Kind am besten geeignet ist. Sie können uns eine E-Mail schreiben oder via unser Kontaktformular mit uns Kontakt aufnehmen. "
   }
 }
