@@ -12,107 +12,45 @@ const languages = [
     { code: 'zh', name: '中文', flag: '🇨🇳' }
 ];
 
-const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
+// Zeige die andere Sprache als Button
+const targetLanguage = languages.find(lang => lang.code !== currentLang) || languages[0];
 ---
 
-<div class="language-switcher relative" data-current-lang={currentLang} data-current-path={currentPath}>
+<div class="language-switcher" data-current-lang={currentLang} data-current-path={currentPath}>
     <button
             type="button"
-            class="language-switcher-button flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
-            aria-label="Sprache wechseln"
+            class="language-switch-button flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 min-w-[120px] border border-gray-200 hover:border-gray-300 hover:shadow-md"
+            data-target-lang={targetLanguage.code}
+            aria-label={`Wechseln zu ${targetLanguage.name}`}
+            title={`Wechseln zu ${targetLanguage.name}`}
     >
-        <span>{currentLanguage.flag}</span>
-        <span class="hidden sm:block">{currentLanguage.name}</span>
-        <svg class="language-switcher-chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        <span class="text-lg">{targetLanguage.flag}</span>
+        <span class="block">{targetLanguage.name}</span>
+        <svg class="w-4 h-4 ml-auto opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
         </svg>
     </button>
-
-    <div class="language-switcher-dropdown absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 opacity-0 invisible transition-all duration-200">
-        <div class="py-1" role="menu">
-            {languages.map((lang) => (
-                    <button
-                            type="button"
-                            class={`language-option w-full text-left px-4 py-2 text-sm flex items-center gap-3 hover:bg-gray-100 transition-colors ${
-                                lang.code === currentLang ? 'bg-brand-blue/10 text-brand-blue font-medium' : 'text-gray-700'
-                            }`}
-                            data-lang={lang.code}
-                            role="menuitem"
-                    >
-                        <span class="text-lg">{lang.flag}</span>
-                        <span>{lang.name}</span>
-                        {lang.code === currentLang && (
-                                <span class="ml-auto w-2 h-2 bg-brand-blue rounded-full"></span>
-                        )}
-                    </button>
-            ))}
-        </div>
-    </div>
 </div>
 
 <script>
     class LanguageSwitcher {
         constructor(element) {
             this.element = element;
-            this.button = element.querySelector('.language-switcher-button');
-            this.dropdown = element.querySelector('.language-switcher-dropdown');
-            this.chevron = element.querySelector('.language-switcher-chevron');
-            this.options = element.querySelectorAll('.language-option');
+            this.button = element.querySelector('.language-switch-button');
             this.currentLang = element.dataset.currentLang;
             this.currentPath = element.dataset.currentPath;
-            this.isOpen = false;
 
             this.init();
         }
 
         init() {
-            // Toggle dropdown on button click
+            // Handle language switch on button click
             this.button.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggle();
+                e.preventDefault();
+                const targetLang = this.button.dataset.targetLang;
+                this.changeLanguage(targetLang);
             });
-
-            // Handle language selection
-            this.options.forEach(option => {
-                option.addEventListener('click', () => {
-                    const newLang = option.dataset.lang;
-                    this.changeLanguage(newLang);
-                });
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', () => {
-                this.close();
-            });
-
-            // Close dropdown on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    this.close();
-                }
-            });
-        }
-
-        toggle() {
-            if (this.isOpen) {
-                this.close();
-            } else {
-                this.open();
-            }
-        }
-
-        open() {
-            this.isOpen = true;
-            this.dropdown.classList.remove('opacity-0', 'invisible');
-            this.dropdown.classList.add('opacity-100', 'visible');
-            this.chevron.classList.add('rotate-180');
-        }
-
-        close() {
-            this.isOpen = false;
-            this.dropdown.classList.add('opacity-0', 'invisible');
-            this.dropdown.classList.remove('opacity-100', 'visible');
-            this.chevron.classList.remove('rotate-180');
         }
 
         changeLanguage(newLang) {
@@ -130,9 +68,13 @@ const currentLanguage = languages.find(lang => lang.code === currentLang) || lan
                 newPath = `/${newLang}${newPath}`;
             }
 
+            // Ensure we have a valid path
+            if (!newPath || newPath === '') {
+                newPath = '/';
+            }
+
             // Navigate to new URL
-            window.location.href = newPath || '/';
-            this.close();
+            window.location.href = newPath;
         }
     }
 
@@ -150,57 +92,65 @@ const currentLanguage = languages.find(lang => lang.code === currentLang) || lan
 </script>
 
 <style>
-    .language-switcher {
-        /* Ensure proper positioning context */
-        position: relative;
-        }
+.language-switcher {
+    /* Ensure proper positioning context */
+    position: relative;
+    }
 
-    .language-switcher-dropdown {
-        /* Smooth transitions */
-        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-        }
+/* Enhanced button styling */
+.language-switch-button {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    transition: all 0.2s ease-in-out;
+    }
 
-    .language-switcher-chevron {
-        /* Smooth rotation */
-        transition: transform 0.2s ease-in-out;
-        }
+.language-switch-button:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
 
-    /* Hover effects */
-    .language-option:hover {
-        background-color: #f3f4f6;
-        }
+.language-switch-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-    /* Focus styles for accessibility */
-    .language-switcher-button:focus {
-        outline: 2px solid var(--brand-light-blue, #5dade2);
-        outline-offset: 2px;
-        }
+/* Focus styles for accessibility */
+.language-switch-button:focus {
+    outline: 2px solid var(--brand-light-blue, #5dade2);
+    outline-offset: 2px;
+    }
 
-    /* Custom scrollbar for dropdown if needed */
-    .language-switcher-dropdown {
-        scrollbar-width: thin;
-        }
+/* Icon animation on hover */
+.language-switch-button:hover svg {
+    opacity: 1;
+    transform: translateX(2px);
+    transition: all 0.2s ease-in-out;
+    }
 
-    .language-switcher-dropdown::-webkit-scrollbar {
-        width: 4px;
-        }
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .language-switch-button {
+    min-width: 100px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    }
 
-    .language-switcher-dropdown::-webkit-scrollbar-thumb {
-        background: #d1d5db;
-        border-radius: 2px;
-        }
+    .language-switch-button span.text-lg {
+    font-size: 1rem;
+    }
+    }
 
-    /* Animation for the active language indicator */
-    .language-option .bg-brand-green {
-        animation: pulse 2s infinite;
-        }
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .language-switch-button {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    border-color: #6b7280;
+    color: #f9fafb;
+    }
 
-    @keyframes pulse {
-        0%, 100% {
-        opacity: 1;
-        }
-        50% {
-            opacity: 0.5;
-            }
-        }
+    .language-switch-button:hover {
+    background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);
+    border-color: #9ca3af;
+    }
+    }
 </style>

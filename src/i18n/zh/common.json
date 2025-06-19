@@ -16,6 +16,8 @@
     "addressI": "教学地址 I",
     "addressII": "教学地址 II",
     "address": "教学地址",
+    "contactPerson": "联系人",
+    "teacherName": "刘老师",
     "helperTextBasicInfo": "学生目前中文水平，例如：目前使用教材名字，学习到第几册，日常与家人是中文交流还是德语交流等",
     "helperTextMessage": "希望选择什么课程",
     "email": "您的邮箱",
