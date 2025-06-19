@@ -97,31 +97,35 @@ const targetLanguage = languages.find(lang => lang.code !== currentLang) || lang
     position: relative;
     }
 
-/* Enhanced button styling */
-.language-switch-button {
+/* Enhanced button styling - Höhere Spezifität ohne !important */
+.language-switcher .language-switch-button {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    color: #374151;
+    border-color: #d1d5db;
     transition: all 0.2s ease-in-out;
     }
 
-.language-switch-button:hover {
+.language-switcher .language-switch-button:hover {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-color: #9ca3af;
+    color: #1f2937;
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
-.language-switch-button:active {
+.language-switcher .language-switch-button:active {
     transform: translateY(0);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
 /* Focus styles for accessibility */
-.language-switch-button:focus {
+.language-switcher .language-switch-button:focus {
     outline: 2px solid var(--brand-light-blue, #5dade2);
     outline-offset: 2px;
     }
 
 /* Icon animation on hover */
-.language-switch-button:hover svg {
+.language-switcher .language-switch-button:hover svg {
     opacity: 1;
     transform: translateX(2px);
     transition: all 0.2s ease-in-out;
@@ -129,28 +133,29 @@ const targetLanguage = languages.find(lang => lang.code !== currentLang) || lang
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
-    .language-switch-button {
+    .language-switcher .language-switch-button {
     min-width: 100px;
     padding: 8px 12px;
     font-size: 0.875rem;
     }
 
-    .language-switch-button span.text-lg {
+    .language-switcher .language-switch-button span.text-lg {
     font-size: 1rem;
     }
     }
 
-/* Dark mode support */
+/* Überschreibe Dark Mode mit höherer Spezifität */
 @media (prefers-color-scheme: dark) {
-    .language-switch-button {
-    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-    border-color: #6b7280;
-    color: #f9fafb;
+    .language-switcher .language-switch-button {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #d1d5db;
+    color: #374151;
     }
 
-    .language-switch-button:hover {
-    background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);
+    .language-switcher .language-switch-button:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border-color: #9ca3af;
+    color: #1f2937;
     }
     }
 </style>
