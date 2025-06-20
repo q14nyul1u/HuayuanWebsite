@@ -16,6 +16,7 @@ import SmallClass from "~/assets/images/small_class_10_14.jpg";
 import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
 import Kaligraphie from "~/assets/images/kaligraphie_zh.jpg";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
+import ScheduledTable from "../components/ScheduledTable.astro";
 
 const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.146666844624!2d11.531892692807965!3d48.14598215559082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1749129209002!5m2!1sen!2sde"
 const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.820869447464!2d11.552060679869639!3d48.13757062869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75ff70184481%3A0x4937509061487f3!2sEineWeltHaus!5e0!3m2!1sde!2sde!4v1749814356011!5m2!1sde!2sde"
@@ -24,7 +25,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 <Layout title="HuaYuan" pageTitle="HuaYuan" description="Huayuan Chinesischschule">
 
 	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[21/6]"}/>
-	<h1 class="font-black h4 mb-0 pt-5 text-center">快乐学中文，自信赢未来</h1>
+	<h1 class="font-black h4 mb-0 pt-5 text-brand-blue text-center">快乐学中文，自信赢未来</h1>
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1 relative z-10">
@@ -70,41 +71,6 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			</div>
 		</Hero>
 	</Section>
-
-	<!--<Section class:list={"bg-white"}>-->
-	<!--	<Hero>-->
-	<!--		<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">-->
-	<!--			<h1 class="font-black mb-0">快乐学中文，自信赢未来</h1>-->
-
-	<!--			<p>-->
-	<!--				<Badge color="blue" title="暑假快到了！"/>-->
-	<!--				<br></br>-->
-	<!--				o 快乐中文暑期班（连续5天，每天4个小时，满5人开班）-->
-	<!--				<br></br>-->
-	<!--				o 写作加强班（10岁以上/三年级以上）-->
-	<!--				针对海外孩子面对写作中遇到的屏障，进行系统性训练，让写作-->
-	<!--				成为一件快乐的事情。（连续5天，每天4个小时，满5人开班）-->
-	<!--			</p>-->
-
-	<!--			<div class="mt-8">-->
-	<!--				<div class="mt-8">-->
-	<!--					<Button color="blue" url="/contact">联系我们</Button>-->
-	<!--				</div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--		<div slot="hero-content-right">-->
-	<!--			<Picture-->
-	<!--				class:list={"mx-auto"}-->
-	<!--				src={ChineseClass}-->
-	<!--				height={400}-->
-	<!--				formats={["avif", "webp"]}-->
-	<!--				alt="A description of my image."-->
-	<!--				loading={"eager"}-->
-	<!--				fetchpriority={"high"}-->
-	<!--			/>-->
-	<!--		</div>-->
-	<!--	</Hero>-->
-	<!--</Section>-->
 
 	<Section class:list={"bg-brand-blue/20 relative lg:pt-15 lg:pb-15"}>
 		<Heading>
@@ -190,45 +156,22 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 
 
 	<Section contain={false} class:list={"bg-white container lg:pt-0 lg:pb-0"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose lg:order-2">
-				<h1 class="font-black">课程设计</h1>
-
-				<!--<div class="mt-8">-->
-				<!--	<Button url="/lessons">-->
-				<!--		<svg-->
-				<!--			xmlns="http://www.w3.org/2000/svg"-->
-				<!--			viewBox="0 0 20 20"-->
-				<!--			fill="currentColor"-->
-				<!--			class="size-5 inline-block"-->
-				<!--			aria-hidden="true"-->
-				<!--		>-->
-				<!--			<path-->
-				<!--				fill-rule="evenodd"-->
-				<!--				d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"-->
-				<!--				clip-rule="evenodd"></path>-->
-				<!--		</svg>-->
-				<!--		了解课程详细内容-->
-				<!--	</Button>-->
-				<!--</div>-->
-			</div>
-			<div slot="hero-content-right">
+		<div class="text-center">
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">课程设计</h2>
 				<Picture
 					class:list={"mx-auto"}
 					src={UnterrichtsDesign}
-					height={800}
+					height={500}
 					formats={["avif", "webp"]}
 					alt="A description of my image."
 				/>
 			</div>
-		</Hero>
 	</Section>
 
 	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-10"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<h2 class="font-black h2 !my-4">我们提供以下课程</h2>
-
+				<h2 slot="heading-title" class="font-black text-brand-blue h2">我们提供以下课程</h2>
 				<!--<span class="text-brand-blue text-2xl font-bold italic">我们提供以下课程</span>-->
 
 				<p>
@@ -257,6 +200,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 				/>
 			</div>
 		</Hero>
+		<ScheduledTable></ScheduledTable>
 	</Section>
 
 	<Section class:list={"bg-brand-blue/20 relative"}>
@@ -286,56 +230,6 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 						title="Unser Standort"
 					/>
 				</div>
-
-				<!--<div slot="hero-content-left" class="prose max-w-none order-2">-->
-				<!--	<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 I</h2>-->
-				<!--	<div slot="heading-content">-->
-				<!--		<p>-->
-				<!--			<b>教学地址：</b>Landshuter Allee 11, 80637 München-->
-				<!--		</p>-->
-
-				<!--		<p>-->
-				<!--			<b>公共交通：</b>S Bahn 到 <i>Donnersbergerbrücke</i> 站, 下车步行5分钟-->
-				<!--		</p>-->
-
-				<!--		<p>-->
-				<!--			<b>停车位：</b>电车站 <i>Donnersbergerstraße</i> 附近有免费停车位-->
-				<!--		</p>-->
-
-				<!--	</div>-->
-				<!--	<div slot="hero-content-right">-->
-				<!--		<GoogleMap-->
-				<!--			embedUrl={mapEmbedUrl1}-->
-				<!--			height="400"-->
-				<!--			title="Unser Standort"-->
-				<!--		/>-->
-				<!--	</div>-->
-				<!--</div>-->
-
-				<!--<div slot="hero-content-left" class="prose max-w-none order-2">-->
-				<!--	<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点 II </h2>-->
-				<!--	<div slot="heading-content">-->
-				<!--		<p>-->
-				<!--			<b>教学地址：</b> Schwanthalerstraße 80, 80336 München-->
-				<!--		</p>-->
-
-				<!--		<p>-->
-				<!--			<b>公共交通：</b>地铁 U2 到 <i>Theresienwiese</i> 站, 下车步行2分钟-->
-				<!--		</p>-->
-
-				<!--		<p>-->
-				<!--			<b>停车位：</b> 地铁站 <i>Theresienwiese</i> 附近有免费或收费停车位-->
-				<!--		</p>-->
-
-				<!--	</div>-->
-				<!--	<div slot="hero-content-right">-->
-				<!--		<GoogleMap-->
-				<!--			embedUrl={mapEmbedUrl2}-->
-				<!--			height="400"-->
-				<!--			title="Unser Standort"-->
-				<!--		/>-->
-				<!--	</div>-->
-				<!--</div>-->
 			</Hero>
 		</div>
 
@@ -380,38 +274,4 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			</div>
 		</div>
 	</Section>
-
-	<!--&lt;!&ndash; Contact &ndash;&gt;-->
-	<!--<Section class:list={"bg-white"}>-->
-	<!--	<Hero>-->
-	<!--		<div slot="hero-content-left" class="prose max-w-none">-->
-	<!--			<Badge color="red" title="benvenuto" />-->
-	<!--			<h2 slot="heading-title" class="font-black text-brand-red h2 !my-4">Drop by and say hello</h2>-->
-	<!--			<div slot="heading-content">-->
-	<!--				<p>-->
-	<!--					We're located in the heart of the city, just a stone's throw away from the main square. Our-->
-	<!--					restaurant is the perfect place to enjoy a delicious meal with friends and family.-->
-	<!--				</p>-->
-
-	<!--				<span class="text-brand-red font-medium">-->
-	<!--					✔ We also do take-away, so you can enjoy your food at home-->
-	<!--				</span>-->
-
-	<!--				<div class="mt-8">-->
-	<!--					<Button color="red" url="/book">Book a table</Button>-->
-	<!--				</div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-
-	<!--		<div slot="hero-content-right">-->
-	<!--			<Picture-->
-	<!--				class:list={"mx-auto"}-->
-	<!--				src={Dessert}-->
-	<!--				height={600}-->
-	<!--				formats={["avif", "webp"]}-->
-	<!--				alt="A description of my image."-->
-	<!--			/>-->
-	<!--		</div>-->
-	<!--	</Hero>-->
-	<!--</Section>-->
 </Layout>
