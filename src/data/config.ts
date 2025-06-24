@@ -4,7 +4,7 @@ export const siteCurrency = "USD";
 export const siteDomain = "hua-yuan-chinesisch.de";
 export const siteName = "HuaYuan";
 export const siteSlogan = "Die Chinesisch Schule für Ihr Kind";
-export const themeColor = "#FF0000";
+export const themeColor = "#FFFFFF";
 
 export const phone = {
 	href: "tel:+123456789",
