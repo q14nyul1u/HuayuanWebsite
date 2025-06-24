@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "slug": "继承语教学 - 识字启蒙",
-    "prettyName": "继承语教学 - 识字启蒙",
+    "slug": "继承语汉语 - 识字启蒙",
+    "prettyName": "继承语汉语 - 识字启蒙",
     "description": "移民或海外出生的孩子（学前班汉字启蒙）",
     "plates": [
       {
@@ -24,8 +24,8 @@
   },
   {
     "id": 2,
-    "slug": " 继承语教学 - 语文1-6年级",
-    "prettyName": " 继承语教学 - 语文1-6年级",
+    "slug": " 继承语汉语 - 语文1-6年级",
+    "prettyName": " 继承语汉语 - 语文1-6年级",
     "description": "移民或海外出生的孩子",
     "plates": [
       {
@@ -47,8 +47,8 @@
   },
   {
     "id": 3,
-    "slug": "母语教学",
-    "prettyName": "母语教学",
+    "slug": "母语汉语",
+    "prettyName": "母语汉语",
     "description": "和国内完全同步教学",
     "plates": [
       {

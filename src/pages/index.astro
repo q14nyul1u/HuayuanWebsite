@@ -13,10 +13,11 @@ import ChineseClass from "~/assets/images/chinese_class_10_24.png";
 import YuwenBooks from "~/assets/images/yuwen_books_12_21.png";
 import Teacher from "~/assets/images/teacher_10_15.jpg";
 import SmallClass from "~/assets/images/small_class_10_14.jpg";
-import UnterrichtsDesign from "~/assets/images/unterrichtsdesign.jpg";
+import UnterrichtsDesign from "~/assets/images/unterrichtsdesign_21_09.png";
 import Kaligraphie from "~/assets/images/kaligraphie_zh.jpg";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
 import ScheduledTable from "../components/ScheduledTable.astro";
+import FixedButton from "../components/FixedButton.astro";
 
 const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.146666844624!2d11.531892692807965!3d48.14598215559082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e761af5853d45%3A0x81f1b183b1748027!2sLandshuter%20Allee%2011%2C%2080637%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1749129209002!5m2!1sen!2sde"
 const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.820869447464!2d11.552060679869639!3d48.13757062869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75ff70184481%3A0x4937509061487f3!2sEineWeltHaus!5e0!3m2!1sde!2sde!4v1749814356011!5m2!1sde!2sde"
@@ -26,22 +27,26 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 
 	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[21/6]"}/>
 	<h1 class="font-black h4 mb-0 pt-5 text-brand-blue text-center">快乐学中文，自信赢未来</h1>
-	<Section class:list={"bg-white"}>
+	<Section contain={false} class:list={"bg-white container py-16 pt-3 lg:pb-10"}>
 		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1 relative z-10">
+			<div slot="hero-content-left" class="prose max-w-none relative z-10">
 				<div
 					class="bg-white/90 backdrop-blur-sm border-l-8 border-brand-blue rounded-xl p-6 shadow-2xl transition-all duration-300">
-					<div class="bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg p-4">
-						<div class="mt-5 mb-5">
-							<h4 class="text-xl font-bold text-brand-blue mb-5 mt-5 gap-3 flex items-center">
-								🏖️ 暑假快到了！
+					<div class="bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg p-4 pt-0">
+						<div class="flex items-center justify-between">
+							<h4 class="text-xl mt-5 mb-0 font-bold text-brand-blue">
+								近期开课！
 							</h4>
-							<Button color="blue" url="/de/contact">课程咨询</Button>
+							<Button spacing="mt-5" color="blue" url="/de/contact">
+								课程咨询
+							</Button>
 						</div>
+						<p class="text-xl font-bold mb-5 mt-5 gap-3 flex items-center">
+							🏖️ 暑期课程 2025年8月25日 - 29日</p>
 						<div class="space-y-3">
 							<div class="bg-white rounded-lg p-3 shadow-sm border-l-4 border-blue-400">
 								<strong class="text-brand-blue">🇨🇳 快乐中文暑期班</strong>
-								<div class="text-sm text-gray-600 mt-1">暑假特训营，边玩边学，轻松提高中文！
+								<div class="text-sm text-gray-600 mt-1">暑假特训营，轻松提高中文！
 									5天课程、互动活动、文化体验，精彩不断，让孩子在乐趣中突破自我！每天4个小时，满5人开班
 								</div>
 							</div>
@@ -52,22 +57,20 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 									针对海外孩子面对写作中遇到的屏障，进行系统性训练，让写作成为一件快乐的事情。（连续5天，每天4个小时，满5人开班）
 								</div>
 							</div>
+							<p class="text-xl font-bold mb-5 mt-5 gap-3 flex items-center">
+								🏖️ 继承语教学周末课程 2025年9月20日 - 2026年2月14日</p>
+							<div class="bg-white rounded-lg p-3 shadow-sm border-l-4 border-blue-400">
+								<strong class="text-brand-blue">✍️ 写作加强班（10岁以上/三年级以上）</strong>
+								<div class="text-sm text-gray-600 mt-1">
+									针对海外孩子面对写作中遇到的屏障，进行系统性训练，让写作成为一件快乐的事情。（连续5天，每天4个小时，满5人开班）
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div slot="hero-content-right" class="relative">
-				<!-- Zusätzlicher visueller Effekt um das Bild -->
-
-				<Picture
-					class:list={"mx-auto rounded-xl shadow-2xl transition-transform duration-500"}
-					src={ChineseClass}
-					height={400}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-					loading={"eager"}
-					fetchpriority={"high"}
-				/>
+			<div slot="hero-content-right" class="relative max-lg:order-1">
+				<ScheduledTable></ScheduledTable>
 			</div>
 		</Hero>
 	</Section>
@@ -155,79 +158,49 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	</Section>
 
 
-	<Section contain={false} class:list={"bg-white container lg:pt-0 lg:pb-0"}>
+	<Section contain={false} class:list={"bg-white container"}>
 		<div class="text-center">
 			<h2 slot="heading-title" class="font-black text-brand-blue h2">课程设计</h2>
 				<Picture
 					class:list={"mx-auto"}
 					src={UnterrichtsDesign}
-					height={500}
+					height={450}
 					formats={["avif", "webp"]}
 					alt="A description of my image."
 				/>
 			</div>
-	</Section>
-
-	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-0 lg:pb-10"}>
-		<Hero>
-			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<h2 slot="heading-title" class="font-black text-brand-blue h2">我们提供以下课程</h2>
-				<!--<span class="text-brand-blue text-2xl font-bold italic">我们提供以下课程</span>-->
-
-				<p>
-					📖 继承语教学（移民或海外出生的孩子）
-				</p>
-				<p>
-					📖 母语教学（和国内完全同步教学）
-				</p>
-				<p>
-					📖 写作指导课
-				</p>
-				<p>
-					📖 其它特色课程
-				</p>
-				<div class="mt-8">
-					<Button color="blue" url="/lessons">了解课程详细内容</Button>
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<Picture
-					class:list={"mx-auto"}
-					src={Kaligraphie}
-					height={600}
-					formats={["avif", "webp"]}
-					alt="A description of my image."
-				/>
-			</div>
-		</Hero>
-		<ScheduledTable></ScheduledTable>
 	</Section>
 
 	<Section class:list={"bg-brand-blue/20 relative"}>
 		<div class="py-16 lg:pt-2 lg:pb-5">
 			<Hero>
-				<div slot="hero-content-right" class="text-center prose max-w-none order-2">
-					<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
-					<div slot="heading-content">
-						<p>
-							<b>教学地址：</b> Schwanthalerstraße 80, 80336 München
-						</p>
+				<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
+					<h2 slot="heading-title" class="font-black text-brand-blue h2">我们提供以下课程</h2>
+					<!--<span class="text-brand-blue text-2xl font-bold italic">我们提供以下课程</span>-->
 
-						<p>
-							<b>公共交通：</b>地铁 U2 到 <i>Theresienwiese</i> 站, 下车步行2分钟
-						</p>
-
-						<p>
-							<b>停车位：</b> 地铁站 <i>Theresienwiese</i> 附近有免费或收费停车位
-						</p>
-
+					<p>
+						📖 继承语教学（移民或海外出生的孩子）
+					</p>
+					<p>
+						📖 母语教学（和国内完全同步教学）
+					</p>
+					<p>
+						📖 写作指导课
+					</p>
+					<p>
+						📖 其它特色课程
+					</p>
+					<div class="mt-8">
+						<Button color="blue" url="/lessons">了解课程详细内容</Button>
 					</div>
 				</div>
 				<div slot="hero-content-right">
-					<GoogleMap
-						embedUrl={mapEmbedUrl2}
-						height="400"
-						title="Unser Standort"
+					<Picture
+						class:list={"mx-auto"}
+						src={Kaligraphie}
+						height={600}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
 					/>
 				</div>
 			</Hero>
@@ -258,20 +231,38 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 			></path>
 		</svg>
 	</Section>
+	<Section contain={false} class:list={"bg-white container py-16 lg:py-32 lg:pt-3 lg:pb-10"}>
+		<Hero>
+			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
+				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">教学地点</h2>
+				<div slot="heading-content">
+					<p>
+						<b>教学地址：</b> Schwanthalerstraße 80, 80336 München
+					</p>
 
-	<Section class:list={"bg-white"}>
-		<Heading>
-			<h2 slot="heading-title"
-				class="font-black button-blue h2 cursor-pointer button-blue hover:button-blue hover:underline text-white px-6 py-3 rounded-lg inline-block transition-colors duration-200"
-				onclick="window.location.href='/contact'">
-				联系我们
-			</h2>
-		</Heading>
-		<div class="prose max-w-none order-2">
-			<div class="max-w-sm sm:max-w-xl md:max-w-md lg:max-w-lg mx-auto">
-				<p class="text-center"><b>如果您对我们的课程感兴趣，或者不确定该为孩子选择什么课程，请及时联系我们。
-					我们的老师会根据孩子的具体情况提供专业的课程设计。</b></p>
+					<p>
+						<b>公共交通：</b>地铁 U2 到 <i>Theresienwiese</i> 站, 下车步行2分钟
+					</p>
+
+					<p>
+						<b>停车位：</b> 地铁站 <i>Theresienwiese</i> 附近有免费或收费停车位
+					</p>
+
+				</div>
 			</div>
-		</div>
+			<div slot="hero-content-right">
+				<GoogleMap
+					embedUrl={mapEmbedUrl2}
+					height="400"
+					title="Unser Standort"
+				/>
+			</div>
+		</Hero>
 	</Section>
+	<FixedButton
+		href="/de/contact"
+		text="课程咨询"
+		position='bottom'
+
+	/>
 </Layout>

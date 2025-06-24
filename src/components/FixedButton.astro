@@ -14,12 +14,13 @@ const {
 const positionClass = {
     top: 'top-20',
     middle: 'top-1/2 -translate-y-1/2',
-    bottom: 'bottom-20'
+    bottom: 'bottom-5'
 }[position];
 ---
 <a
         href={href}
         class={`scroll-button text-brand-blue fixed right-6 z-50 px-4 py-3 rounded-lg shadow-lg font-medium transition-all duration-300 hover:shadow-xl gap-2 hover:scale-105 ${positionClass}`}
+        id="fixed-button"
 >
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,30 +29,120 @@ const positionClass = {
     {text}
 </a>
 
+<script>
+    class FixedButtonController {
+        constructor() {
+            this.button = document.getElementById('fixed-button');
+            this.footer = document.querySelector('footer');
+            this.isHidden = false;
+
+            if (this.button && this.footer) {
+                this.init();
+            }
+        }
+
+        init() {
+            // Verschiedene Einstellungen für Desktop und Mobile
+            const isMobile = window.innerWidth <= 768;
+
+            // Erstelle einen Intersection Observer für den Footer
+            this.observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Footer ist sichtbar - Button ausblenden
+                            this.hideButton();
+                        } else {
+                            // Footer ist nicht sichtbar - Button einblenden
+                            this.showButton();
+                        }
+                    });
+                },
+                {
+                    // Niedrigerer threshold für Mobile für frühere Reaktion
+                    threshold: isMobile ? 0.05 : 0.1,
+                    // Größerer Offset für Mobile (150px statt 50px)
+                    rootMargin: isMobile ? '0px 0px -10px 0px' : '0px 0px -50px 0px'
+                }
+            );
+
+            this.observer.observe(this.footer);
+
+            // Bei Resize-Events Observer neu initialisieren
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    if (this.observer) {
+                        this.observer.disconnect();
+                        this.init(); // Neu initialisieren mit aktueller Bildschirmgröße
+                    }
+                }, 250);
+            });
+
+            // Cleanup bei Seitenwechsel
+            document.addEventListener('astro:before-preparation', () => {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            });
+        }
+
+        hideButton() {
+            if (!this.isHidden) {
+                this.button.style.opacity = '0';
+                this.button.style.transform = this.button.style.transform.replace('scale(1)', 'scale(0.8)');
+                this.button.style.pointerEvents = 'none';
+                this.isHidden = true;
+            }
+        }
+
+        showButton() {
+            if (this.isHidden) {
+                this.button.style.opacity = '1';
+                this.button.style.transform = this.button.style.transform.replace('scale(0.8)', 'scale(1)');
+                this.button.style.pointerEvents = 'auto';
+                this.isHidden = false;
+            }
+        }
+    }
+
+    // Initialisiere den Controller
+    document.addEventListener('DOMContentLoaded', () => {
+        new FixedButtonController();
+    });
+
+    // Für SPA Navigation
+    document.addEventListener('astro:page-load', () => {
+        new FixedButtonController();
+    });
+</script>
 
 <style>
+.scroll-button {
+    /* Zusätzliche Styles für bessere Sichtbarkeit */
+    backdrop-filter: blur(10px);
+    border: 1px solid #2980b9;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    /* Smooth transitions für das Ein- und Ausblenden */
+    transition: all 0.3s ease-in-out;
+    }
+
+.scroll-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .scroll-button {
-        /* Zusätzliche Styles für bessere Sichtbarkeit */
-        backdrop-filter: blur(10px);
-        border: 1px solid #2980b9;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 120px;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    min-width: 100px;
     }
-
-    .scroll-button:hover {
-        transform: translateY(-2px) scale(1.05);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .scroll-button {
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            min-width: 100px;
-        }
     }
 </style>
