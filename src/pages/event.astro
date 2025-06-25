@@ -2,38 +2,110 @@
 import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
 import Heading from "~/components/Heading.astro";
-import { Picture } from "astro:assets";
-import { getCollection } from "astro:content";
+import GoogleMap from "~/components/GoogleMap.astro";
+import Button from "~/components/Button.astro";
 
-const gallery = await getCollection("gallery");
+const events = [];
+
+// Funktion zum Formatieren des Datums
+function formatDate(dateString) {
+	const date = new Date(dateString);
+	return date.toLocaleDateString('de-DE', {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	});
+}
 ---
 
 <Layout>
 	<Section class:list={"[&>.container]:pb-0"}>
 		<Heading>
 			<h1 slot="heading-title" class="font-black text-brand-blue h2">近期活动</h1>
-			<p slot="heading-content">
-				近期没有活动。
-			</p>
 		</Heading>
 	</Section>
-	<!--<div class="masonry-grid grid grid-cols-2 lg:grid-cols-3 pb-16 lg:pb-32">-->
-	<!--	{-->
-	<!--		gallery.map((item, index) => (-->
-	<!--			<div class="masonry-grid-item">-->
-	<!--				<a href={item.data.image.src} class="glightbox">-->
-	<!--					<Picture-->
-	<!--						src={item.data.image}-->
-	<!--						alt={item.data.alt}-->
-	<!--						class="h-full w-full object-cover object-center"-->
-	<!--						loading={index < 3 ? "eager" : "lazy"}-->
-	<!--                        fetchpriority={index < 3 ? "high" : "auto"}-->
-	<!--					/>-->
-	<!--				</a>-->
-	<!--			</div>-->
-	<!--		))-->
-	<!--	}-->
-	<!--</div>-->
+
+	<Section>
+		<div class="space-y-8">
+			{events.length === 0 ? (
+				<div class="text-center py-16">
+					<p class="text-gray-600 text-lg">近期没有活动。</p>
+				</div>
+			) : (
+				events.map((event) => (
+					<div
+						class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200">
+						<div class="p-6">
+							<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+								{/* Datum und Zeit */}
+								<div class="flex-shrink-0">
+									<div class="bg-brand-blue text-white rounded-lg p-4 text-center min-w-[120px]">
+										<div class="text-2xl font-bold">
+											{new Date(event.date).getDate()}
+										</div>
+										<div class="text-sm uppercase tracking-wide">
+											{new Date(event.date).toLocaleDateString('de-DE', {month: 'short'})}
+										</div>
+										<div class="text-xs mt-1">
+											{new Date(event.date).getFullYear()}
+										</div>
+									</div>
+									<div class="text-center mt-2 text-sm text-gray-600">
+										{event.time} Uhr
+									</div>
+								</div>
+
+								{/* Event-Details */}
+								<div class="flex-grow">
+									<div class="flex items-center justify-between">
+										<h3 class="text-xl font-semibold text-gray-900 mb-3">
+											{event.title}
+										</h3>
+										<Button spacing="mt-5" color="blue" url={event.link}>
+											参加
+										</Button>
+									</div>
+									{/* Ort */}
+									<div class="flex items-start gap-2 text-gray-600 mb-4">
+										<svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+											 viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+										</svg>
+										<div>
+											<div class="font-medium">{event.location}</div>
+											<div class="text-sm text-gray-500">{event.address}</div>
+										</div>
+									</div>
+
+									{/* Google Map Integration */}
+									{event.mapUrl && (
+										<div class="mt-4">
+											<GoogleMap
+												embedUrl={event.mapUrl}
+												height="300"
+												title={`Karte für ${event.title}`}
+											/>
+										</div>
+									)}
+								</div>
+							</div>
+						</div>
+
+						{/* Vollständiges Datum als Footer */}
+						<div class="bg-gray-50 px-6 py-3 border-t border-gray-200">
+							<p class="text-sm text-gray-600">
+								📅 {formatDate(event.date)} um {event.time} Uhr
+							</p>
+						</div>
+					</div>
+				))
+			)}
+		</div>
+	</Section>
 </Layout>
 
 <script>

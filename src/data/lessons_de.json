@@ -12,7 +12,7 @@
       },
       {
         "name": "",
-        "description": "Der Unterricht findet in einer kleinen Klassen von maximal 10 Teilnehmenden statt.",
+        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
         "price": 100000
       },
       {
@@ -35,7 +35,7 @@
       },
       {
         "name": "",
-        "description": "Der Unterricht findet in einer kleinen Klassen von maximal 10 Teilnehmenden statt.",
+        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
         "price": 100000
       },
       {
@@ -53,7 +53,7 @@
     "plates": [
       {
         "name": "",
-        "description": "Sie können den Privatunterricht in Form vom Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
+        "description": "Sie können den Privatunterricht in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
         "price": 100000
       },
       {
@@ -130,7 +130,7 @@
       },
       {
         "name": "",
-        "description": "Der Unterricht findet in einer kleinen Klassen von maximal 10 Kindern statt",
+        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Kindern statt.",
         "price": 100000
       },
       {
