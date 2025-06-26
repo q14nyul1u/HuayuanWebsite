@@ -24,8 +24,8 @@
   },
   {
     "id": 2,
-    "slug": "Wochenendekurse Chinesisch",
-    "prettyName": "Wochenendekurse Chinesisch",
+    "slug": "Wochenendkurse Chinesisch",
+    "prettyName": "Wochenendkurse Chinesisch",
     "description": "Für Anfänger und Fortgeschrittene. Der Unterricht findet am Samstag oder Sonntag statt.",
     "plates": [
       {
@@ -71,7 +71,7 @@
     "plates": [
       {
         "name": "",
-        "description": "Sie können die Prüfungsvorbereitung in Form vom Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
+        "description": "Sie können die Prüfungsvorbereitung in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
         "price": 100000
       },
       {
@@ -89,7 +89,7 @@
     "plates": [
       {
         "name": "",
-        "description": "Sie können diesen Kurs in Form vom Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
+        "description": "Sie können diesen Kurs in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
         "price": 100000
       },
       {
@@ -107,7 +107,7 @@
     "plates": [
       {
         "name": "",
-        "description": "Sie können dieses Training in Form vom Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
+        "description": "Sie können dieses Training in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
         "price": 100000
       },
       {
@@ -119,8 +119,8 @@
   },
   {
     "id": 7,
-    "slug": "Wochenendekurse für Kinder",
-    "prettyName": "Wochenendekurse für Kinder",
+    "slug": "Wochenendkurse für Kinder",
+    "prettyName": "Wochenendkurse für Kinder",
     "description": "Kinder mit wenig oder ohne Chinesisch-Vorkenntnisse",
     "plates": [
       {
@@ -144,7 +144,7 @@
     "id": 8,
     "slug": "Online Chinesischkurse",
     "prettyName": "Online Chinesischkurse",
-    "description": "Kooperation mit der renomierten Schule '北京四中网校' in China. Sie können einen kostenlosen Probeunterricht buchen.",
+    "description": "Kooperation mit der renomierten Schule '北京四中网校 etiantian' in China. Sie können einen kostenlosen Probeunterricht buchen.",
     "plates": [
       {
         "name": "",
