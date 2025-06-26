@@ -72,13 +72,15 @@ function formatDate(dateString) {
 
                                     {/* Event-Details */}
                                     <div class="flex-grow">
-                                        <div class="flex items-center justify-between">
-                                            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                            <h3 class="text-xl font-semibold text-gray-900">
                                                 {event.title}
                                             </h3>
-                                            <Button spacing="mt-5" color="blue" url={event.link}>
-                                                Anmelden
-                                            </Button>
+                                            <div class="flex sm:block">
+                                                <Button spacing="mt-0" color="blue" url={event.link}>
+                                                    Anmelden
+                                                </Button>
+                                            </div>
                                         </div>
                                         {/* Ort */}
                                         <div class="flex items-start gap-2 text-gray-600 mb-4">
