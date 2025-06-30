@@ -5,7 +5,6 @@ const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
 const t = useTranslations(currentLang);
 
-// Variablen, die die übersetzten Texte enthalten
 const translatedName = t("contact.name");
 const translatedEmail = t("contact.email");
 const translatedMessage = t("contact.message");
@@ -13,71 +12,11 @@ const translatedBasicInfo = t("contact.basicInfo");
 const translatedHelperTextBasicInfo = t("contact.helperTextBasicInfo");
 const translatedHelperTextMessage = t("contact.helperTextMessage");
 const translatedSend = t("contact.send");
-
-let message = "";
-let messageType = "";
-
-// Server-side Form Handling
-if (Astro.request.method === "POST") {
-    try {
-        const data = await Astro.request.formData();
-        const name = data.get("name") as string;
-        const email = data.get("email") as string;
-        const basicInfo = data.get("basicInfo") as string;
-        const messageText = data.get("message") as string;
-
-        // E-Mail senden mit nodemailer
-
-        const nodemailer = await import('nodemailer');
-
-        // SMTP Konfiguration - verwenden Sie Ihre SMTP-Daten
-        const transporter = nodemailer.createTransporter({
-            host: process.env.SMTP_HOST || 'smtp.strato.de', // Beispiel für Strato
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: false, // true für Port 465, false für andere Ports
-            auth: {
-                user: process.env.SMTP_USER, // Ihre Absender-E-Mail
-                pass: process.env.SMTP_PASS  // Ihr E-Mail-Passwort
-            }
-        });
-
-        // E-Mail Inhalt
-        const mailOptions = {
-            from: process.env.SMTP_USER, // Absender (Ihre E-Mail)
-            to: 'info@blabla.de', // Ziel-E-Mail-Adresse
-            replyTo: email, // Reply-To auf die E-Mail des Kontaktformulars setzen
-            subject: `Neue Kontaktanfrage von ${name}`,
-            html: `
-        <h2>Neue Kontaktanfrage über das Kontaktformular</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>E-Mail:</strong> ${email}</p>
-        <p><strong>Grundlegende Informationen:</strong></p>
-        <p>${basicInfo.replace(/\n/g, '<br>')}</p>
-        <p><strong>Nachricht:</strong></p>
-        <p>${messageText.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Diese E-Mail wurde über das Kontaktformular Ihrer Website gesendet.</small></p>
-      `
-        };
-
-        await transporter.sendMail(mailOptions);
-        message = "Ihre Nachricht wurde erfolgreich gesendet!";
-        messageType = "success";
-
-    } catch (error) {
-        console.error('Fehler beim Senden der E-Mail:', error);
-        message = "Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.";
-        messageType = "error";
-    }
-}
 ---
 
-<form method="POST">
-    {message && (
-            <div class={`p-4 mb-4 rounded ${messageType === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                {message}
-            </div>
-    )}
+
+<form netlify name="contact" method="POST" action="/danke">
+    <input type="hidden" name="form-name" value="contact"/>
 
     <div class="flex flex-col gap-8 mx-auto max-w-md">
         <div>
@@ -93,8 +32,9 @@ if (Astro.request.method === "POST") {
                 <input type="email" name="email" id="email" required/>
             </div>
         </div>
+
         <div>
-            <label for="message">{translatedBasicInfo}</label>
+            <label for="basicInfo">{translatedBasicInfo}</label>
             <div class="mt-2">
                 <textarea name="basicInfo" placeholder={translatedHelperTextBasicInfo} id="basicInfo" rows="4"
                           required></textarea>
