@@ -4,7 +4,10 @@
     "lessons": "课程介绍",
     "contact": "联系我们",
     "event": "活动",
-    "about-us": "关于华源"
+    "huayuan": "关于华源",
+    "about-us": "教育理念",
+    "donate": "支持我们",
+    "kidsprotection": "儿童保护"
   },
   "notFound": {
     "title": "无法找到该网页。",

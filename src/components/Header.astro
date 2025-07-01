@@ -28,16 +28,34 @@ const menuMain = [
 		highlighted: false,
 	},
 	{
-		name: t("nav.about-us"),
+		name: t("nav.huayuan"),
 		url: getLocalizedUrl("/about-us", currentLang),
 		highlighted: false,
 	},
+	// {
+	// 	name: t("nav.huayuan"),
+	// 	dropdown: [
+	// 		{
+	// 			name: t("nav.about-us"),
+	// 			url: getLocalizedUrl("/about-us", currentLang),
+	// 		},
+	// 		{
+	// 			name: t("nav.donate"),
+	// 			url: getLocalizedUrl("/donate", currentLang),
+	// 		},
+	// 		{
+	// 			name: t("nav.kidsprotection"),
+	// 			url: getLocalizedUrl("/kidsprotection", currentLang),
+	// 		},
+	// 	],
+	// },
 	{
 		name: t("nav.contact"),
 		url: getLocalizedUrl("/contact", currentLang),
 		highlighted: false,
-	},
+	}
 ];
+
 ---
 <header x-data="{ open: false }" @keydown.window.escape="open = false"
 		class="fixed top-0 left-0 w-full bg-blue-100  z-40 shadow-sm">
@@ -89,16 +107,39 @@ const menuMain = [
 			</div>
 
 			<div class="hidden lg:flex lg:gap-x-6 lg:items-center">
-				{
-					menuMain.map((item) => (
+				{menuMain.map((item) => (
+					item.dropdown ? (
+						<div x-data="{ showDropdown: false }" class="relative"
+							 @keydown.escape.window="showDropdown = false">
+							<button
+								@click="showDropdown = !showDropdown"
+								class="transition text-1xl font-semibold hover:text-brand-light-blue"
+							>
+								{item.name}
+							</button>
+							<div
+								x-show="showDropdown"
+								@click.away="showDropdown = false"
+								x-transition
+								class="absolute w-fit min-w-20 left-0 mt-2 bg-white border rounded shadow-md z-50"
+							>
+								{item.dropdown.map((subitem) => (
+									<a href={subitem.url} class="block py-2 p-1 text-gray-700 hover:bg-blue-100">
+										{subitem.name}
+									</a>
+								))}
+							</div>
+						</div>
+					) : (
 						<a
 							href={item.url}
 							class={`transition text-1xl font-semibold hover:text-brand-light-blue ${item.highlighted ? "menu-item-highlighted" : ""} ${pathname === item.url ? "menu-item-active" : ""}`}
 						>
 							{item.name}
 						</a>
-					))
-				}
+					)
+				))}
+
 				<!-- Language Switcher for Desktop -->
 				<LanguageSwitcher
 					currentLang={currentLang}
@@ -152,15 +193,37 @@ const menuMain = [
 					<div class="-my-6 divide-y divide-gray-500/10">
 						<div class="space-y-2 py-6 mt-16">
 							{
-								menuMain.map((item) => (
-									<a
-										@click="open = false"
-										href={item.url}
-										class={`block py-2 text-center font-semibold text-3xl ${item.highlighted ? "menu-item-highlighted w-max mx-auto !px-8 !py-2" : ""} ${pathname === item.url ? "menu-item-active" : ""}`}
-									>
-										{item.name}
-									</a>
-								))
+								menuMain.map((item) =>
+									item.dropdown ? (
+										<div x-data="{ open: false }" class="text-center">
+											<button
+												@click="open = !open"
+												class="block w-full py-2 text-3xl font-semibold text-brand-blue"
+											>
+												{item.name}
+											</button>
+											<div x-show="open" x-collapse class="mt-2 space-y-1">
+												{item.dropdown.map((subitem) => (
+													<a
+														href={subitem.url}
+														@click="open = false; open = false"
+														class="block text-xl text-gray-700 hover:text-brand-light-blue"
+													>
+														{subitem.name}
+													</a>
+												))}
+											</div>
+										</div>
+									) : (
+										<a
+											@click="open = false"
+											href={item.url}
+											class={`block py-2 text-center font-semibold text-3xl ${item.highlighted ? "menu-item-highlighted w-max mx-auto !px-8 !py-2" : ""} ${pathname === item.url ? "menu-item-active" : ""}`}
+										>
+											{item.name}
+										</a>
+									)
+								)
 							}
 						</div>
 					</div>

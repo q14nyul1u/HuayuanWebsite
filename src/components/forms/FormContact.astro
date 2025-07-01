@@ -1,5 +1,5 @@
 ---
-import {getCurrentLanguage, useTranslations, getPathName} from "~/i18n/index.js";
+import {getCurrentLanguage, useTranslations, getLocalizedUrl, getPathName} from "~/i18n/index.js";
 
 const pathname = getPathName(Astro.url.pathname);
 const currentLang = getCurrentLanguage(pathname);
@@ -15,7 +15,12 @@ const translatedSend = t("contact.send");
 ---
 
 
-<form netlify name="contact" method="POST">
+<form
+        netlify
+        name="contact"
+        method="POST"
+        action={getLocalizedUrl("/thanks", currentLang)}
+>
     <input type="hidden" name="form-name" value="contact"/>
 
     <div class="flex flex-col gap-8 mx-auto max-w-md">
