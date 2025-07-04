@@ -7,17 +7,12 @@
     "plates": [
       {
         "name": "",
-        "description": "Unter der Woche am Abend bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. In den Kursen wird Alltagskonversation, das Erlernen chinesischer Schriftzeichen sowie Hörverstehen, Sprechen, Lesen und Schreiben vermittelt.",
+        "description": "Unter der Woche am Abend bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle 'Kursaufteilung' ganz unten.",
         "price": 100000
       },
       {
         "name": "",
         "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Ein gebuchter Sprachkurs umfasst 17 Unterrichtseinheiten à 60 Minuten.",
         "price": 100000
       }
     ]
@@ -30,17 +25,12 @@
     "plates": [
       {
         "name": "",
-        "description": "Am Wochenende bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. In den Kursen wird Alltagskonversation, das Erlernen chinesischer Schriftzeichen sowie Hörverstehen, Sprechen, Lesen und Schreiben vermittelt.",
+        "description": "Am Wochenende bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle „Kursaufteilung” ganz unten.",
         "price": 100000
       },
       {
         "name": "",
         "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Ein gebuchter Sprachkurs umfasst 17 Unterrichtseinheiten à 60 Minuten.",
         "price": 100000
       }
     ]
@@ -131,11 +121,6 @@
       {
         "name": "",
         "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Kindern statt.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Ein gebuchter Sprachkurs umfasst 17 Unterrichtseinheiten à 90 Minuten mit Pause.",
         "price": 100000
       }
     ]

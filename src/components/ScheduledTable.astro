@@ -1,8 +1,13 @@
 ---
 // ScheduledTable.astro
+interface Props {
+    paddingTop?: string;
+}
+
+const {paddingTop = "pt-0"} = Astro.props;
 ---
 
-<div class="max-w-4xl mx-auto px-4 pt-0">
+<div class={`max-w-4xl mx-auto px-4 ${paddingTop}`}>
     <div class="mb-6 text-center">
         <h3 class="h5 mt-0 font-black">
             2025年&nbsp秋&nbsp季&nbsp学&nbsp期&nbsp课&nbsp程&nbsp表</h3>
