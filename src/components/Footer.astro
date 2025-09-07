@@ -5,9 +5,45 @@ import { siteName } from "~/data/config";
 <!-- Footer Links -->
 <footer class="bg-brand-blue text-white">
 	<div class="container pt-16 pb-8">
-		<p class="text-center font-bold text-4xl text-white">华源<span
-			class="text-brand-light-blue bg-white px-3 ml-1 rounded-lg">慕尼黑中文学校</span></p>
-		<p class="text-center font-bold text-2xl text-white">Hua Yuan Chinesische Sprachschule in München</p>
+		<p class="text-center font-bold text-4xl text-white">慕尼黑<span
+			class="text-brand-light-blue bg-white px-3 ml-1 rounded-lg">华源中文学校</span></p>
+		<p class="text-center font-bold text-2xl text-white">Hua Yuan Chinesische Sprachschule München</p>
+
+		<div class="mt-8 mb-8 border-t border-white/20 pt-6">
+			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+				<div class="text-center">
+					<p class="text-sm font-medium text-white/90 mb-3"><b>Kontakt 联系方式</b></p>
+					<div class="text-xs text-white/80 space-y-2">
+						<div>
+							<a href="mailto:info@huayuan-csm.de" class="text-white/80 hover:text-white transition-colors">
+								info@huayuan-csm.de
+							</a>
+						</div>
+						<div>
+							<p class="text-white/80">
+								Schwanthalerstraße 80<br>
+								80336 München<br>
+								Deutschland
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bankverbindung -->
+				<div class="text-center">
+					<p class="text-sm font-medium text-white/90 mb-3"><b>Bankverbindung 银行信息</b></p>
+					<div class="text-xs text-white/80 space-y-1">
+					    <p>Hua Yuan Chinesische Sprachschule München e.V.</p>
+						<p><span class="font-medium">IBAN:</span> DE45 7015 0000 1009 2641 83</p>
+						<p><span class="font-medium">BIC:</span> SSKMDEMMXXX</p>
+						<p><span class="font-medium">Bank:</span> Sparkasse München</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<p class="mt-10 text-center text-sm">&copy; {currentYear} {siteName}. All rights reserved. <a class="underline"
 																									  href="/privacy-policy">Datenschutz</a>
 		</p>
@@ -20,5 +56,4 @@ import { siteName } from "~/data/config";
 			</a>
 		</div>
 	</div>
-
 </footer>
