@@ -1,0 +1,89 @@
+---
+// ScheduledTableSpring.astro
+interface Props {
+    paddingTop?: string;
+}
+
+const {paddingTop = "pt-0"} = Astro.props;
+---
+
+<div class={`max-w-4xl mx-auto px-4 ${paddingTop}`}>
+    <div class="mb-6 text-center">
+        <h3 class="h5 mt-0 font-black">
+            2026年&nbsp春&nbsp季&nbsp学&nbsp期&nbsp课&nbsp程&nbsp表</h3>
+    </div>
+
+    <table class="w-full border-collapse">
+        <thead>
+        <tr class="bg-brand-blue text-white">
+            <th class="border border-gray-300 px-6 py-4 text-left font-semibold text-lg">
+                月份
+            </th>
+            <th class="border border-gray-300 px-6 py-4 text-center font-semibold text-lg">
+                日期
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 2月 -->
+        <tr>
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                2月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                28
+            </td>
+        </tr>
+
+        <!-- 3月 -->
+        <tr class="bg-gray-50">
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                3月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                07，14，21，28
+            </td>
+        </tr>
+
+        <!-- 4月 -->
+        <tr>
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                4月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                18，25
+            </td>
+        </tr>
+
+        <!-- 5月 -->
+        <tr class="bg-gray-50">
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                5月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                02，09，16
+            </td>
+        </tr>
+
+        <!-- 6月 -->
+        <tr>
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                6月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                13，20，27
+            </td>
+        </tr>
+
+        <!-- 7月 -->
+        <tr class="bg-gray-50">
+            <td class="border border-gray-300 px-6 py-4 font-medium text-lg">
+                7月
+            </td>
+            <td class="border border-gray-300 px-6 py-4 text-center">
+                04，11，18，25
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

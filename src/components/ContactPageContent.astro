@@ -17,6 +17,8 @@ const translatedText = t("contact.text");
 const translatedWeChat = t("contact.wechat");
 const translatedContactInfoTitle = t("contact.contactInfos");
 const translatedAddress = t("contact.address");
+const translatedAddressI = t("contact.addressI");
+const translatedAddressII = t("contact.addressII");
 const translatedContactPerson = t("contact.contactPerson");
 const translatedTeacherName = t("contact.teacherName");
 
@@ -91,22 +93,27 @@ const translatedTeacherName = t("contact.teacherName");
                                 </svg>
                             </div>
                             <div class="space-y-2">
-                                <!--<p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>-->
-                                <!--{currentLang === "de" && (-->
-                                <!--        <p class="text-sm font-medium text-gray-900">Samstag & Sonntag</p>-->
-                                <!--)}-->
-                                <!--<address class="text-sm text-gray-600 not-italic">-->
-                                <!--    Landshuter Allee 11<br>-->
-                                <!--    80637 München<br>-->
-                                <!--    Deutschland-->
-                                <!--</address>-->
-                                <!--<br>-->
-                                <p class="text-sm font-medium text-gray-900">{translatedAddress}</p>
+                                {currentLang === "de" && (
+                                       <p class="text-sm font-medium text-gray-900">{translatedAddress}</p>
+                                )}
+                                {currentLang !== "de" && (
+                                       <p class="text-sm font-medium text-gray-900">{translatedAddressI}</p>
+                                )}
                                 <address class="text-sm text-gray-600 not-italic">
                                     Schwanthalerstraße 80<br>
                                     80336 München<br>
-                                    Deutschland
                                 </address>
+
+                                {currentLang !== "de" && (
+                                    <>
+                                        <br>
+                                        <p class="text-sm font-medium text-gray-900">{translatedAddressII}</p>
+                                        <address class="text-sm text-gray-600 not-italic">
+                                            Herzog-Wilhelm-Straße 24<br>
+                                            80331 München<br>
+                                        </address>
+                                    </>
+                                )}
                             </div>
                         </div>
 

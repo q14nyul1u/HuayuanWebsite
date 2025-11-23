@@ -3,7 +3,8 @@ import Layout from "~/layouts/Layout.astro";
 import Section from "~/components/Section.astro";
 import LessonsZHList from "~/components/LessonsZH.astro";
 import FixedButton from "../components/FixedButton.astro";
-import ScheduledTable from "../components/ScheduledTable.astro";
+import ScheduledTableAutumn from "../components/ScheduledTableAutumn.astro";
+import ScheduledTableSpring from "../components/ScheduledTableSpring.astro";
 ---
 <Layout>
 	<Section>
@@ -17,6 +18,17 @@ import ScheduledTable from "../components/ScheduledTable.astro";
 
 		/>
 		<LessonsZHList/>
-		<ScheduledTable paddingTop="pt-15"></ScheduledTable>
+		<!-- Grid für nebeneinander liegende Tabellen -->
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-15">
+			<!-- Scheduled Table - 1/2 der Breite -->
+			<div class="flex flex-col">
+				<ScheduledTableAutumn></ScheduledTableAutumn>
+			</div>
+
+			<!-- Scheduled Table - 1/2 der Breite -->
+			<div class="flex flex-col">
+				<ScheduledTableSpring></ScheduledTableSpring>
+			</div>
+		</div>
 	</Section>
 </Layout>
