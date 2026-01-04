@@ -31,7 +31,7 @@ if (!courses || courses.length === 0) {
 }
 ---
 
-<div class="max-w-6xl mx-auto">
+<div class="max-w-6xl mx-auto w-full">
 	<h2 class="text-3xl font-bold mb-8 mt-8 text-center">
 		{titlePart1 && titlePart2 ? (
 			<>
@@ -44,7 +44,7 @@ if (!courses || courses.length === 0) {
 	</h2>
 
 	<!-- Dropdown Navigation -->
-	<div id={`dropdown-nav-container-${uniqueId}`} class="mb-2 lg:mb-8 transition-all duration-300">
+	<div id={`dropdown-nav-container-${uniqueId}`} class="mb-2 lg:mb-8">
 		<div class="relative">
 			<button
 				id={`dropdown-button-${uniqueId}`}
