@@ -10,7 +10,7 @@ import "swiper/css";
 
 <div class="flex gap-8 lg:gap-12 w-full">
 	<!-- Vertical Quick Nav -->
-	<div id="lesson-nav-wrapper" class="hidden lg:block lg:w-64 xl:w-72 flex-shrink-0">
+	<div id="lesson-nav-wrapper" class="lg:w-64 xl:w-72 flex-shrink-0">
 		<nav class="sticky top-32 bg-brand-blue text-white rounded-lg p-4">
 			<h4 class="text-base font-semibold mb-4 text-center">我们的课程</h4>
 			<ul id="lesson-nav" class="space-y-2">
@@ -73,6 +73,16 @@ import "swiper/css";
 </div>
 
 <style>
+	/* Explizite Sichtbarkeitssteuerung für stabilere View Transitions */
+	#lesson-nav-wrapper {
+		display: none;
+	}
+	@media (min-width: 1024px) {
+		#lesson-nav-wrapper {
+			display: block;
+		}
+	}
+
 	@media screen and (min-width: 0px) and (max-width: 640px) {
 		#lesson-nav-wrapper-mobile {
 			right: 0;
