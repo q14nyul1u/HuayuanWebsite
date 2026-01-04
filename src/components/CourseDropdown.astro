@@ -35,8 +35,8 @@ if (!courses || courses.length === 0) {
 	<h2 class="text-3xl font-bold mb-8 mt-8 text-center">
 		{titlePart1 && titlePart2 ? (
 			<>
-				<span style={`color: ${titlePart1Color};`}>{titlePart1}</span>
-				<span style={`color: ${titlePart2Color};`}>{titlePart2}</span>
+				<span class="whitespace-nowrap" style={`color: ${titlePart1Color};`}>{titlePart1}</span>
+				<span class="whitespace-nowrap" style={`color: ${titlePart2Color};`}>{titlePart2}</span>
 			</>
 		) : (
 			<span class="text-brand-blue">{title}</span>
