@@ -32,7 +32,7 @@ if (!courses || courses.length === 0) {
 ---
 
 <div class="max-w-6xl mx-auto">
-	<h2 class="text-3xl font-bold mb-8 text-center">
+	<h2 class="text-3xl font-bold mb-8 mt-8 text-center">
 		{titlePart1 && titlePart2 ? (
 			<>
 				<span style={`color: ${titlePart1Color};`}>{titlePart1}</span>
@@ -76,8 +76,8 @@ if (!courses || courses.length === 0) {
 		</div>
 	</div>
 
-	<!-- Course Content -->
-	<div class={`course-content-container-${uniqueId}`}>
+	<!-- Course Content - Alle hidden, kein Content initial sichtbar -->
+	<div class={`course-content-container-${uniqueId} min-h-[50px]`}>
 		{courses.map((course) => (
 			<div class={`course-content-${uniqueId} hidden`} data-course-content={course.id}>
 				<course.component />
@@ -87,6 +87,16 @@ if (!courses || courses.length === 0) {
 </div>
 
 <style>
+	/* Verhindert FOUC (Flash of Unstyled Content) */
+	[class*="course-content-container-"] {
+		opacity: 0;
+		transition: opacity 0.2s ease-in;
+	}
+
+	[class*="course-content-container-"].initialized {
+		opacity: 1;
+	}
+
 	[class*="course-content-"] {
 		display: block;
 		animation: fadeIn 0.4s ease-in-out;
@@ -117,83 +127,77 @@ if (!courses || courses.length === 0) {
 	}
 </style>
 
-<script define:vars={{ uniqueId }}>
-	function initializeDropdown() {
-		const button = document.getElementById(`dropdown-button-${uniqueId}`);
-		const menu = document.getElementById(`dropdown-menu-${uniqueId}`);
-		const arrow = document.getElementById(`dropdown-arrow-${uniqueId}`);
-		const selected = document.getElementById(`dropdown-selected-${uniqueId}`);
-		const items = document.querySelectorAll(`.dropdown-item-${uniqueId}`);
-		const contents = document.querySelectorAll(`.course-content-${uniqueId}`);
+<script is:inline define:vars={{ uniqueId }}>
+  (function() {
+    const setup = () => {
+      const button = document.getElementById(`dropdown-button-${uniqueId}`);
+      const menu = document.getElementById(`dropdown-menu-${uniqueId}`);
+      const arrow = document.getElementById(`dropdown-arrow-${uniqueId}`);
+      const selected = document.getElementById(`dropdown-selected-${uniqueId}`);
+      const items = document.querySelectorAll(`.dropdown-item-${uniqueId}`);
+      const contents = document.querySelectorAll(`.course-content-${uniqueId}`);
+      const container = document.querySelector(`.course-content-container-${uniqueId}`);
 
-		if (!button || !menu) return;
+      if (!button || !menu) return;
 
-		// Toggle dropdown
-		button.addEventListener('click', (e) => {
-			e.stopPropagation();
-			const isHidden = menu.classList.contains('hidden');
+      // Container als initialisiert markieren (macht es sichtbar)
+      if (container) {
+        container.classList.add('initialized');
+      }
 
-			if (isHidden) {
-				menu.classList.remove('hidden');
-				arrow.style.transform = 'rotate(180deg)';
-			} else {
-				menu.classList.add('hidden');
-				arrow.style.transform = 'rotate(0deg)';
-			}
-		});
+      // Dropdown öffnen/schließen
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = menu.classList.contains('hidden');
 
-		// Handle item selection
-		items.forEach(item => {
-			item.addEventListener('click', () => {
-				const courseId = item.getAttribute('data-course');
-				const label = item.getAttribute('data-label');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          menu.classList.add('hidden');
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      });
 
-				// Update selected text and style
-				selected.textContent = label;
-				selected.classList.remove('text-gray-500');
-				selected.classList.add('text-brand-blue');
+      // Item Auswahl
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          const courseId = item.getAttribute('data-course');
+          const label = item.getAttribute('data-label');
 
-				// Hide dropdown
-				menu.classList.add('hidden');
-				arrow.style.transform = 'rotate(0deg)';
+          selected.textContent = label;
+          selected.classList.remove('text-gray-500');
+          selected.classList.add('text-brand-blue');
 
-				// Hide all contents with fade out
-				contents.forEach(content => {
-					content.style.opacity = '0';
-					setTimeout(() => {
-						content.classList.add('hidden');
-					}, 150);
-				});
+          menu.classList.add('hidden');
+          arrow.style.transform = 'rotate(0deg)';
 
-				// Show selected content with fade in after a brief delay
-				setTimeout(() => {
-					const activeContent = document.querySelector(`[data-course-content="${courseId}"]`);
-					if (activeContent) {
-						activeContent.classList.remove('hidden');
-						// Force reflow to restart animation
-						void activeContent.offsetWidth;
-						activeContent.style.opacity = '1';
-					}
-				}, 150);
-			});
-		});
+          // Content umschalten
+          contents.forEach(content => {
+            content.classList.add('hidden');
+            content.style.opacity = '0';
+          });
 
-		// Close dropdown when clicking outside
-		document.addEventListener('click', (e) => {
-			if (!button.contains(e.target) && !menu.contains(e.target)) {
-				menu.classList.add('hidden');
-				arrow.style.transform = 'rotate(0deg)';
-			}
-		});
-	}
+          const activeContent = document.querySelector(`[data-course-content="${courseId}"]`);
+          if (activeContent) {
+            activeContent.classList.remove('hidden');
+            setTimeout(() => { activeContent.style.opacity = '1'; }, 10);
+          }
+        });
+      });
 
-	// Initialisierung beim ersten Laden
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initializeDropdown);
-	} else {
-		initializeDropdown();
-	}
+      // Klick außerhalb schließt Menü
+      document.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add('hidden');
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      });
+    };
 
-	// Initialisierung nach Astro View Transitions
-	document.addEventListener('astro:page-load', initializeDropdown);
+    // Führe setup sofort aus
+    setup();
+    // Re-Initialisierung bei Astro-Seitenwechseln
+    document.addEventListener('astro:page-load', setup);
+  })();
 </script>
