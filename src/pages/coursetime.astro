@@ -5,7 +5,9 @@ import CourseScheduleSection from "../components/CourseScheduleSection.astro";
 ---
 
 <Layout>
-	<Section contain={false} class:list={"bg-white container mx-auto w-full py-16 pt-10 lg:pb-10"}>
-		<CourseScheduleSection />
+	<Section contain={false} class:list={"bg-white py-16 pt-10 lg:pb-10"}>
+		<div class="container mx-auto w-full px-4">
+			<CourseScheduleSection />
+		</div>
 	</Section>
 </Layout>

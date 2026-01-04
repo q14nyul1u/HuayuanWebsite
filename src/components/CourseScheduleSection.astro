@@ -49,7 +49,7 @@ const springCourses = [
 ];
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-start">
+<div class="course-schedule-grid grid gap-8 w-full items-start">
     {/* Herbst: Orange + Blau */}
     <CourseDropdown
         titlePart1="秋季"
@@ -70,3 +70,15 @@ const springCourses = [
         uniqueId="spring"
     />
 </div>
+
+<style>
+    /* Explizites Grid-Layout für Stabilität bei View Transitions */
+    .course-schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+        .course-schedule-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+</style>
