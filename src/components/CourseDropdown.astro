@@ -1,0 +1,199 @@
+---
+interface Course {
+	id: string;
+	label: string;
+	component: any;
+}
+
+interface Props {
+	title: string;
+	titlePart1?: string;
+	titlePart2?: string;
+	titlePart1Color?: string;
+	titlePart2Color?: string;
+	courses: Course[];
+	uniqueId?: string;
+}
+
+const {
+	title,
+	titlePart1,
+	titlePart2,
+	titlePart1Color = "#2980b9",
+	titlePart2Color = "#2980b9",
+	courses = [],
+	uniqueId = Math.random().toString(36).substr(2, 9)
+} = Astro.props;
+
+// Sicherheitsprüfung
+if (!courses || courses.length === 0) {
+	console.error('CourseDropdown: No courses provided');
+}
+---
+
+<div class="max-w-6xl mx-auto">
+	<h2 class="text-3xl font-bold mb-8 text-center">
+		{titlePart1 && titlePart2 ? (
+			<>
+				<span style={`color: ${titlePart1Color};`}>{titlePart1}</span>
+				<span style={`color: ${titlePart2Color};`}>{titlePart2}</span>
+			</>
+		) : (
+			<span class="text-brand-blue">{title}</span>
+		)}
+	</h2>
+
+	<!-- Dropdown Navigation -->
+	<div class="mb-8">
+		<div class="relative">
+			<button
+				id={`dropdown-button-${uniqueId}`}
+				type="button"
+				class="w-full bg-white border-2 border-brand-blue text-brand-blue px-6 py-4 rounded-xl flex items-center justify-between hover:bg-brand-blue/5 transition-colors font-semibold text-lg shadow-sm"
+			>
+				<span id={`dropdown-selected-${uniqueId}`} class="text-gray-500">请选择课程...</span>
+				<svg class="w-5 h-5 transition-transform" id={`dropdown-arrow-${uniqueId}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+				</svg>
+			</button>
+
+			<!-- Dropdown Menu -->
+			<div
+				id={`dropdown-menu-${uniqueId}`}
+				class="hidden absolute z-10 w-full mt-2 bg-white border-2 border-brand-blue rounded-xl shadow-lg overflow-hidden"
+			>
+				{courses.map((course) => (
+					<button
+						type="button"
+						class={`dropdown-item-${uniqueId} w-full text-left px-6 py-4 hover:bg-brand-blue hover:text-white transition-colors font-medium border-b border-gray-200 last:border-b-0`}
+						data-course={course.id}
+						data-label={course.label}
+					>
+						{course.label}
+					</button>
+				))}
+			</div>
+		</div>
+	</div>
+
+	<!-- Course Content -->
+	<div class={`course-content-container-${uniqueId}`}>
+		{courses.map((course) => (
+			<div class={`course-content-${uniqueId} hidden`} data-course-content={course.id}>
+				<course.component />
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	[class*="course-content-"] {
+		display: block;
+		animation: fadeIn 0.4s ease-in-out;
+	}
+
+	[class*="course-content-"].hidden {
+		display: none;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Smooth dropdown transitions */
+	[id*="dropdown-menu-"] {
+		transition: all 0.3s ease-in-out;
+	}
+
+	[id*="dropdown-arrow-"] {
+		transition: transform 0.3s ease-in-out;
+	}
+</style>
+
+<script define:vars={{ uniqueId }}>
+	function initializeDropdown() {
+		const button = document.getElementById(`dropdown-button-${uniqueId}`);
+		const menu = document.getElementById(`dropdown-menu-${uniqueId}`);
+		const arrow = document.getElementById(`dropdown-arrow-${uniqueId}`);
+		const selected = document.getElementById(`dropdown-selected-${uniqueId}`);
+		const items = document.querySelectorAll(`.dropdown-item-${uniqueId}`);
+		const contents = document.querySelectorAll(`.course-content-${uniqueId}`);
+
+		if (!button || !menu) return;
+
+		// Toggle dropdown
+		button.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isHidden = menu.classList.contains('hidden');
+
+			if (isHidden) {
+				menu.classList.remove('hidden');
+				arrow.style.transform = 'rotate(180deg)';
+			} else {
+				menu.classList.add('hidden');
+				arrow.style.transform = 'rotate(0deg)';
+			}
+		});
+
+		// Handle item selection
+		items.forEach(item => {
+			item.addEventListener('click', () => {
+				const courseId = item.getAttribute('data-course');
+				const label = item.getAttribute('data-label');
+
+				// Update selected text and style
+				selected.textContent = label;
+				selected.classList.remove('text-gray-500');
+				selected.classList.add('text-brand-blue');
+
+				// Hide dropdown
+				menu.classList.add('hidden');
+				arrow.style.transform = 'rotate(0deg)';
+
+				// Hide all contents with fade out
+				contents.forEach(content => {
+					content.style.opacity = '0';
+					setTimeout(() => {
+						content.classList.add('hidden');
+					}, 150);
+				});
+
+				// Show selected content with fade in after a brief delay
+				setTimeout(() => {
+					const activeContent = document.querySelector(`[data-course-content="${courseId}"]`);
+					if (activeContent) {
+						activeContent.classList.remove('hidden');
+						// Force reflow to restart animation
+						void activeContent.offsetWidth;
+						activeContent.style.opacity = '1';
+					}
+				}, 150);
+			});
+		});
+
+		// Close dropdown when clicking outside
+		document.addEventListener('click', (e) => {
+			if (!button.contains(e.target) && !menu.contains(e.target)) {
+				menu.classList.add('hidden');
+				arrow.style.transform = 'rotate(0deg)';
+			}
+		});
+	}
+
+	// Initialisierung beim ersten Laden
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initializeDropdown);
+	} else {
+		initializeDropdown();
+	}
+
+	// Initialisierung nach Astro View Transitions
+	document.addEventListener('astro:page-load', initializeDropdown);
+</script>
