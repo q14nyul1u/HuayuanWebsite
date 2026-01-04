@@ -4,9 +4,11 @@ import { siteLang, siteCurrency } from "~/data/config";
 import Badge from "./Badge.astro";
 const allLessions = await getCollection("lessons_zh");
 const siteLangFormat = siteLang.replace("_", "-");
+// CSS hier importieren, damit es sofort geladen wird und kein Flickern verursacht
+import "swiper/css";
 ---
 
-<div class="flex gap-8 lg:gap-12">
+<div class="flex gap-8 lg:gap-12 w-full">
 	<!-- Vertical Quick Nav -->
 	<div id="lesson-nav-wrapper" class="hidden lg:block lg:w-64 xl:w-72 flex-shrink-0">
 		<nav class="sticky top-32 bg-brand-blue text-white rounded-lg p-4">
@@ -86,7 +88,6 @@ const siteLangFormat = siteLang.replace("_", "-");
 
 <script>
 	import Swiper from "swiper";
-	import "swiper/css";
 
 	document.addEventListener("astro:page-load", () => {
 		// Initialize mobile swiper
