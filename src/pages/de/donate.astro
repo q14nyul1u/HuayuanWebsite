@@ -1,0 +1,112 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import WideImage from "~/components/WideImage.astro";
+import Heading from "~/components/Heading.astro";
+import Button from "~/components/Button.astro";
+
+import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
+---
+
+<Layout title="Spenden – HuaYuan" pageTitle="Spenden" description="Unterstützen Sie die Huayuan Chinesische Sprachschule mit einer Spende">
+
+    <WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[21/6]"}/>
+
+    <h1 class="font-black h4 mb-0 pt-10 ml-5 text-brand-blue text-center">Ihre Spende macht den Unterschied!</h1>
+
+    <!-- Intro Section with wave background -->
+    <Section class:list={"bg-brand-blue/20 relative lg:pt-10 lg:pb-10"}>
+        <Heading>
+            <h2 slot="heading-title" class="font-black text-brand-blue h2">Warum spenden?</h2>
+        </Heading>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 px-4 lg:px-0">
+
+            <!-- Card 1 -->
+            <div class="flex flex-col items-center text-center bg-white rounded-2xl shadow-md p-8">
+                <div class="text-5xl mb-4">🎉</div>
+                <h3 class="h5 font-black text-brand-blue mb-2">Kinderveranstaltungen</h3>
+                <p class="prose">
+                    Wir nutzen Spenden, um Kinderveranstaltungen zu organisieren, die den Kindern nicht nur Spaß machen, sondern auch ihre Sprachkenntnisse fördern.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flex flex-col items-center text-center bg-white rounded-2xl shadow-md p-8">
+                <div class="text-5xl mb-4">👨‍👩‍👧</div>
+                <h3 class="h5 font-black text-brand-blue mb-2">Eltern-Workshops</h3>
+                <p class="prose">
+                    Wir bieten kostenlose Workshops für Eltern zu Erziehung und Mehrsprachigkeit an, damit Eltern ihre Kinder optimal unterstützen können.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flex flex-col items-center text-center bg-white rounded-2xl shadow-md p-8">
+                <div class="text-5xl mb-4">🏮</div>
+                <h3 class="h5 font-black text-brand-blue mb-2">Kulturelle Veranstaltungen</h3>
+                <p class="prose">
+                    Wir organisieren Sprachcafés für alle, um die Sprache in der Gemeinschaft zu fördern und den interkulturellen Austausch zu stärken.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Wave top -->
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
+            preserveAspectRatio="none"
+        >
+            <path
+                fill="#ffffff"
+                fill-opacity="1"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+        </svg>
+        <!-- Wave bottom -->
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            class="absolute h-30 w-full bottom-0 inset-x-0"
+            preserveAspectRatio="none"
+        >
+            <path
+                fill="#ffffff"
+                fill-opacity="1"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+        </svg>
+    </Section>
+
+    <!-- Bankverbindung / Spendenbescheinigung -->
+    <Section class:list={"bg-white"}>
+        <div class="max-w-2xl mx-auto text-center py-16 lg:py-24 px-4">
+
+            <h2 class="font-black text-brand-blue h3 mb-6">So können Sie spenden</h2>
+
+            <div class="bg-brand-blue/10 rounded-2xl p-8 mb-8 text-left prose max-w-none">
+                <h3 class="font-black text-brand-blue h5 mt-0">Banküberweisung</h3>
+                <p><strong>Empfänger:</strong> Hua Yuan CSM e.V.</p>
+                <p class="mt-1"><strong>IBAN:</strong> <span class="font-mono"> DE45 7015 0000 1009 2641 83</span></p>
+                <p class="mt-1"><strong>Verwendungszweck:</strong> Spende + Ihr Name + Ihre Adresse</p>
+            </div>
+
+            <div class="bg-brand-blue/10 rounded-2xl p-8 text-left prose max-w-none">
+                <h3 class="font-black text-brand-blue h5 mt-0">Spendenbescheinigung</h3>
+                <p>
+                    Hua Yuan CSM e.V. ist ein gemeinnütziger Verein und berechtigt zur Ausstellung einer Spendenbescheinigung.
+                    Geben Sie bitte bei Ihrer Überweisung Ihre vollständige Adresse im Verwendungszweck an,
+                    damit wir Ihnen die Bescheinigung zusenden können.
+                </p>
+                <p>Bei Fragen können Sie uns jederzeit gerne kontaktieren.</p>
+            </div>
+
+            <div class="mt-10">
+                <Button color="blue" url="/de/contact">Kontakt aufnehmen</Button>
+            </div>
+
+        </div>
+    </Section>
+
+</Layout>

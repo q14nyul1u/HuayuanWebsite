@@ -32,11 +32,17 @@ const menuMain = [
 //		url: getLocalizedUrl("/event", currentLang),
 //		highlighted: false,
 //	},
+	...(currentLang === "de" ? [{
+		name: t("nav.donate"),
+		url: getLocalizedUrl("/donate", currentLang),
+		highlighted: false,
+	}] : []),
 	{
 		name: t("nav.huayuan"),
 		url: getLocalizedUrl("/about-us", currentLang),
 		highlighted: false,
 	},
+	
 	// {
 	// 	name: t("nav.huayuan"),
 	// 	dropdown: [
