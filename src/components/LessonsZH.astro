@@ -4,7 +4,6 @@ import { siteLang, siteCurrency } from "~/data/config";
 import Badge from "./Badge.astro";
 const allLessions = await getCollection("lessons_zh");
 const siteLangFormat = siteLang.replace("_", "-");
-// CSS hier importieren, damit es sofort geladen wird und kein Flickern verursacht
 import "swiper/css";
 ---
 

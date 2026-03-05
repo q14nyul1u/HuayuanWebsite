@@ -1,42 +1,24 @@
 [
   {
     "id": 1,
-    "slug": "Abendkurse Chinesisch",
-    "prettyName": "Abendkurse Chinesisch",
-    "description": "Für Anfänger und Fortgeschrittene. Der Unterricht findet unter der Woche abends ab 17:00 statt.",
+    "slug": "Chinesisch Kurse",
+    "prettyName": "Chinesisch Kurse",
+    "description": "Für Anfänger und Fortgeschrittene.",
     "plates": [
       {
         "name": "",
-        "description": "Unter der Woche am Abend bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle 'Kursaufteilung' ganz unten.",
+        "description": "Wir bieten verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle 'Kursaufteilung' ganz unten.",
         "price": 100000
       },
       {
         "name": "",
-        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
+        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt. Ab 5 Teilhnehmenden können wir den Kurs anbieten.",
         "price": 100000
       }
     ]
   },
   {
     "id": 2,
-    "slug": "Wochenendkurse Chinesisch",
-    "prettyName": "Wochenendkurse Chinesisch",
-    "description": "Für Anfänger und Fortgeschrittene. Der Unterricht findet am Samstag oder Sonntag statt.",
-    "plates": [
-      {
-        "name": "",
-        "description": "Am Wochenende bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle „Kursaufteilung” ganz unten.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 3,
     "slug": "Privatunterricht Chinesisch",
     "prettyName": "Privatunterricht Chinesisch",
     "description": "Für Anfänger und Fortgeschrittene.",
@@ -45,52 +27,11 @@
         "name": "",
         "description": "Sie können den Privatunterricht in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
         "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Bei der Buchung mehrerer Unterrichtsstunden wird der Preis pro Stunde günstiger.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "slug": "HSK Prüfungsvorbereitung",
-    "prettyName": "HSK Prüfungsvorbereitung",
-    "description": "Optimale Prüfungsvorbereitung für Sprachlevel HSK 1 bis HSK 6",
-    "plates": [
-      {
-        "name": "",
-        "description": "Sie können die Prüfungsvorbereitung in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Bei der Buchung mehrerer Unterrichtsstunden wird der Preis pro Stunde günstiger.",
-        "price": 100000
       }
     ]
   },
   {
     "id": 5,
-    "slug": "Business Chinesischkurs",
-    "prettyName": "Business Chinesischkurs",
-    "description": "Chinesisch im Berufsalltag oder Geschäftskontext",
-    "plates": [
-      {
-        "name": "",
-        "description": "Sie können diesen Kurs in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Bei der Buchung mehrerer Unterrichtsstunden wird der Preis pro Stunde günstiger.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 6,
     "slug": "Aussprache-Training",
     "prettyName": "Aussprache-Training",
     "description": "Korrektur der Aussprache durch einen zertifizierten Putonghua-Lehrer",
@@ -108,37 +49,19 @@
     ]
   },
   {
-    "id": 7,
-    "slug": "Wochenendkurse für Kinder",
-    "prettyName": "Wochenendkurse für Kinder",
+    "id": 6,
+    "slug": "Kurse für Kinder",
+    "prettyName": "Kurse für Kinder",
     "description": "Kinder mit wenig oder ohne Chinesisch-Vorkenntnisse",
     "plates": [
       {
         "name": "",
-        "description": "Für Kinder bieten wir am Wochenende verschiedene Kurse an für Sprachlevel HSK 1–6.",
+        "description": "Für Kinder bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6.",
         "price": 100000
       },
       {
         "name": "",
         "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Kindern statt.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "slug": "Online Chinesischkurse",
-    "prettyName": "Online Chinesischkurse",
-    "description": "Kooperation mit der renomierten Schule '北京四中网校 etiantian' in China. Sie können einen kostenlosen Probeunterricht buchen.",
-    "plates": [
-      {
-        "name": "",
-        "description": "Wir bieten auch online verschiedene Kurse an für Sprachlevel HSK 1–6 sowie HSK Prüfungsvorbereitung.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Natürlich können Sie auch online Einzelunterricht buchen.",
         "price": 100000
       }
     ]
