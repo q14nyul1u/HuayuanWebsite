@@ -1,0 +1,100 @@
+---
+import CourseDropdown from "./CourseDropdown.astro";
+import ScheduledTableAutumnSaturday from "./ScheduledTableAutumnSaturday.astro";
+import ScheduledTableAutumnQinzi from "./ScheduledTableAutumnQinzi.astro";
+import ScheduledTableSpringQinzi1 from "./ScheduledTableSpringQinzi1.astro";
+import ScheduledTableSpringQinzi2 from "./ScheduledTableSpringQinzi2.astro";
+import ScheduledTableWinterHuiBen from "./ScheduledTableWinterHuiBen.astro";
+import ScheduledTableSpringHuiBen from "./ScheduledTableSpringHuiBen.astro";
+import ScheduledTableSpringSaturday from "./ScheduledTableSpringSaturday.astro";
+
+// Dropdown-Konfigurationen
+const autumnCourses = [
+	{
+		id: "qinzi-autumn",
+		label: "亲子启蒙",
+		component: ScheduledTableAutumnQinzi
+	},
+	{
+		id: "shizi-autumn",
+		label: "启蒙大班",
+		component: ScheduledTableAutumnSaturday
+	}
+];
+
+const winterCourses = [
+	{
+		id: "huiben-winter",
+		label: "启蒙小班",
+		component: ScheduledTableWinterHuiBen
+	}
+];
+
+const springCourses = [
+    {
+		id: "qinzi-spring-1",
+		label: "亲子启蒙早上",
+		component: ScheduledTableSpringQinzi1
+	},
+	{
+		id: "qinzi-spring-2",
+		label: "亲子启蒙下午",
+		component: ScheduledTableSpringQinzi2
+	}, 
+    {
+		id: "huiben-spring",
+		label: "启蒙小班",
+		component: ScheduledTableSpringHuiBen
+	},
+    {
+		id: "shizi-spring",
+		label: "启蒙大班",
+		component: ScheduledTableSpringSaturday
+	}
+];
+
+
+---
+
+<div class="course-schedule-grid grid gap-8 w-full items-start">
+    <CourseDropdown
+        titlePart1="2025秋季"
+        titlePart2="学期课程表"
+        titlePart1Color="#DAA520"
+        titlePart2Color="#9ecae1"
+        courses={autumnCourses}
+        uniqueId="autumn-qimeng"
+    />
+
+    <CourseDropdown
+        titlePart1="2026冬季"
+        titlePart2="学期课程表"
+        titlePart2="学期课程表"
+        titlePart1Color="#2980b9"
+        titlePart2Color="#9ecae1"
+        courses={winterCourses}
+        uniqueId="winter-qimeng"
+    />
+
+        <CourseDropdown
+        titlePart1="2026春季"
+        titlePart2="学期课程表"
+        titlePart2="学期课程表"
+        titlePart1Color="#5eab7e"
+        titlePart2Color="#9ecae1"
+        courses={springCourses}
+        uniqueId="spring-qimeng"
+    />
+</div>
+
+<style>
+    /* Explizites Grid-Layout für Stabilität bei View Transitions */
+    .course-schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+        .course-schedule-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+</style>

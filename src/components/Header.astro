@@ -23,8 +23,13 @@ const menuMain = [
 		highlighted: false,
 	},
 	...(currentLang === "zh" ? [{
-		name: t("nav.coursetime"),
-		url: getLocalizedUrl("/coursetime", currentLang),
+		name: t("nav.coursetimeQiMeng"),
+		url: getLocalizedUrl("/coursetimeQiMeng", currentLang),
+		highlighted: false,
+	}] : []),
+	...(currentLang === "zh" ? [{
+		name: t("nav.coursetimeZH"),
+		url: getLocalizedUrl("/coursetimeZH", currentLang),
 		highlighted: false,
 	}] : []),
 //	{
@@ -124,18 +129,26 @@ const menuMain = [
 							 @keydown.escape.window="showDropdown = false">
 							<button
 								@click="showDropdown = !showDropdown"
-								class="transition text-1xl font-semibold hover:text-brand-light-blue"
+								class="transition text-1xl font-semibold hover:text-brand-light-blue flex items-center gap-1"
 							>
 								{item.name}
+								<svg class="w-4 h-4 transition-transform duration-200" :class="showDropdown ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
 							</button>
 							<div
 								x-show="showDropdown"
 								@click.away="showDropdown = false"
-								x-transition
-								class="absolute w-fit min-w-20 left-0 mt-2 bg-white border rounded shadow-md z-50"
+								x-transition:enter="transition ease-out duration-100"
+								x-transition:enter-start="transform opacity-0 scale-95"
+								x-transition:enter-end="transform opacity-100 scale-100"
+								x-transition:leave="transition ease-in duration-75"
+								x-transition:leave-start="transform opacity-100 scale-100"
+								x-transition:leave-end="transform opacity-0 scale-95"
+								class="absolute w-fit min-w-40 left-0 mt-4 bg-white border-2 border-brand-blue rounded-xl shadow-lg z-50 overflow-hidden"
 							>
 								{item.dropdown.map((subitem) => (
-									<a href={subitem.url} class="block py-2 p-1 text-gray-700 hover:bg-blue-100">
+									<a href={subitem.url} class="block px-6 py-3 text-brand-blue hover:bg-brand-blue hover:text-white transition-colors font-medium border-b border-gray-200 last:border-b-0 whitespace-nowrap">
 										{subitem.name}
 									</a>
 								))}
@@ -206,19 +219,22 @@ const menuMain = [
 							{
 								menuMain.map((item) =>
 									item.dropdown ? (
-										<div x-data="{ open: false }" class="text-center">
+										<div x-data="{ dropdownOpen: false }" class="text-center">
 											<button
-												@click="open = !open"
-												class="block w-full py-2 text-3xl font-semibold text-brand-blue"
+												@click="dropdownOpen = !dropdownOpen"
+												class="w-full py-2 text-3xl font-semibold text-brand-blue flex items-center justify-center gap-2"
 											>
 												{item.name}
+												<svg class="w-6 h-6 transition-transform duration-200" :class="dropdownOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+												</svg>
 											</button>
-											<div x-show="open" x-collapse class="mt-2 space-y-1">
+											<div x-show="dropdownOpen" x-collapse class="mt-4 mb-2 space-y-2 bg-brand-blue/5 rounded-2xl p-4">
 												{item.dropdown.map((subitem) => (
 													<a
 														href={subitem.url}
-														@click="open = false; open = false"
-														class="block text-xl text-gray-700 hover:text-brand-light-blue"
+														@click="dropdownOpen = false; open = false"
+														class="block text-xl font-medium text-brand-blue hover:text-brand-light-blue py-2"
 													>
 														{subitem.name}
 													</a>

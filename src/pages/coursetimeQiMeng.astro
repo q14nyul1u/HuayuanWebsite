@@ -1,0 +1,55 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import CourseScheduleSectionQiMeng from "~/components/CourseScheduleSectionQiMeng.astro";
+import GoogleMap from "~/components/GoogleMap.astro";
+import Hero from "~/components/Hero.astro";
+const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4682.335173245069!2d11.563741311849157!3d48.13494082874444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf58a6efecbf%3A0x231e8dda7838077!2sEvang.%20Familien-Bildungsst%C3%A4tte%20%22Elly%20Heuss-Knapp%22%20gemeinn%C3%BCtzige%20GmbH!5e0!3m2!1sde!2sde!4v1763903956502!5m2!1sde!2sde"
+---
+
+<Layout>
+	<Section contain={false} class:list={"bg-white py-16 pt-10 lg:pb-10"}>
+		<div class="container mx-auto w-full px-4">
+			<CourseScheduleSectionQiMeng />
+		</div>
+	</Section>
+	<Section class:list={"bg-brand-blue/20 relative"}>
+		<Hero>
+			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
+				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Altstadt-Lehel</h2>
+				<div slot="heading-content">
+					<p>
+						<b>教学地址:</b> Herzog-Wilhelm-Straße 24, 80331 München (慕尼黑)
+					</p>
+
+					<p>
+						<b>公共交通:</b>乘坐地铁到 <i>Sendlinger Tor</i> 站, 下车步行2分钟
+					</p>
+
+					<p>
+						<b>停车位:</b> 地铁站 <i>Sendlinger Tor</i> 附近有免费或收费停车位
+					</p>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<GoogleMap
+					embedUrl={mapEmbedUrl1}
+					height="400"
+					title="Unser Standort"
+				/>
+			</div>
+		</Hero>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-30 w-full top-0 inset-x-0 rotate-180"
+			preserveAspectRatio="none"
+		>
+			<path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+	</Section>
+</Layout>

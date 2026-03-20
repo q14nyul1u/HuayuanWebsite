@@ -1,49 +1,21 @@
 ---
 import CourseDropdown from "./CourseDropdown.astro";
 import ScheduledTableAutumnSaturday from "./ScheduledTableAutumnSaturday.astro";
-import ScheduledTableAutumnQinzi from "./ScheduledTableAutumnQinzi.astro";
-import ScheduledTableSpringQinzi from "./ScheduledTableSpringQinzi.astro";
-import ScheduledTableSpringHuiBen from "./ScheduledTableSpringHuiBen.astro";
 import ScheduledTableSpringSaturday from "./ScheduledTableSpringSaturday.astro";
 
 // Dropdown-Konfigurationen
 const autumnCourses = [
-	{
-		id: "qinzi-autumn",
-		label: "亲子启蒙",
-		component: ScheduledTableAutumnQinzi
-	},
-	{
-		id: "shizi-autumn",
-		label: "识字启蒙",
-		component: ScheduledTableAutumnSaturday
-	},
     {
         id: "yuwen-autumn",
-        label: "各个中文班",
+        label: "中文班",
         component: ScheduledTableAutumnSaturday
     }
 ];
 
 const springCourses = [
-	{
-		id: "qinzi-spring",
-		label: "亲子启蒙",
-		component: ScheduledTableSpringQinzi
-	},
-	{
-		id: "huiben-spring",
-		label: "绘本启蒙",
-		component: ScheduledTableSpringHuiBen
-	},
-	{
-		id: "shizi-spring",
-		label: "识字启蒙",
-		component: ScheduledTableSpringSaturday
-	},
     {
         id: "yuwen-spring",
-        label: "各个中文班",
+        label: "中文班",
         component: ScheduledTableSpringSaturday
     }
 ];
@@ -51,7 +23,7 @@ const springCourses = [
 
 <div class="course-schedule-grid grid gap-8 w-full items-start">
     <CourseDropdown
-        titlePart1="秋季"
+        titlePart1="2025 秋季"
         titlePart2="学期课程表"
         titlePart1Color="#DAA520"
         titlePart2Color="#2980b9"
@@ -60,7 +32,7 @@ const springCourses = [
     />
 
     <CourseDropdown
-        titlePart1="春季"
+        titlePart1="2026春季"
         titlePart2="学期课程表"
         titlePart1Color="#5eab7e"
         titlePart2Color="#2980b9"

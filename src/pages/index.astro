@@ -7,18 +7,19 @@ import Button from "~/components/Button.astro";
 import Grid from "~/components/Grid.astro";
 import Heading from "~/components/Heading.astro";
 import WideImage from "~/components/WideImage.astro";
-import GoogleMap from "~/components/GoogleMap.astro";
 import FixedButton from "../components/FixedButton.astro";
 import CourseScheduleSection from "../components/CourseScheduleSection.astro";
+import CourseScheduleSectionQiMeng from "../components/CourseScheduleSectionQiMeng.astro";
+import GoogleMap from "~/components/GoogleMap.astro";
 // Images
 import ChineseClass from "~/assets/images/chinese_class_10_24.png";
 import YuwenBooks from "~/assets/images/yuwen_books_12_21.png";
 import Teacher from "~/assets/images/teacher_10_15.jpg";
 import SmallClass from "~/assets/images/small_class_10_14.jpg";
-import UnterrichtsDesign from "~/assets/images/unterrichtsdesign_21_09.png";
+import UnterrichtsDesign from "~/assets/images/unterrichtsdesign_19_03_10_40.png";
 import DecorativeImage from "~/assets/images/great_wall_10_01.JPG";
-import flyer1 from "~/assets/images/AlleKurseQimeng1135.png";
-import flyer2 from "~/assets/images/AlleKurseYuwen1418.png";
+import flyer1 from "~/assets/images/AlleKurseQimeng_19_03_11_40.png";
+import flyer2 from "~/assets/images/AlleKurseYuwen_19_03_11_40.png";
 
 const mapEmbedUrl1 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4682.335173245069!2d11.563741311849157!3d48.13494082874444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf58a6efecbf%3A0x231e8dda7838077!2sEvang.%20Familien-Bildungsst%C3%A4tte%20%22Elly%20Heuss-Knapp%22%20gemeinn%C3%BCtzige%20GmbH!5e0!3m2!1sde!2sde!4v1763903956502!5m2!1sde!2sde"
 const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.820869447464!2d11.552060679869639!3d48.13757062869052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75ff70184481%3A0x4937509061487f3!2sEineWeltHaus!5e0!3m2!1sde!2sde!4v1749814356011!5m2!1sde!2sde"
@@ -30,23 +31,21 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[21/6]"}/>
 
     <Section contain={false} class:list={"bg-white container py-16 pt-10 lg:pb-10"}>
-        <div class="text-center mb-4 mt-0">
+        <div class="text-center mb-10 mt-0">
             <h2 class="font-black text-brand-blue h2">欢 迎 来 慕&nbsp;尼&nbsp;黑 华&nbsp;源&nbsp;中&nbsp;文&nbsp;学&nbsp;校 试 课!</h2>
-            <div class="mt-8 mb-8 relative z-20">
-                <a
-                    href="/coursetime"
-                    class="no-underline hover:opacity-80 transition-opacity px-6 py-3 rounded-4xl inline-block"
-                    style="background-color: #2980b9;"
-                >
-                    <h5 class="font-black text-white h5 m-0">查看上课时间</h2>
-                </a>
-            </div>
         </div>
 
         <!-- Flyer Bereich -->
-        <div class="grid lg:grid-cols-2 gap-8">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
             <!-- Flyer 1 -->
-            <div class="flex justify-center items-center">
+            <div class="flex flex-col justify-start items-center gap-6">
+                <a
+                    href="/coursetimeQiMeng"
+                    class="no-underline hover:opacity-80 transition-opacity px-4 py-2.5 lg:px-6 lg:py-3 rounded-full inline-block relative z-20 text-center w-fit max-w-full"
+                    style="background-color: #2980b9;"
+                >
+                    <span class="font-black text-white text-base sm:text-lg lg:text-xl m-0 whitespace-nowrap block">查看启蒙课程上课时间</span>
+                </a>
                 <Picture
                     class:list={"w-full h-auto lg:h-270 max-w-md"}
                     src={flyer1}
@@ -56,7 +55,14 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
             </div>
 
             <!-- Flyer 2 -->
-            <div class="flex justify-center items-center">
+            <div class="flex flex-col justify-start items-center gap-6">
+                <a
+                    href="/coursetimeZH"
+                    class="no-underline hover:opacity-80 transition-opacity px-4 py-2.5 lg:px-6 lg:py-3 rounded-full inline-block relative z-20 text-center w-fit max-w-full"
+                    style="background-color: #2980b9;"
+                >
+                    <span class="font-black text-white text-base sm:text-lg lg:text-xl m-0 whitespace-nowrap block">查看中文课程上课时间</span>
+                </a>
                 <Picture
                     class:list={"w-full h-auto lg:h-270 max-w-md"}
                     src={flyer2}
@@ -160,7 +166,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					formats={["avif", "webp"]}
 					alt="A description of my image."
 				/>
-			</div>
+		</div>
 	</Section>
 
 	<Section class:list={"bg-brand-blue/20 relative"}>
@@ -170,13 +176,10 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 					<h2 slot="heading-title" class="font-black text-brand-blue h2">我们提供以下课程</h2>
 
 					<p>
-						📖 亲子启蒙
+						📖 中文亲子
 					</p>
 					<p>
-						📖 绘本启蒙
-					</p>
-					<p>
-						📖 识字启蒙
+						📖 中文启蒙
 					</p>
 					<p>
 						📖 各年级语文课程
@@ -227,13 +230,43 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 	</Section>
 
     <Section contain={false} class:list={"bg-white container py-16 pt-10 lg:pb-10"}>
-            <CourseScheduleSection />
+		<div class="text-center lg:pb-6">
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">启蒙课程上课时间和地址</h2>
+		</div>
+		<Hero>
+		<div slot="hero-content-right" class="text-center prose max-w-none order-2">
+			<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Altstadt-Lehel</h2>
+			<div slot="heading-content">
+				<p>
+					<b>教学地址:</b> Herzog-Wilhelm-Straße 24, 80331 München (慕尼黑)
+				</p>
+
+				<p>
+					<b>公共交通:</b>乘坐地铁到 <i>Sendlinger Tor</i> 站, 下车步行2分钟
+				</p>
+
+				<p>
+					<b>停车位:</b> 地铁站 <i>Sendlinger Tor</i> 附近有免费或收费停车位
+				</p>
+			</div>
+		</div>
+		<div slot="hero-content-right">
+			<GoogleMap
+				embedUrl={mapEmbedUrl1}
+				height="400"
+				title="Unser Standort"
+			/>
+		</div>
+	</Hero>
+	<CourseScheduleSectionQiMeng />
 	</Section>
 
 	<Section class:list={"bg-brand-blue/20 relative"}>
+		<div class="text-center lg:pt-10 lg:pb-6">
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">中文课程上课时间和地址</h2>
+		</div>
 		<Hero>
 			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
-				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">校区</h2>
 				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Ludwigsvorstadt-Isarvorstadt</h2>
 				<div slot="heading-content">
 					<p>
@@ -257,32 +290,7 @@ const mapEmbedUrl2 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459
 				/>
 			</div>
 		</Hero>
-		<Hero>
-			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
-				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">校区</h2>
-				<h2 slot="heading-title" class="font-black text-brand-blue h2 !my-4">Altstadt-Lehel</h2>
-				<div slot="heading-content">
-					<p>
-						<b>教学地址:</b> Herzog-Wilhelm-Straße 24, 80331 München (慕尼黑)
-					</p>
-
-					<p>
-						<b>公共交通:</b>乘坐地铁到 <i>Sendlinger Tor</i> 站, 下车步行2分钟
-					</p>
-
-					<p>
-						<b>停车位:</b> 地铁站 <i>Sendlinger Tor</i> 附近有免费或收费停车位
-					</p>
-				</div>
-			</div>
-			<div slot="hero-content-right">
-				<GoogleMap
-					embedUrl={mapEmbedUrl1}
-					height="400"
-					title="Unser Standort"
-				/>
-			</div>
-		</Hero>
+		<CourseScheduleSection />
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"

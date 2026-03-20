@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "首页",
-    "coursetime": "上课时间",
+    "coursetimeZH": "中文课",
+    "coursetimeQiMeng": "启蒙课",
     "lessons": "课程介绍",
     "contact": "联系我们",
     "event": "活动",
@@ -17,8 +18,8 @@
   "contact": {
     "title": "联系我们",
     "contactInfos": "慕尼黑华源中文学校",
-    "addressI": "校区 Ludwigsvorstadt-Isarvorstadt",
-    "addressII": "校区 Altstadt-Lehel",
+    "addressI": "Ludwigsvorstadt-Isarvorstadt",
+    "addressII": "Altstadt-Lehel",
     "address": "教学地址",
     "contactPerson": "联系人",
     "teacherName": "刘老师",
