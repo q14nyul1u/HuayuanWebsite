@@ -6,6 +6,11 @@ import ScheduledTableSpringSaturday from "./ScheduledTableSpringSaturday.astro";
 // Dropdown-Konfigurationen
 const autumnCourses = [
     {
+        id: "xueqian-autumn",
+        label: "学前班",
+        component: ScheduledTableAutumnSaturday
+    },
+    {
         id: "yuwen-autumn",
         label: "中文班",
         component: ScheduledTableAutumnSaturday
@@ -13,6 +18,11 @@ const autumnCourses = [
 ];
 
 const springCourses = [
+    {
+        id: "xueqian-spring",
+        label: "学前班",
+        component: ScheduledTableSpringSaturday
+    },
     {
         id: "yuwen-spring",
         label: "中文班",
@@ -22,16 +32,7 @@ const springCourses = [
 ---
 
 <div class="course-schedule-grid grid gap-8 w-full items-start">
-    <CourseDropdown
-        titlePart1="2025 秋季"
-        titlePart2="学期课程表"
-        titlePart1Color="#DAA520"
-        titlePart2Color="#2980b9"
-        courses={autumnCourses}
-        uniqueId="autumn"
-    />
-
-    <CourseDropdown
+        <CourseDropdown
         titlePart1="2026春季"
         titlePart2="学期课程表"
         titlePart1Color="#5eab7e"
@@ -39,6 +40,16 @@ const springCourses = [
         courses={springCourses}
         uniqueId="spring"
     />
+
+    <CourseDropdown
+        titlePart1="2026 秋季"
+        titlePart2="学期课程表"
+        titlePart1Color="#DAA520"
+        titlePart2Color="#2980b9"
+        courses={autumnCourses}
+        uniqueId="autumn"
+    />
+
 </div>
 
 <style>
