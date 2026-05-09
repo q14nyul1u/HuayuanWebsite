@@ -1,37 +1,35 @@
 ---
 import CourseDropdown from "./CourseDropdown.astro";
 import ScheduledTableAutumnQiMengDa from "./ScheduledTableAutumnQiMengDa.astro";
-import ScheduledTableAutumnQinzi from "./ScheduledTableAutumnQinzi.astro";
+import ScheduledTableAutumnQinzi1 from "./ScheduledTableAutumnQinzi1.astro";
+import ScheduledTableAutumnQinzi2 from "./ScheduledTableAutumnQinzi2.astro";
+import ScheduledTableAutumnQiMengXiao from "./ScheduledTableAutumnQiMengXiao.astro";
 import ScheduledTableSpringQinzi1 from "./ScheduledTableSpringQinzi1.astro";
 import ScheduledTableSpringQinzi2 from "./ScheduledTableSpringQinzi2.astro";
-import ScheduledTableWinterQiMengXiao from "./ScheduledTableWinterQiMengXiao.astro";
 import ScheduledTableSpringQiMengXiao from "./ScheduledTableSpringQiMengXiao.astro";
 import ScheduledTableSpringSaturday from "./ScheduledTableSpringSaturday.astro";
 
 // Dropdown-Konfigurationen
 const autumnCourses = [
 	{
-		id: "qinzi-autumn",
-		label: "亲子大班",
-		component: ScheduledTableAutumnQinzi
+		id: "qinzi-autumn1",
+		label: "亲子大班早上",
+		component: ScheduledTableAutumnQinzi1
 	},
     {
-		id: "qinzi-autumn",
+		id: "qinzi-autumn2",
+		label: "亲子大班下午",
+		component: ScheduledTableAutumnQinzi2
+	},
+    {
+		id: "qimengxiao-autumn",
 		label: "启蒙小班",
-		component: ScheduledTableAutumnQinzi
+		component: ScheduledTableAutumnQiMengXiao
 	},
 	{
-		id: "shizi-autumn",
+		id: "qimengda-autumn",
 		label: "启蒙大班",
 		component: ScheduledTableAutumnQiMengDa
-	}
-];
-
-const winterCourses = [
-	{
-		id: "huiben-winter",
-		label: "启蒙小班",
-		component: ScheduledTableWinterQiMengXiao
 	}
 ];
 
@@ -47,12 +45,12 @@ const springCourses = [
 		component: ScheduledTableSpringQinzi2
 	}, 
     {
-		id: "huiben-spring",
+		id: "qimengxiao-spring",
 		label: "启蒙小班",
 		component: ScheduledTableSpringQiMengXiao
 	},
     {
-		id: "shizi-spring",
+		id: "qimengda-spring",
 		label: "启蒙大班",
 		component: ScheduledTableSpringSaturday
 	}
@@ -62,35 +60,24 @@ const springCourses = [
 ---
 
 <div class="course-schedule-grid grid gap-8 w-full items-start">
-
-
-    <CourseDropdown
-        titlePart1="2026冬季"
-        titlePart2="学期课程表"
-        titlePart2="学期课程表"
-        titlePart1Color="#2980b9"
-        titlePart2Color="#9ecae1"
-        courses={winterCourses}
-        uniqueId="winter-qimeng"
-    />
-
         <CourseDropdown
         titlePart1="2026春季"
         titlePart2="学期课程表"
-        titlePart2="学期课程表"
         titlePart1Color="#5eab7e"
-        titlePart2Color="#9ecae1"
+        titlePart2Color="#2980b9"
         courses={springCourses}
         uniqueId="spring-qimeng"
     />
-        <CourseDropdown
-        titlePart1="2026秋季"
+
+    <CourseDropdown
+        titlePart1="2026 秋季"
         titlePart2="学期课程表"
         titlePart1Color="#DAA520"
-        titlePart2Color="#9ecae1"
+        titlePart2Color="#2980b9"
         courses={autumnCourses}
         uniqueId="autumn-qimeng"
     />
+
 </div>
 
 <style>
@@ -100,7 +87,7 @@ const springCourses = [
     }
     @media (min-width: 1024px) {
         .course-schedule-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 </style>
