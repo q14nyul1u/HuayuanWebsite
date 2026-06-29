@@ -1,24 +1,6 @@
 [
   {
     "id": 1,
-    "slug": "Chinesisch Kurse",
-    "prettyName": "Chinesisch Kurse",
-    "description": "Für Anfänger und Fortgeschrittene.",
-    "plates": [
-      {
-        "name": "",
-        "description": "Wir bieten verschiedene Kurse an für Sprachlevel HSK 1–6. Die Details zu den Kursen finden Sie in der Tabelle 'Kursaufteilung' ganz unten.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Der Unterricht findet in kleinen Klassen von maximal 10 Teilnehmenden statt. Ab 5 Teilhnehmenden können wir den Kurs anbieten.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 2,
     "slug": "Privatunterricht Chinesisch",
     "prettyName": "Privatunterricht Chinesisch",
     "description": "Für Anfänger und Fortgeschrittene.",
@@ -31,32 +13,14 @@
     ]
   },
   {
-    "id": 5,
-    "slug": "Aussprache-Training",
-    "prettyName": "Aussprache-Training",
-    "description": "Korrektur der Aussprache durch einen zertifizierten Putonghua-Lehrer",
-    "plates": [
-      {
-        "name": "",
-        "description": "Sie können dieses Training in Form von Einzelunterricht oder in einer Gruppe von 2-3 Personen wählen. Eine Unterrichtseinheit dauert 60 Minuten.",
-        "price": 100000
-      },
-      {
-        "name": "",
-        "description": "Ein gebuchter Aussprache-Training umfasst 17 Unterrichtseinheiten à 60 Minuten.",
-        "price": 100000
-      }
-    ]
-  },
-  {
-    "id": 6,
+    "id": 2,
     "slug": "Kurse für Kinder",
     "prettyName": "Kurse für Kinder",
     "description": "Kinder mit wenig oder ohne Chinesisch-Vorkenntnisse",
     "plates": [
       {
         "name": "",
-        "description": "Für Kinder bieten wir verschiedene Kurse an für Sprachlevel HSK 1–6.",
+        "description": "Für Kinder bieten wir verschiedene Kurse (kleine und große Kinder).",
         "price": 100000
       },
       {

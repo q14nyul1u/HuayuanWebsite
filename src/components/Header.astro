@@ -32,39 +32,17 @@ const menuMain = [
 		url: getLocalizedUrl("/coursetimeZH", currentLang),
 		highlighted: false,
 	}] : []),
-//	{
-//		name: t("nav.event"),
-//		url: getLocalizedUrl("/event", currentLang),
-//		highlighted: false,
-//	},
-	...(currentLang === "de" ? [{
-		name: t("nav.donate"),
-		url: getLocalizedUrl("/donate", currentLang),
-		highlighted: false,
-	}] : []),
+
 	{
 		name: t("nav.huayuan"),
 		url: getLocalizedUrl("/about-us", currentLang),
 		highlighted: false,
 	},
-	
-	// {
-	// 	name: t("nav.huayuan"),
-	// 	dropdown: [
-	// 		{
-	// 			name: t("nav.about-us"),
-	// 			url: getLocalizedUrl("/about-us", currentLang),
-	// 		},
-	// 		{
-	// 			name: t("nav.donate"),
-	// 			url: getLocalizedUrl("/donate", currentLang),
-	// 		},
-	// 		{
-	// 			name: t("nav.kidsprotection"),
-	// 			url: getLocalizedUrl("/kidsprotection", currentLang),
-	// 		},
-	// 	],
-	// },
+	...(currentLang === "zh" ? [{
+		name: t("nav.apply"),
+		url: getLocalizedUrl("/apply", currentLang),
+		highlighted: false,
+	}] : []),
 	{
 		name: t("nav.contact"),
 		url: getLocalizedUrl("/contact", currentLang),
