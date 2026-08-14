@@ -41,6 +41,23 @@ const mapEmbedUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326
 
         <!-- Flyer Bereich -->
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+			<!-- Flyer 2 -->
+            <div class="flex flex-col justify-start items-center gap-6">
+                <a
+                    href="/coursetimeZH"
+                    class="no-underline hover:opacity-80 transition-opacity px-4 py-2.5 lg:px-6 lg:py-3 rounded-full inline-block relative z-20 text-center w-fit max-w-full"
+                    style="background-color: #2980b9;"
+                >
+                    <span class="font-black text-white text-base sm:text-lg lg:text-xl m-0 whitespace-nowrap block">查看中文课程上课时间</span>
+                </a>
+                <Picture
+                    class:list={"w-full h-auto lg:h-270 max-w-md"}
+                    src={flyer2}
+                    formats={["avif", "webp"]}
+                    alt="All Yuwen Flyer"
+                />
+            </div>
+
             <!-- Flyer 1 -->
             <div class="flex flex-col justify-start items-center gap-6">
                 <a
@@ -58,22 +75,6 @@ const mapEmbedUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326
                 />
             </div>
 
-            <!-- Flyer 2 -->
-            <div class="flex flex-col justify-start items-center gap-6">
-                <a
-                    href="/coursetimeZH"
-                    class="no-underline hover:opacity-80 transition-opacity px-4 py-2.5 lg:px-6 lg:py-3 rounded-full inline-block relative z-20 text-center w-fit max-w-full"
-                    style="background-color: #2980b9;"
-                >
-                    <span class="font-black text-white text-base sm:text-lg lg:text-xl m-0 whitespace-nowrap block">查看中文课程上课时间</span>
-                </a>
-                <Picture
-                    class:list={"w-full h-auto lg:h-270 max-w-md"}
-                    src={flyer2}
-                    formats={["avif", "webp"]}
-                    alt="All Yuwen Flyer"
-                />
-            </div>
         </div>
 
 	</Section>
@@ -235,42 +236,9 @@ const mapEmbedUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326
 
     <Section contain={false} class:list={"bg-white container py-16 pt-10 lg:pb-10"}>
 		<div class="text-center lg:pb-6">
-			<h2 slot="heading-title" class="font-black text-brand-blue h2">启蒙课程上课时间和地址</h2>
-		</div>
-		<Hero>
-		<div slot="hero-content-right" class="text-center prose max-w-none order-2">
-			<h3 slot="heading-title" class="font-black text-brand-blue h3 !my-4">分校区 München Mitte</h3>
-			<div slot="heading-content">
-				<p>
-					<b>教学地址:</b> Herzog-Wilhelm-Straße 24, 80331 München (慕尼黑)
-				</p>
-
-				<p>
-					<b>公共交通:</b>乘坐地铁到 <i>Sendlinger Tor</i> 站, 下车步行2分钟
-				</p>
-
-				<p>
-					<b>停车位:</b> 地铁站 <i>Sendlinger Tor</i> 附近有免费或收费停车位
-				</p>
-			</div>
-		</div>
-		<div slot="hero-content-right">
-			<GoogleMap
-				embedUrl={mapEmbedUrl1}
-				height="400"
-				title=MuenchenMitteQiMeng"
-			/>
-		</div>
-	</Hero>
-	<CourseScheduleSectionQiMeng />
-	</Section>
-
-	<Section class:list={"bg-brand-blue/20 relative"}>
-		<div class="text-center lg:pt-10 lg:pb-6">
 			<h2 slot="heading-title" class="font-black text-brand-blue h2">中文课程上课时间和地址</h2>
 		</div>
-
-		<Hero>
+				<Hero>
 			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
 				<h3 slot="heading-title" class="font-black text-brand-blue h3 !my-4">主校区 München Ost</h3>
 				<div slot="heading-content">
@@ -297,6 +265,39 @@ const mapEmbedUrl3 = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326
 		</Hero>
 		
 		<CourseScheduleSectionYuwen />
+	</Section>
+
+	<Section class:list={"bg-brand-blue/20 relative"}>
+		<div class="text-center lg:pt-10 lg:pb-6">
+			<h2 slot="heading-title" class="font-black text-brand-blue h2">启蒙课程上课时间和地址</h2>
+		</div>
+		<Hero>
+			<div slot="hero-content-right" class="text-center prose max-w-none order-2">
+				<h3 slot="heading-title" class="font-black text-brand-blue h3 !my-4">分校区 München Mitte</h3>
+				<div slot="heading-content">
+					<p>
+						<b>教学地址:</b> Herzog-Wilhelm-Straße 24, 80331 München (慕尼黑)
+					</p>
+
+					<p>
+						<b>公共交通:</b>乘坐地铁到 <i>Sendlinger Tor</i> 站, 下车步行2分钟
+					</p>
+
+					<p>
+						<b>停车位:</b> 地铁站 <i>Sendlinger Tor</i> 附近有免费或收费停车位
+					</p>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<GoogleMap
+					embedUrl={mapEmbedUrl1}
+					height="400"
+					title=MuenchenMitteQiMeng"
+				/>
+			</div>
+		</Hero>
+		<CourseScheduleSectionQiMeng />
+
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"

@@ -23,16 +23,15 @@ const menuMain = [
 		highlighted: false,
 	},
 	...(currentLang === "zh" ? [{
-		name: t("nav.coursetimeQiMeng"),
-		url: getLocalizedUrl("/coursetimeQiMeng", currentLang),
-		highlighted: false,
-	}] : []),
-	...(currentLang === "zh" ? [{
 		name: t("nav.coursetimeZH"),
 		url: getLocalizedUrl("/coursetimeZH", currentLang),
 		highlighted: false,
 	}] : []),
-
+	...(currentLang === "zh" ? [{
+		name: t("nav.coursetimeQiMeng"),
+		url: getLocalizedUrl("/coursetimeQiMeng", currentLang),
+		highlighted: false,
+	}] : []),
 	{
 		name: t("nav.huayuan"),
 		url: getLocalizedUrl("/about-us", currentLang),
