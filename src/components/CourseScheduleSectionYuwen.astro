@@ -32,14 +32,6 @@ const springCourses = [
 ---
 
 <div class="course-schedule-grid grid gap-8 w-full items-start">
-        <CourseDropdown
-        titlePart1="2026春季"
-        titlePart2="学期课程表"
-        titlePart1Color="#5eab7e"
-        titlePart2Color="#2980b9"
-        courses={springCourses}
-        uniqueId="spring"
-    />
 
     <CourseDropdown
         titlePart1="2026 秋季"
@@ -48,6 +40,15 @@ const springCourses = [
         titlePart2Color="#2980b9"
         courses={autumnCourses}
         uniqueId="autumn"
+    />
+
+           <CourseDropdown
+        titlePart1="2027春季"
+        titlePart2="学期课程表"
+        titlePart1Color="#5eab7e"
+        titlePart2Color="#2980b9"
+        courses={springCourses}
+        uniqueId="spring"
     />
 
 </div>
